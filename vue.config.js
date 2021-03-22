@@ -1,5 +1,13 @@
 const path = require('path');
 module.exports = {
+    chainWebpack: config => {
+        config
+            .plugin('html')
+            .tap(args => {
+                args[0].title = "José Rafael Gutierrez | Developer Full Stack";
+                return args;
+            })
+    },
     configureWebpack: {
         resolve: {
             alias: {
@@ -9,5 +17,5 @@ module.exports = {
         watchOptions: {
             poll: true
         }
-    }
+    },
 }
