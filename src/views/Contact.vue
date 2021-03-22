@@ -1,14 +1,14 @@
 <template>
-  <index-portfolio />
+  <index-contact />
 </template>
 
 <script>
-import IndexPortfolio from '@/components/Portfolio/Index';
+import IndexContact from '@/components/Contact/Index';
 
 export default {
-  name: "Portfolio",
+  name: "Contact",
   components: {
-    IndexPortfolio,
+    IndexContact,
   }
 }
 </script>

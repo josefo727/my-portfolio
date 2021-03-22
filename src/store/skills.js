@@ -1,8 +1,8 @@
-import facts from '@/data/facts';
+import skills from '@/data/skills';
 
 export default {
     namespaced: true,
     state: () => ({
-        facts: facts,
+        skills: skills,
     }),
 }

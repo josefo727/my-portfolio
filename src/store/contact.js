@@ -1,17 +1,8 @@
-import personal from '@/data/personal';
+import contact from '@/data/contact';
 
 export default {
     namespaced: true,
     state: () => ({
-        my: personal,
+        contact: contact,
     }),
-    getters: {
-
-    },
-    actions: {
-
-    },
-    mutations: {
-
-    },
 }

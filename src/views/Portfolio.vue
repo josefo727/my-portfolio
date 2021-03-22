@@ -1,10 +1,15 @@
 <template>
-$END$
+  <index-portfolio />
 </template>
 
 <script>
+import IndexPortfolio from '@/components/Portfolio/Index';
+
 export default {
-name: "Portfolio"
+  name: "Portfolio",
+  components: {
+    IndexPortfolio,
+  }
 }
 </script>
 

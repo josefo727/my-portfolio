@@ -2,20 +2,32 @@
   <div>
     <h3 class="resume-title">Resúmen</h3>
     <div class="resume-item pb-0">
-      <h4>Alex Smith</h4>
-      <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+      <h4>{{ my.short_name }}</h4>
+      <p>
+        <em>
+          Desarrollador web innovador con más de 9 años de experiencia en el diseño, desarrollo e implementación de sistemas
+          informáticos como soluciones al sector público y privado.
+        </em>
+      </p>
       <ul>
-        <li>Portland par 127,Orlando, FL</li>
-        <li>(123) 456-7891</li>
-        <li>alice.barkley@example.com</li>
+        <li>{{ location.address }}, {{ location.city }}</li>
+        <li>{{ contact.mobil }}</li>
+        <li>{{ contact.email }}</li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-name: "Sumary"
+  name: "Summary",
+  computed: {
+    ...mapState('personal', ['my']),
+    ...mapState('location', ['location']),
+    ...mapState('contact', ['contact']),
+  }
 }
 </script>
 

@@ -1,10 +1,15 @@
 <template>
-$END$
+  <index-resume />
 </template>
 
 <script>
+import IndexResume from '@/components/Resume/Index';
+
 export default {
-name: "Resume"
+  name: "Resume",
+  components: {
+    IndexResume
+  }
 }
 </script>
 

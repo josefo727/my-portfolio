@@ -4,10 +4,6 @@ require('dayjs/locale/es');
 dayjs.locale('es');
 dayjs.extend(relativeTime);
 
-export function calculateAge(birthday) {
-    return dayjs().from(dayjs(birthday), true);
-}
+export const calculateAge = (birthday) => dayjs().from(dayjs(birthday), true);
 
-export function formatDate(date) {
-    return dayjs(date).format('DD - MMMM - YYYY');
-}
+export const formatDate = (date) => dayjs(date).format('DD - MMMM - YYYY');

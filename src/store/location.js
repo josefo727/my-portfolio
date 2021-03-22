@@ -1,8 +1,8 @@
-import contact from '@/data/contact';
+import location from '@/data/location';
 
 export default {
     namespaced: true,
     state: () => ({
-        contact: contact,
+        location: location,
     }),
 }

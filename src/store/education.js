@@ -1,8 +1,8 @@
-import contact from '@/data/contact';
+import education from '@/data/education';
 
 export default {
     namespaced: true,
     state: () => ({
-        contact: contact,
+        education: education,
     }),
 }

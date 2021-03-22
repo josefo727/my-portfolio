@@ -1,26 +1,42 @@
 export default [
     {
-        icon: 'icofont-simple-smile',
-        quantity: 38,
-        title: 'Clientes felices',
-        sub_title: 'y contentos con el resultado.',
+        title: 'HTML',
+        percentage: 92,
     },
     {
-        icon: 'icofont-document-folder',
-        quantity: 43,
-        title: 'Proy. completados',
-        sub_title: 'y entregados satisfactoriamente.',
+        title: 'CSS',
+        percentage: 85,
     },
     {
-        icon: 'icofont-live-support',
-        quantity: 750,
-        title: 'Horas de soporte',
-        sub_title: 'antes y después de desarrollo.',
+        title: 'PHP',
+        percentage: 90,
     },
     {
-        icon: 'icofont-users-alt-5',
-        quantity: 15,
-        title: 'Proy. complejos',
-        sub_title: 'de mucha demanda y duro trabajo.',
+        title: 'Laravel',
+        percentage: 92,
+    },
+    {
+        title: 'JavaScript',
+        percentage: 92,
+    },
+    {
+        title: 'VueJS',
+        percentage: 90,
+    },
+    {
+        title: "API's",
+        percentage: 90,
+    },
+    {
+        title: 'Motores SQL\'s',
+        percentage: 88,
+    },
+    {
+        title: 'VPS en AWS/DO',
+        percentage: 90,
+    },
+    {
+        title: 'VPS en AWS/DO',
+        percentage: 90,
     },
 ];

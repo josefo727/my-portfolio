@@ -1,10 +1,15 @@
 <template>
-$END$
+  <index-services />
 </template>
 
 <script>
+import IndexServices from '@/components/Services/Index';
+
 export default {
-name: "Services"
+  name: "Services",
+  components: {
+    IndexServices,
+  }
 }
 </script>
 
