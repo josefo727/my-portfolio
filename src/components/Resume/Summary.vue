@@ -5,7 +5,7 @@
       <h4>{{ my.short_name }}</h4>
       <p>
         <em>
-          Desarrollador web innovador con más de 9 años de experiencia en el diseño, desarrollo e implementación de sistemas
+          Desarrollador web innovador con más de 11 años de experiencia en el diseño, desarrollo e implementación de sistemas
           informáticos como soluciones al sector público y privado.
         </em>
       </p>

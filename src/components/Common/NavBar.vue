@@ -36,6 +36,9 @@
 <!--            <router-link tag="li" active-class="active" exact :to="{ name: 'Services' }">-->
 <!--              <a href="#"><i class="bx bx-server"></i> Servicios </a>-->
 <!--            </router-link>-->
+            <router-link tag="li" active-class="active" exact :to="{ name: 'Certifications' }">
+              <a href="#"><i class="bx bx-check-shield"></i> Certificaciones </a>
+            </router-link>
             <router-link tag="li" active-class="active" exact :to="{ name: 'Contact' }">
               <a href="#"><i class="bx bx-envelope"></i> Contacto </a>
             </router-link>

@@ -7,9 +7,11 @@ export default [
         items: [
             'Desarrollo Back End, integración sistema Ocasa con ecommerce VTex.',
             'Desarrollo Back End, integración sistema Intelisis (Faces Costa Rica) con ecommerce VTex y sistema de Correos de Costa Rica.',
-            'Desarrollo Back End, Integración de sistema SAP Decorcerámica con ecommerce VTex.',
             'Desarrollo Front End <a href="https://www.novarix.co/" target="_blank">No-Varix</a> sobre ecommerce VTex Legacy.',
             'Desarrollo Front End <a href="https://cr.faces.com/" target="_blank">Faces CR</a> sobre ecommerce VTex Legacy.',
+            'Desarrollo Back End, Integración de sistema SAP Decorcerámica con ecommerce VTex.',
+            'Desarrollo Full Stack, Integración método de pago: Cŕedito Karibik - Kaiowa con ecommerce VTex.',
+            'Desarrollo Full Stack, Integración OT&V - PMI con ecommerce VTex.',
         ]
     },
     {

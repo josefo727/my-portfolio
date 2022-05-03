@@ -6,6 +6,6 @@ export default {
     skype: 'https://join.skype.com/invite/ByfPA21DyIiR',
     linkedin: 'https://www.linkedin.com/in/jose-gutierrez-5a2293128/',
     instagram: 'https://www.instagram.com/josefo1981/',
-    phone: '',
+    phone: '+576018394169',
     mobil: '+573219069839',
 }

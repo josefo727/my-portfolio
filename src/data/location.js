@@ -1,10 +1,10 @@
 export default {
-    address: 'Calle 17 #30-55',
-    residency: 'Conjunto Residencial Cipres',
-    home: 'Torre 6 Apt 504',
-    city: 'Ciudad Verde - Soacha',
-    department: 'Cundinamarca',
+    address: 'Carrera 81D #16-19',
+    residency: 'Barrio Andalucía',
+    home: 'Piso 2, Apto 201',
+    city: 'Kennedy',
+    department: 'Bogotá DC',
     country: 'Colombia',
-    longitude: '4.599889',
-    latitude: '-74.2194628',
+    longitude: '4.6555039',
+    latitude: '-74.1387418',
 }

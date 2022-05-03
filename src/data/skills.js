@@ -9,22 +9,38 @@ export default [
     },
     {
         title: 'PHP',
-        percentage: 90,
+        percentage: 92,
     },
     {
         title: 'Laravel',
-        percentage: 92,
+        percentage: 95,
     },
     {
         title: 'JavaScript',
-        percentage: 92,
+        percentage: 97,
+    },
+    {
+        title: 'NodeJS',
+        percentage: 83,
     },
     {
         title: 'VueJS',
-        percentage: 90,
+        percentage: 95,
+    },
+    {
+        title: 'ReactJS',
+        percentage: 94,
     },
     {
         title: "API's",
+        percentage: 95,
+    },
+    {
+        title: "Vtex Legacy",
+        percentage: 80,
+    },
+    {
+        title: "Vtex IO",
         percentage: 90,
     },
     {
@@ -32,11 +48,11 @@ export default [
         percentage: 88,
     },
     {
-        title: 'VPS en AWS/DO',
-        percentage: 90,
+        title: 'Motores NoSQL\'s',
+        percentage: 80,
     },
     {
         title: 'VPS en AWS/DO',
-        percentage: 90,
-    },
+        percentage: 92,
+    }
 ];
