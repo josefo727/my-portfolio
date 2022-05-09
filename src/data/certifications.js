@@ -139,4 +139,12 @@ export default [
         image: '/assets/img/certifications/sistema-de-suscripciones-con-laravel-9-y-stripe.jpeg',
         caption: 'Sistema de Suscripciones con Laravel y Stripe'
     },
+    {
+        image: '/assets/img/certifications/laravel-sanctum-api-rest-testing.jpg',
+        caption: 'Laravel Sanctum Api Rest testing'
+    },
+    {
+        image: '/assets/img/certifications/tenancy-for-laravel-basics.jpg',
+        caption: 'Tenancy for laravel basics'
+    },
 ]
