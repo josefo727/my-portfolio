@@ -37,6 +37,7 @@ export default {
 <style scoped>
 .skills-content {
   margin-bottom: 75px;
+  margin-left: 8px;
 }
 .skills-intro {
   text-align: justify;

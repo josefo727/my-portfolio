@@ -1,9 +1,11 @@
 <template>
-  <div class="col-lg-6" data-aos="fade-up" v-view="viewHandler">
-    <div class="progress">
-      <span class="skill">{{ skill.title }} <i class="val">{{ skill.percentage }}%</i></span>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar" role="progressbar" :aria-valuenow="skill.percentage" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-3">
+    <div class="row col-12 container-fluid technology my-3 d-flex align-items-center">
+      <div class="col-3 image-container">
+        <img class="image" :src="skill.image" alt="">
+      </div>
+      <div class="col-9">
+        <span class="title">{{ skill.title }}</span>
       </div>
     </div>
   </div>
@@ -22,17 +24,24 @@ export default {
       required: true,
     }
   },
-  methods: {
-    viewHandler(e) {
-      if (e.percentInView > 0.5) setTimeout(() => this.fillPercentage(), 500);
-    },
-    fillPercentage() {
-      document.getElementsByClassName('progress-bar')[this.index].style.width = `${this.skill.percentage}%`;
-    },
-  },
 }
 </script>
 
 <style scoped>
-
+.image {
+  width: 100%;
+  height: auto;
+}
+.image-container {
+  padding-right: 0 !important;
+}
+.technology {
+  min-height: 66px;
+  border: black solid 1px;
+  padding: 8px 0;
+  border-radius: 10px;
+}
+.title {
+  font-weight: bold;
+}
 </style>

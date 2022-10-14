@@ -5,6 +5,6 @@ export default {
     city: 'Kennedy',
     department: 'Bogotá DC',
     country: 'Colombia',
-    longitude: '4.6555039',
-    latitude: '-74.1387418',
+    longitude: '4.6546793',
+    latitude: '-74.1402691',
 }

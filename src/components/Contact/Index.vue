@@ -18,7 +18,7 @@
             <div class="address">
               <i class="icofont-google-map"></i>
               <h4>Ubicación:</h4>
-              <p>{{ location.address }}. {{ location.city }}</p>
+              <p>{{ location.city }}, {{ location.department }}</p>
             </div>
 
             <div class="email">
@@ -91,12 +91,8 @@ export default {
     ...mapState('contact', ['contact']),
     ...mapState('location', ['location']),
     src() {
-      return 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.965958209101!2d'
-          + this.location.latitude
-          + '!3d'
-          + this.location.longitude
-          + '!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ff0f5c67cd3%3A0xa469dc42cf7ffe9d!2s'
-          + 'Calle%2017%20%2330-55%2C%20Soacha%2C%20Cundinamarca!5e0!3m2!1ses!2sco!4v1616424027427!5m2!1ses!2sco';
+      return 'https://maps.google.com/maps?q=andalucia%20kennedy' +
+          '&t=&z=13&ie=UTF8&iwloc=&output=embed';
     }
   }
 }

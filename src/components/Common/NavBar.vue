@@ -30,6 +30,9 @@
             <router-link tag="li" active-class="active" exact :to="{ name: 'Resume' }">
               <a href="#"><i class="bx bx-file-blank"></i> Resumen </a>
             </router-link>
+            <router-link tag="li" active-class="active" exact :to="{ name: 'Libraries' }">
+              <a href="#"><i class="bx bx-package"></i> Librerías </a>
+            </router-link>
 <!--            <router-link tag="li" active-class="active" exact :to="{ name: 'Portfolio' }">-->
 <!--              <a href="#"><i class="bx bx-book-content"></i> Portafolio </a>-->
 <!--            </router-link>-->
