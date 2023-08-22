@@ -25,6 +25,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "resume" */ '@/views/Libraries.vue')
   },
   {
+    path: '/success-stories',
+    name: 'SuccessStories',
+    component: () => import(/* webpackChunkName: "resume" */ '@/views/SuccessStories.vue')
+  },
+  {
     path: '/portfolio',
     name: 'Portfolio',
     component: () => import(/* webpackChunkName: "portfolio" */ '@/views/Portfolio.vue')
@@ -53,7 +58,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
   next();
 });
 

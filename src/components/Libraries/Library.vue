@@ -1,15 +1,13 @@
 <template>
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
+	<li class="nav-item">
+		<a class="nav-link active" href="#">Active</a>
+	</li>
 </template>
 
 <script>
 export default {
-  name: "Library"
+	name: "Library"
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

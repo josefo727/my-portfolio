@@ -7,6 +7,7 @@ import facts from '@/store/facts';
 import skills from '@/store/skills';
 import education from '@/store/education';
 import experience from '@/store/experience';
+import successStories from '@/store/success-stories';
 import certifications from "@/store/certifications";
 
 Vue.use(Vuex);
@@ -26,6 +27,7 @@ export default new Vuex.Store({
     skills,
     education,
     experience,
+    successStories,
     certifications,
   }
 });
