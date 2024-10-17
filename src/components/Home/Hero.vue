@@ -3,7 +3,6 @@
     <div class="hero-container" data-aos="fade-in">
       <h1>{{ my.short_name }}</h1>
       <p>
-        <span class="in-line i-am"> Yo soy </span>
         <vue-typed-js
             class="in-line"
             :strings="my.activities"

@@ -5,7 +5,7 @@
 			<div class="section-title">
 				<h2>Currículum</h2>
 				<p>
-					Soy matemático y desarrollador web UI/UX con más de 13 años de experiencia en programación. He
+					Soy matemático y desarrollador web UI/UX con más de 14 años de experiencia en programación. He
 					generado código para empresas e instituciones tanto del sector público como privado. Me considero un
 					especialista en resolver problemas y trabajar en equipo. Además, disfruto trabajando como freelancer.
 				</p>
