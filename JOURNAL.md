@@ -37,3 +37,42 @@ User asked for a preliminary review of the portfolio (design + content vs. actua
 ### Resume from
 
 Run `/sdd-specify` to draft `spec.md` for the "Nuxt 3 rewrite + content enrichment" feature.
+
+## 2026-09-05 — session 2 (specify: 001-nuxt3-portfolio-rewrite)
+
+### Context
+
+`/sdd-specify` for the first kit-managed feature, continuing from session 1's onboarding.
+
+### Done this session
+
+- Sliced the work into three features (agreed with the user): **001** rewrite (structure/design/tests/CI, current content as-is), **002** content refresh (new success stories/skills), **003** i18n (es default, `/en`, after 002's content is final).
+- Created `.specs/001-nuxt3-portfolio-rewrite/spec.md` (draft): 7 acceptance criteria, non-goals, applicable constitution articles (I, II, VI, VII, VIII).
+- Resolved two clarifications inline, per Article V, and recorded them in the spec's own "Resolved during specify" section:
+  - URLs may be renamed freely from the current ones when justified by content/IA.
+  - i18n must be path-based (`/en`), not `?lang=en` — a query string can't change statically pre-rendered HTML, which would violate acceptance criterion 1 (full content in the initial HTML) given the SSG decision in ADR 0001.
+- One clarification remains open in `spec.md`: whether a numeric performance budget (e.g. a Lighthouse score threshold) is required.
+- Updated `.specs/onboarding.md` → Decisions log with the feature-slicing and URL-renaming decisions.
+
+### Open
+
+- `.specs/001-nuxt3-portfolio-rewrite/spec.md` is drafted but **not yet approved or committed** — session paused before the user answered the approval question. It currently sits as an untracked file (`git status` confirms only `.specs/onboarding.md` is modified and `.specs/001-nuxt3-portfolio-rewrite/` is untracked; nothing from this session is committed yet).
+- Next concrete action: get the user's approval (or edits) on `spec.md`, commit `spec: 001 initial spec with 1 clarification pending`, then run `/sdd-clarify` to resolve the performance-budget marker.
+- After 001 closes (clarify → plan → tasks → implement → verify), start 002, then 003.
+
+### Blockers / open questions
+
+- Performance budget: no numeric target defined yet. Needs the user's input in `/sdd-clarify`.
+
+### Decisions recorded elsewhere
+
+- `.specs/onboarding.md` → Decisions log (feature slicing, URL renaming).
+- `.specs/001-nuxt3-portfolio-rewrite/spec.md` → "Resolved during specify" section (URL renaming, i18n sequencing).
+
+### Dead ends / discarded
+
+- `?lang=en` query-string i18n: incompatible with SSG (ADR 0001); path-based `/en` is required instead.
+
+### Resume from
+
+Open `.specs/001-nuxt3-portfolio-rewrite/spec.md`, get explicit approval or edits from the user, then commit it and run `/sdd-clarify`.

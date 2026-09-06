@@ -48,6 +48,8 @@ Sourced from a separate sweep of `~/Projects` (git log + README inspection acros
 | Named client case studies | Include Biogenesis and Somos URV with name (user confirmed authorization) | 2026-09-05 |
 | Rendering mode | SSG (`nuxi generate`) over SSR | 2026-09-05 |
 | Test harness | Add Vitest + `@nuxt/test-utils` as part of this feature, not deferred | 2026-09-05 |
+| Feature slicing | Three features: 001 rewrite (structure/design/tests/CI, current content as-is), 002 content refresh (new success stories/skills), 003 i18n (es default, `/en` path-based, after 002's content is final) | 2026-09-05 |
+| URL renaming (001) | Routes may be renamed freely when justified; no requirement to preserve exact current paths | 2026-09-05 |
 
 ## Deviation from kit default
 
