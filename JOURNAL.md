@@ -76,3 +76,37 @@ Run `/sdd-specify` to draft `spec.md` for the "Nuxt 3 rewrite + content enrichme
 ### Resume from
 
 Open `.specs/001-nuxt3-portfolio-rewrite/spec.md`, get explicit approval or edits from the user, then commit it and run `/sdd-clarify`.
+
+## 2026-09-06 — session 3 (clarify: 001-nuxt3-portfolio-rewrite)
+
+### Context
+
+Resuming from session 2's pending item: spec approval + one open `[NEEDS CLARIFICATION]` marker (performance budget).
+
+### Done this session
+
+- Got explicit user approval of `spec.md` as drafted, no edits requested.
+- Resolved the one open marker via `AskUserQuestion` (per Article V / phase 02-clarify procedure): no numeric performance budget for this feature; SSG + dropping the third-party template's weight is the de facto improvement. A numeric threshold (e.g. Lighthouse ≥ 90) can be added later, deliberately, once there's a baseline to compare against.
+- Recorded the decision in `.specs/001-nuxt3-portfolio-rewrite/clarify.md` (Q1) and inlined the resolution into `spec.md`'s "Resolved during clarify" section; added an "Approval" section to `spec.md`.
+- `spec.md` now has zero open `[NEEDS CLARIFICATION]` markers.
+
+### Open
+
+- Run `/sdd-plan` for 001 next (references ADR 0001; must define Vitest/@nuxt/test-utils test layout, CI pipeline shape, Dockerfile/docker-compose changes for Node ≥18 and `.output/public/`).
+
+### Blockers / open questions
+
+- None open.
+
+### Decisions recorded elsewhere
+
+- `.specs/001-nuxt3-portfolio-rewrite/clarify.md` (Q1 — performance budget).
+- `.specs/001-nuxt3-portfolio-rewrite/spec.md` → "Resolved during clarify", "Approval".
+
+### Dead ends / discarded
+
+- None this session.
+
+### Resume from
+
+Run `/sdd-plan` for `001-nuxt3-portfolio-rewrite` to produce `plan.md` (framework/rendering already decided per ADR 0001; plan must cover test layout, CI, and Docker/nginx deployment updates).
