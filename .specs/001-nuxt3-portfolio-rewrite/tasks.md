@@ -250,13 +250,14 @@ files:
   - components/layout/AppHeader.vue
   - components/layout/AppNav.vue
   - components/layout/AppFooter.vue
+  - app.vue
   - tests/nuxt/layout.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T004 (data/contact.ts) for AppFooter's social links.
+  red: 9a1b9d2
+  green: 50e0558
+  refactor: skipped — no smell detected (three small components)
+notes: reality differed from plan.md — social links live in AppHeader (matching the original Common/NavBar.vue), not AppFooter, which only ever had a copyright line (Common/Footer.vue). AppNav excludes /services (and /portfolio), matching the original NavBar's own already-commented-out links — prior-art evidence the site owner had already hidden both. app.vue updated to wrap NuxtPage in NuxtLayout (was a bare NuxtPage since T001).
 ```
 
 ---
