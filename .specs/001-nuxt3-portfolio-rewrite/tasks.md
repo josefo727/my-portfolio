@@ -360,12 +360,12 @@ files:
   - components/about/AboutSkills.vue
   - pages/about.vue
   - tests/nuxt/about-skills.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T006 (data/skills.ts), T012 (touches pages/about.vue again — sequential with T012 and T014, not [P]).
+  red: 563e5d6
+  green: 3e9b5cb
+  refactor: skipped — no smell detected
+notes: pages/about.vue's template needed a single wrapping <div> — eslint's vue/no-multiple-template-root rejects multiple root nodes even though Vue 3 itself supports fragments. Same wrapping will be needed by every other multi-section page (T014, T016, T017, T019-T022).
 ```
 
 ---
