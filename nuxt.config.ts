@@ -10,8 +10,8 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     defaultLocale: 'es',
     locales: [
-      { code: 'es', language: 'es-ES', name: 'Español' },
-      { code: 'en', language: 'en-US', name: 'English' },
+      { code: 'es', language: 'es-ES', name: 'Español', file: 'es.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
     ],
   },
 })
