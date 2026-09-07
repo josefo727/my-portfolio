@@ -10,3 +10,21 @@ import type { Certification } from '~/data/certifications'
 
 defineProps<{ certification: Certification }>()
 </script>
+
+<style scoped>
+figure {
+  margin: 0;
+}
+
+img {
+  border-radius: 8px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+figcaption {
+  margin-top: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+</style>
