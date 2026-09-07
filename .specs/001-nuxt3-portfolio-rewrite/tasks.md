@@ -31,12 +31,15 @@ files:
   - package.json
   - vitest.config.ts
   - tests/nuxt/smoke.nuxt.spec.ts
-status: open
+  - tsconfig.json
+  - .gitignore
+  - .nuxtrc
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 9046a43
+  green: 8a3e009
+  refactor: c1e4320
+notes: preceded by a non-TDD chore commit (cfefc10) removing the legacy Vue 2 tree, per user confirmation. files list grew beyond the plan: tsconfig.json/.gitignore/.nuxtrc were needed to fully satisfy the DoD (typecheck, ignore Nuxt build dirs, record the test-utils setup marker).
 ```
 
 ---
