@@ -20,3 +20,34 @@
 <script setup lang="ts">
 import skills from '~/data/skills'
 </script>
+
+<style scoped>
+section {
+  margin-bottom: var(--space-xl);
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+ul {
+  list-style: none;
+  margin: var(--space-md) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-sm);
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+</style>

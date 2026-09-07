@@ -42,3 +42,32 @@ import { calculateAge, formatDate } from '~/utils/dates'
 const age = calculateAge(personal.birthday)
 const birthday = formatDate(personal.birthday)
 </script>
+
+<style scoped>
+section {
+  margin-bottom: var(--space-xl);
+}
+
+img {
+  border-radius: 8px;
+  margin: var(--space-md) 0;
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+  margin: var(--space-md) 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-xs);
+}
+</style>
