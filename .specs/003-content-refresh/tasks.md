@@ -211,12 +211,12 @@ F: skipped unless a repeated pattern across entries suggests an extraction
 files:
   - data/success-stories.ts
   - tests/unit/data-success-stories.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T002, T003, T004 (approved drafts).
+  red: 5b706fd
+  green: e789d6d
+  refactor: skipped — no smell detected
+notes:
 ```
 
 ---
