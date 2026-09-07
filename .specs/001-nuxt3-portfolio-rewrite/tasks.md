@@ -440,12 +440,12 @@ files:
   - components/resume/ResumeExperience.vue
   - pages/resume.vue
   - tests/nuxt/resume-experience.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T007 (data/experience.ts), T015 (touches pages/resume.vue — sequential with T017, not [P]).
+  red: 3c3e9a7
+  green: b90b8a4
+  refactor: skipped — no smell detected
+notes:
 ```
 
 ---
