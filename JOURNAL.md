@@ -198,3 +198,43 @@ Ran `/sdd-verify` to close out the feature, same day as session 4's full impleme
 ### Resume from
 
 Run `/sdd-specify` for feature 002 (visual design pass — apply the existing CSS tokens to real component layout/spacing/typography).
+
+## 2026-09-06 — session 6 (002-visual-design: specify → clarify → plan → tasks → implement → verify — CLOSED)
+
+### Context
+
+Same day, continuing directly from session 5's resequencing decision. Ran the entire feature lifecycle for 002 in one sitting, each phase gated by the user's approval as in prior sessions.
+
+### Done this session
+
+- **Specify**: 6 acceptance criteria (no default bullets; 768px sidebar/top-bar breakpoint; token-driven spacing; hover/focus on every interactive element; zero a11y regression; no horizontal scroll 320-1920px). Breakpoint (768px) resolved inline with the user during specify.
+- **Clarify**: one marker (dark mode) resolved — out of scope for this feature, light palette only.
+- **Plan**: no new dependency; CSS Grid layout, pure-CSS mobile reflow (no JS toggle). New **ADR 0003**: test approach is source-text assertions against `<style>` blocks (mirrors 001's T003 technique) instead of adding Playwright, which this spec's non-goals explicitly exclude. Criterion 6 (no horizontal scroll) explicitly left to CSS discipline + user manual review — no real browser available in this environment.
+- **Tasks**: 14 tasks (T001-T014). T001-T013 all `[P]` (disjoint files, each just adds a `<style scoped>` block to an existing 001 component). T014 = accessibility regression + user's manual viewport review, sequential, last.
+- **Implement**: all 14 tasks closed, full R-G-F trail. T011 (Certifications) reality differed from plan — certifications render as `<figure>` elements, not a list, so "reset bullets" didn't apply; substituted an equivalent CSS Grid DoD.
+- **User's manual review (T014)** caught a real bug not visible to any automated check: the content column looked "narrow" on desktop — an uncentered `max-width: 65ch` left a large empty gutter beside the sidebar. Fixed in the same pass (`b7f73e1`): cap the whole layout at 1200px, centered, letting the content column fill its grid track; only `<p>` elements keep a 75ch reading-width cap. Confirmed by the user on both mobile and desktop afterward.
+- **Verify**: full report, no FAILs (see `002-visual-design/spec.md`'s Closed footer). One acceptance-criterion citation gap (criterion 5, T014's own commit) documented as supplemental evidence rather than silently ignored — same pattern as 001's verify.
+- Closing commit: `spec: 002 closed — verify green` (`5d62412`).
+- Along the way: user asked to see the site locally; started `npm run dev` in the background (Chrome extension not connected in this environment, so the user viewed it in their own browser and reported back via screenshot/description rather than me driving a browser).
+
+### Open
+
+- Feature 002 is closed. Next: feature 003 (content refresh — Sirocco, Cauce, Maná del Cielo + forge, Bajo la Lupa, Biogenesis, Somos URV as success stories; new skills per the earlier `~/Projects` sweep). Run `/sdd-specify` for 003.
+- Feature 004 (i18n: es default, `/en` path-based, visible switch) remains sequenced after 003.
+
+### Blockers / open questions
+
+- None open.
+
+### Decisions recorded elsewhere
+
+- `.specs/002-visual-design/spec.md` → Closed footer (verify report + acceptance-criteria evidence).
+- `.specs/adr/0003-visual-design-test-approach.md`.
+
+### Dead ends / discarded
+
+- Dark mode: explicitly deferred (clarify), not discarded — revisit as its own future feature if wanted.
+
+### Resume from
+
+Run `/sdd-specify` for feature 003 (content refresh: new success stories + skills).
