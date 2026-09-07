@@ -195,12 +195,12 @@ F: skipped — no smell detected in a mechanical port
 files:
   - data/experience.ts
   - tests/unit/data-experience.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: fbb4863
+  green: 5f14ae8
+  refactor: skipped — no smell detected (mechanical port)
+notes: field names are title/tenure/company/web_site/items (not role/employer/period/description as plan.md's generic description assumed) — matches the real src/data/experience.js shape.
 ```
 
 ---
