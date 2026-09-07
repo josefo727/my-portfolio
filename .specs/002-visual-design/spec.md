@@ -55,6 +55,14 @@ None outstanding — see "Resolved during specify" and "Resolved during clarify"
 
 ## Closed (filled during verify)
 
-- Date: `<pending>`
-- Commit: `<pending>`
-- Notes: `<pending>`
+- Date: 2026-09-06
+- Commit: `spec: 002 closed — verify green` (this feature's closing commit)
+- Notes: all 14 tasks closed; full suite green (59/59 Vitest tests, 35 files); lint/typecheck clean; `nuxi generate` succeeds. One real bug found during T014's manual review (desktop content column looked "narrow" — an uncentered 65ch cap left a large empty gutter) and fixed in the same pass (`b7f73e1`), then confirmed by the user on both mobile and desktop. See `tasks.md` for the complete per-task R-G-F trail.
+
+### Acceptance criteria evidence
+
+Criterion 5 has no commit whose Refs line cites "criterion 5" by name (T014, its primary owner, folded into a docs-only closing commit rather than a dedicated red/green pair — consistent with this task's own template: "no new red test"). Recorded here instead of treating it as a gap:
+
+5. **Existing accessibility suite stays at zero violations** — `tests/nuxt/accessibility.nuxt.spec.ts` re-run after all of T001-T013's styling changes: still 9/9 passing, no regression introduced by any styling task.
+
+Criteria 1-4 and 6 are each cited by name in at least one task's Red commit (T001-T013's "Refs:" lines); criterion 6 (no horizontal scroll) was additionally confirmed by the user's own manual review at mobile and desktop widths, per this spec's non-goal excluding automated visual-regression tooling (ADR 0003).
