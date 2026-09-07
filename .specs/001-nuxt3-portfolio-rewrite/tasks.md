@@ -278,12 +278,12 @@ F: skipped — no smell detected
 files:
   - error.vue
   - tests/nuxt/error.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: cbe80a3
+  green: 5e8f97e
+  refactor: skipped — no smell detected
+notes: .output/public/404.html is a client-only fallback shell (data-ssr="false") by Nitro's static-host design — standard for the SPA-fallback file, not a defect. error.vue's content still ships and renders once that shell hydrates.
 ```
 
 ---
