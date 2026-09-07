@@ -676,12 +676,15 @@ G: rewritten multi-stage `Dockerfile`
 F: skipped — single file, already minimal
 files:
   - Dockerfile
-status: open
+  - .dockerignore
+  - docker-compose.yml
+  - nginx_config/default.conf
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: last task — depends on the build succeeding (T001) and all pages existing so the served site is complete.
+  red: n/a — no local red/green cycle for Docker infrastructure, per this task's own template
+  green: 7e112a6
+  refactor: skipped — no smell detected
+notes: nginx_config/default.conf needed a real rewrite (not anticipated in the plan) — the old SPA fallback (try_files ... /index.html) would silently serve the homepage on any 404 instead of error.vue's content, since Nuxt's SSG output is one index.html per route, not a single client-routed shell. Verified manually via docker build/run and docker compose up (image has no Node/npm, 114MB; / and /about return 200, /does-not-exist returns 404). Also dropped docker-compose.yml's obsolete `version` key.
 ```
 
 ---
