@@ -651,12 +651,12 @@ G: minimal `.github/workflows/ci.yml` with the four steps above
 F: skipped — single small YAML file
 files:
   - .github/workflows/ci.yml
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T001, T002 (scripts it invokes must exist).
+  red: n/a — no local red/green cycle for a CI config file, per this task's own template
+  green: 817478c
+  refactor: skipped — no smell detected
+notes: bare `on:` parses as boolean `true` under YAML 1.1 (confirmed via python's yaml.safe_load) — quoted as `"on":`. Verified by running lint/typecheck/test/generate locally in the same order the workflow specifies (no `act` available in this environment to run the workflow file itself).
 ```
 
 ---
