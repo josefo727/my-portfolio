@@ -170,11 +170,11 @@ F: skipped — no smell detected in a mechanical port
 files:
   - data/skills.ts
   - tests/unit/data-skills.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: 7d49d5b
+  green: e2d801e
+  refactor: skipped — no smell detected (mechanical port)
 notes:
 ```
 
