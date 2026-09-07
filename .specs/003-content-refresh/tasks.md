@@ -58,12 +58,38 @@ R: n/a — content-drafting task, no automated red (see spec.md Article V note)
 G: read ~/Projects/{survey-system,cauce,manadelcielo,manadelcielo-content-forge}, draft the 3 entries, get user approval or revisions
 F: n/a
 files: (none — output is approved draft text, not yet written to a file)
-status: open
+status: closed
 commits:
   red: n/a
-  green:
+  green: n/a — approved in chat, written to data in T005
   refactor: n/a
-notes:
+notes: |
+  Approved drafts (2026-09-06), minor edits applied (no version numbers, no metrics parenthetical):
+
+  **Sirocco** — tags: SDD/TDD, Laravel, PostgreSQL, TDD, Clean Code, PHP
+  Diseñé y desarrollé Sirocco, un sistema de votación/encuestas anónimo, de voto único y a prueba de
+  manipulaciones, con un log de auditoría encadenado criptográficamente (estilo blockchain) y exportación
+  de resultados firmada con Ed25519. Implementé defensas anti-fraude con device fingerprinting,
+  Proof-of-Work contra bots, y atribución geográfica vía GeoIP. Todo el desarrollo siguió mi propia
+  metodología de Spec-Driven Development + TDD. Construido con Laravel, PHP, PostgreSQL y Pest,
+  desplegado con Cloudflare al frente. Finalizado y en producción, disponible en encuestas.josefo.link.
+
+  **Cauce** — tags: Laravel, Filament, Python, TypeScript, SDD/TDD, VueJS
+  Estoy desarrollando Cauce, una plataforma B2B de trueque multilateral para Venezuela que permite a
+  empresas intercambiar bienes y servicios sin efectivo mediante un algoritmo de emparejamiento cíclico
+  (principio de "seis grados") y una unidad de crédito interna (Créditos Cauce). La arquitectura combina
+  Laravel con Filament para el panel administrativo, un motor de emparejamiento en Python con FastAPI, y
+  un frontend Quasar (Vue 3 + TypeScript) como SPA/PWA con soporte móvil vía Capacitor. Sigue mi propia
+  metodología SDD+TDD, con invariantes del sistema respaldados por tests de propiedades. Actualmente en
+  desarrollo activo (pre-MVP, fundamentos completos).
+
+  **Maná del Cielo** — tags: Flutter, Dart, Python, SDD/TDD, Clean Code
+  Estoy desarrollando Maná del Cielo, una app de lectura bíblica 100% offline, sin anuncios, sin rastreo
+  y sin cuentas, con plan de lectura anual flexible y notificaciones condicionales. Construida en
+  Flutter/Dart, con Riverpod, Drift (SQLite + FTS5), go_router e i18n completo. Las versiones bíblicas se
+  distribuyen como paquetes firmados y verificados por integridad, producidos por un pipeline propio en
+  Python (Content Forge) ya completo de extremo a extremo. Todo el desarrollo sigue mi metodología
+  SDD+TDD. En desarrollo activo, con lanzamiento planeado primero en Android.
 ```
 
 ---
