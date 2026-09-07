@@ -387,12 +387,12 @@ files:
   - components/about/AboutFacts.vue
   - pages/about.vue
   - tests/nuxt/about-facts.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T004 (data/facts.ts), T013 (touches pages/about.vue again — sequential, not [P]).
+  red: 19822bc
+  green: c85571c
+  refactor: skipped — no smell detected
+notes: fact.icon (an icofont class name) intentionally not rendered — icofont dropped per ADR 0002, hand-drawn SVGs are a future design pass, out of this task's scope. Data field preserved for later use.
 ```
 
 ---
