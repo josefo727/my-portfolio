@@ -78,7 +78,7 @@ Reading `Portfolio/Index.vue` and `Services/{Services,Testimonials}.vue` closely
 ## Closed (filled during verify)
 
 - Date: 2026-09-06
-- Commit: see `spec: 001 closed — verify green` (this feature's closing commit)
+- Commit: `b280071` — `spec: 001 closed — verify green`
 - Notes: all 25 tasks closed; full suite green (37/37 Vitest tests, 22 files); lint and typecheck clean; `nuxi generate` succeeds; Docker image builds and serves correctly (manually verified). See "Acceptance criteria evidence" below and `tasks.md` for the complete per-task R-G-F trail.
 
 ### Acceptance criteria evidence
