@@ -26,7 +26,7 @@ const PAGES = [
 
 describe('accessibility (WCAG 2.1 AA)', () => {
   it.each(PAGES)('$name has zero WCAG 2.1 AA violations', async ({ component }) => {
-    const wrapper = await mountSuspended(component)
+    const wrapper = await mountSuspended(component, { attachTo: document.body })
 
     const results = await axe.run(wrapper.element, { runOnly: { type: 'tag', values: WCAG_TAGS } })
 
@@ -36,6 +36,7 @@ describe('accessibility (WCAG 2.1 AA)', () => {
   it('error.vue has zero WCAG 2.1 AA violations', async () => {
     const wrapper = await mountSuspended(ErrorPage, {
       props: { error: { statusCode: 404, statusMessage: 'Not Found' } },
+      attachTo: document.body,
     })
 
     const results = await axe.run(wrapper.element, { runOnly: { type: 'tag', values: WCAG_TAGS } })
