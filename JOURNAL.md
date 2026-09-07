@@ -160,3 +160,40 @@ Continuing the same day from session 3's clarify close. Ran `/sdd-plan`, `/sdd-t
 ### Resume from
 
 Run `/sdd-verify` for `001-nuxt3-portfolio-rewrite`.
+
+## 2026-09-06 — session 5 (verify: 001-nuxt3-portfolio-rewrite — CLOSED)
+
+### Context
+
+Ran `/sdd-verify` to close out the feature, same day as session 4's full implement.
+
+### Done this session
+
+- Full verify report, R1–R10 (see `spec.md`'s Closed footer for the complete report). No FAILs. Two real gaps found and fixed rather than glossed over:
+  - **R9 (docs)**: `README.md` still documented vue-cli-era commands (`npm run serve`, a link to `cli.vuejs.org`) — refreshed to the actual Nuxt 3 scripts.
+  - **R1/Article VII**: found the rewrite silently dropped Google Fonts (the original site's only third-party runtime asset) in favor of a system-font stack — nobody had explicitly decided this, and `plan.md`/the constitution still said "unchanged". Surfaced to the user (Article V); confirmed keep system-ui. Amended constitution Article VII + its Amendments table, corrected `plan.md`.
+  - Also documented explicit acceptance-criteria evidence for criteria 1, 5, and 7 in `spec.md`'s Closed footer, since their most relevant commits (T001, T024, T025) hadn't cited the criterion number by name in their Refs lines — functionally covered, just under-traced.
+- Updated `.specs/index.md` (brownfield follow-up owed since onboarding): "Modules under SDD+TDD" now lists the whole app; "Modules under legacy rules" is empty.
+- Closing commit: `spec: 001 closed — verify green` (`b280071`).
+
+### Open
+
+- Feature 001 is closed. Next: start feature 002 (content refresh — Sirocco, Cauce, Maná del Cielo + forge, Bajo la Lupa, Biogenesis, Somos URV as success stories; new skills per the earlier `~/Projects` sweep). Run `/sdd-specify` for 002.
+- Feature 003 (i18n: es default, `/en` path-based, visible switch) remains sequenced after 002.
+
+### Blockers / open questions
+
+- None open.
+
+### Decisions recorded elsewhere
+
+- `.specs/001-nuxt3-portfolio-rewrite/spec.md` → Closed footer (full verify report + acceptance-criteria evidence).
+- `.specs/constitution.md` → Amendments (Article VII, Google Fonts dropped).
+
+### Dead ends / discarded
+
+- None this session — both gaps found were fixed, not discarded.
+
+### Resume from
+
+Run `/sdd-specify` for feature 002 (content refresh: new success stories + skills).
