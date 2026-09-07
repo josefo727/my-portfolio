@@ -1,5 +1,7 @@
 <template>
   <div data-app="my-portfolio">
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
