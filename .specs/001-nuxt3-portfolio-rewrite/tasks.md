@@ -519,12 +519,12 @@ files:
   - pages/success-stories.vue
   - components/success-stories/SuccessStoryCard.vue
   - tests/nuxt/success-stories.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T008 (data/success-stories.ts), T009 (layout).
+  red: e5c12f2
+  green: aa40c8c
+  refactor: skipped — no smell detected
+notes:
 ```
 
 ---
