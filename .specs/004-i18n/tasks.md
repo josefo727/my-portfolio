@@ -218,13 +218,13 @@ files:
   - pages/libraries.vue
   - i18n/locales/es.json
   - i18n/locales/en.json
-  - tests/unit/i18n-messages-parity.spec.ts
-status: open
+  - tests/nuxt/libraries-i18n.nuxt.spec.ts
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: the largest static-copy translation batch (3 full write-ups) — presented as its own task/approval batch, not folded into T006.
+  red: 90cc470
+  green: 42d6cca
+  refactor: skipped — no smell detected
+notes: did not perpetuate the Spanish source's "Libería" typo into the English translation.
 ```
 
 ---
