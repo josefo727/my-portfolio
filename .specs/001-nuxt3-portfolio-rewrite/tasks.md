@@ -467,12 +467,12 @@ files:
   - components/resume/ResumeEducation.vue
   - pages/resume.vue
   - tests/nuxt/resume-education.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T005 (data/education.ts), T016 (touches pages/resume.vue — sequential, not [P]).
+  red: 73d002c
+  green: 3386cd9
+  refactor: skipped — no smell detected
+notes:
 ```
 
 ---
