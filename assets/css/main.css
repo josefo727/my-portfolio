@@ -1,0 +1,58 @@
+/* Design tokens — original, minimalist palette/scale (no third-party template). */
+:root {
+  /* Color */
+  --color-text: #1a1a1a;
+  --color-text-muted: #555555;
+  --color-background: #ffffff;
+  --color-background-alt: #f5f5f3;
+  --color-accent: #1d4ed8;
+  --color-border: #dddddd;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Type scale */
+  --font-family-base: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+  --font-size-2xl: 2.5rem;
+  --line-height-base: 1.5;
+}
+
+/* Global reset — no dependency on Bootstrap/AOS or any third-party template class. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin: 0 0 var(--space-md);
+}
+
+a {
+  color: var(--color-accent);
+}
