@@ -545,12 +545,12 @@ files:
   - pages/certifications.vue
   - components/certifications/CertificationCard.vue
   - tests/nuxt/certifications.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T005 (data/certifications.ts), T009 (layout).
+  red: 123e4d9
+  green: 51065fe
+  refactor: skipped — no smell detected
+notes:
 ```
 
 ---
