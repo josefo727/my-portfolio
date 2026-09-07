@@ -110,3 +110,53 @@ Resuming from session 2's pending item: spec approval + one open `[NEEDS CLARIFI
 ### Resume from
 
 Run `/sdd-plan` for `001-nuxt3-portfolio-rewrite` to produce `plan.md` (framework/rendering already decided per ADR 0001; plan must cover test layout, CI, and Docker/nginx deployment updates).
+
+## 2026-09-06 — session 4 (plan → tasks → implement: 001-nuxt3-portfolio-rewrite, ALL 25 TASKS CLOSED)
+
+### Context
+
+Continuing the same day from session 3's clarify close. Ran `/sdd-plan`, `/sdd-tasks`, then `/sdd-implement` end to end for the entire feature, one task at a time, with the user confirming continuation after each.
+
+### Done this session
+
+- **Plan**: researched via context7 (nuxt@3.x, @nuxt/test-utils, axe-core, @nuxt/eslint); wrote `plan.md` (TypeScript, plain CSS tokens, hand-authored SVG icons, no Pinia, multi-stage Docker); `research.md`; `contracts/README.md` (no external boundaries this feature); ADR `0002-nuxt3-implementation-stack.md`. Approved by the user; committed.
+- **Tasks**: wrote `tasks.md`, 25 tasks (T001-T025), R-G-F each. While drafting, discovered `Portfolio/Index.vue` and `Services/{Services,Testimonials}.vue` are BootstrapMade demo filler (Lorem Ipsum, fictitious testimonials) — stopped, surfaced to the user (Article V), resolved: `/portfolio` dropped from 001, `/services` scoped to a minimal honest shell. Amended `spec.md` (Amendments section) and `plan.md` accordingly, committed separately before tasks.md. Tasks approved; committed.
+- **Implement**: ran all 25 tasks to closed, each its own R-G-F commit sequence (~90 commits total this session). Highlights:
+  - **T001**: deleted the entire legacy Vue 2 tree (`src/`, old `package.json`, vue-cli configs) in a chore commit — explicit user confirmation obtained first; kept real content images (skill logos, certification badges, profile photo) that the vendor/template-asset deletion could otherwise have swept up. Scaffolded Nuxt 3.21 + Vitest 4.1 + `@nuxt/test-utils` 4.2 + TypeScript 5.x (pinned down from a `latest` that resolved to the incompatible TS7 rewrite).
+  - **T003**: first red test (DOM `getComputedStyle` via `mountSuspended`) could never pass — `mountSuspended` doesn't inject `nuxt.config`'s global `css` array into the test DOM. Corrected to a unit test reading the CSS file's source text directly.
+  - **T004-T008**: ported all 9 legacy `src/data/*.js` modules to typed `data/*.ts` (recovered from git history via `git show <chore-commit>^:path`); larger ones (certifications, experience, success-stories) generated programmatically from the original source to avoid transcription errors. Found/fixed one miscount (success-stories: 8 entries, not 9).
+  - **T009**: shared layout — corrected mid-task that social links live in `AppHeader` (matching the original `NavBar.vue`), not `AppFooter` (copyright only, matching `Footer.vue`). Confirmed via the original nav markup that Portfolio/Services links were *already commented out* there — independent evidence supporting the tasks-phase scope correction.
+  - **T011-T022**: built all 8 shipped pages (Home, About ×3 sections, Resume ×3 sections, Services shell, Success Stories, Certifications, Libraries, Contact). Libraries replaced Bootstrap's `nav-tabs` with native `<details>/<summary>`. Contact page has no `<form>` — the original's `forms/contact.php` target never worked on this Node-less static host. Discovered and applied project-wide: ESLint's `vue/no-multiple-template-root` requires a single wrapping `<div>` even though Vue 3 itself supports template fragments.
+  - **T023**: accessibility suite (`axe-core`, WCAG 2.1 AA tags) — same "not attached to a live document" gap as T003's CSS finding; fixed with `mountSuspended(..., { attachTo: document.body })`. All 9 cases (8 pages + `error.vue`) passed with **zero production changes** — the pages built in T011-T022 were already accessible.
+  - **T024**: `.github/workflows/ci.yml` (lint → typecheck → test → `nuxi generate`). Found `on:` parses as boolean `true` under YAML 1.1 — quoted as `"on":`.
+  - **T025**: Docker multi-stage build (`node:20-alpine` builder → `nginx:alpine` runtime, no Node/npm in the shipped image, verified: 114MB, `which node npm` finds neither). Rewrote `nginx_config/default.conf` — the old SPA fallback would have silently served the homepage on any 404 instead of `error.vue`; verified manually with `docker build`/`run` and `docker compose up` (200s on real routes, 404 on unmatched ones).
+- All 25 tasks closed in `tasks.md` with `red`/`green`/`refactor` SHAs (or `n/a` + rationale for the two infra tasks with no local TDD cycle, T024/T025).
+- Full suite green throughout: ends this session at 37 Vitest tests across 22 files, `npm run lint` and `npm run typecheck` both clean.
+
+### Open
+
+- Run `/sdd-verify` for `001-nuxt3-portfolio-rewrite` — the `implement → verify` phase gate ("all tasks closed, all tests green") is satisfied.
+- `spec.md`'s "Closed (filled during verify)" section still has `<pending>` placeholders — fill during verify.
+- `.specs/index.md` "Modules under SDD+TDD" still empty — update once 001 closes (brownfield workflow follow-up, noted in onboarding).
+- After 001 verifies and closes: start feature 002 (content refresh), then 003 (i18n).
+
+### Blockers / open questions
+
+- None open.
+
+### Decisions recorded elsewhere
+
+- `.specs/001-nuxt3-portfolio-rewrite/plan.md`, `research.md`, `contracts/README.md`.
+- `.specs/adr/0002-nuxt3-implementation-stack.md`.
+- `.specs/001-nuxt3-portfolio-rewrite/spec.md` → Amendments (portfolio/services scope correction).
+- `.specs/001-nuxt3-portfolio-rewrite/tasks.md` → per-task `notes:` fields (several "reality differed from plan" corrections, listed above).
+
+### Dead ends / discarded
+
+- `/portfolio` page and the `/services` page's fabricated service list + Testimonials section: BootstrapMade demo filler, not real content — dropped (see spec.md Amendments, 2026-09-06).
+- DOM-`getComputedStyle` test shape for global CSS (T003) and bare `axe.run(wrapper.element)` without `attachTo` (T023): both fail because `mountSuspended` doesn't attach to a live `document` by default.
+- `typescript@latest` (resolved to TS7): incompatible with `vue-tsc`; pinned to `^5`.
+
+### Resume from
+
+Run `/sdd-verify` for `001-nuxt3-portfolio-rewrite`.
