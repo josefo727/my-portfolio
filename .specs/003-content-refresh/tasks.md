@@ -237,12 +237,12 @@ F: skipped — no smell detected
 files:
   - data/skills.ts
   - tests/unit/data-skills.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T001 (logo assets).
+  red: 686fad3
+  green: cdef193
+  refactor: skipped — no smell detected
+notes:
 ```
 
 ---
