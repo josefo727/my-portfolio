@@ -27,11 +27,11 @@ F: skipped — no smell detected
 files:
   - assets/css/main.css
   - tests/unit/css-foundation.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: fb03109
+  green: e69c8ab
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -53,12 +53,12 @@ F: skipped — no smell detected
 files:
   - layouts/default.vue
   - tests/unit/layout-grid.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 8c24191
+  green: e529b36
+  refactor: skipped — no smell detected
+notes: post-close fix during T014's manual review — `b7f73e1`. The original green capped the content column at 65ch with no centering, which left a large empty gutter on wide desktop screens ("se ve angosto" — user feedback). Fixed to cap the whole layout at 1200px (centered) and let the content column fill its grid track, with only `<p>` elements keeping a 75ch reading-width cap.
 ```
 
 ---
@@ -80,11 +80,11 @@ F: skipped — no smell detected
 files:
   - components/layout/AppNav.vue
   - tests/unit/app-nav-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: 5cc024d
+  green: 16de949
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -106,11 +106,11 @@ F: skipped — no smell detected
 files:
   - components/layout/AppHeader.vue
   - tests/unit/app-header-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: 311cc4e
+  green: 35d252a
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -130,11 +130,11 @@ F: skipped — no smell detected
 files:
   - components/layout/AppFooter.vue
   - tests/unit/app-footer-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: bc09c87
+  green: a4c1bb6
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -155,11 +155,11 @@ F: skipped — no smell detected
 files:
   - components/home/Hero.vue
   - tests/unit/home-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: 77c00c3
+  green: e12875b
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -183,11 +183,11 @@ files:
   - components/about/AboutSkills.vue
   - components/about/AboutFacts.vue
   - tests/unit/about-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: 4498756
+  green: dd94d68
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -211,11 +211,11 @@ files:
   - components/resume/ResumeExperience.vue
   - components/resume/ResumeEducation.vue
   - tests/unit/resume-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: db24cf3
+  green: 1716959
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -235,11 +235,11 @@ F: skipped — no smell detected
 files:
   - pages/services.vue
   - tests/unit/services-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: d22b0f9
+  green: 7b3d9d4
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -261,11 +261,11 @@ F: skipped — no smell detected
 files:
   - components/success-stories/SuccessStoryCard.vue
   - tests/unit/success-stories-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: ff1ca45
+  green: 698eb65
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -285,13 +285,14 @@ G: add the scoped styles
 F: skipped — no smell detected
 files:
   - components/certifications/CertificationCard.vue
+  - pages/certifications.vue
   - tests/unit/certifications-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: b933a32
+  green: 7bcedc0
+  refactor: skipped — no smell detected
+notes: reality differed from plan — certifications render as repeated <figure> elements, not a <ul>/<li> list, so "reset bullet markers" didn't apply. Substituted a CSS Grid layout on the page (auto-fill, min 200px) as the equivalent structural DoD.
 ```
 
 ---
@@ -311,11 +312,11 @@ F: skipped — no smell detected
 files:
   - components/libraries/LibraryDoc.vue
   - tests/unit/libraries-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: 545e0c5
+  green: 8bd14c8
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -337,11 +338,11 @@ F: skipped — no smell detected
 files:
   - components/contact/ContactInfo.vue
   - tests/unit/contact-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: f3a0f3b
+  green: 88ab86b
+  refactor: skipped — no smell detected
 notes:
 ```
 
