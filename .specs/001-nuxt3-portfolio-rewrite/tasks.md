@@ -145,12 +145,12 @@ files:
   - data/education.ts
   - data/certifications.ts
   - tests/unit/data-education-certifications.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 47320d0
+  green: f016a49
+  refactor: skipped — no smell detected (mechanical port)
+notes: certifications.ts (37 entries) generated programmatically from git history to avoid manual transcription errors.
 ```
 
 ---
