@@ -305,12 +305,12 @@ files:
   - pages/index.vue
   - components/home/Hero.vue
   - tests/nuxt/home.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T004 (data/personal.ts), T009 (layout).
+  red: a8978ee
+  green: 7bbde1b
+  refactor: skipped — no smell detected
+notes:
 ```
 
 ---
