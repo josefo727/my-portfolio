@@ -77,6 +77,18 @@ Reading `Portfolio/Index.vue` and `Services/{Services,Testimonials}.vue` closely
 
 ## Closed (filled during verify)
 
-- Date: `<pending>`
-- Commit: `<pending>`
-- Notes: `<pending>`
+- Date: 2026-09-06
+- Commit: see `spec: 001 closed — verify green` (this feature's closing commit)
+- Notes: all 25 tasks closed; full suite green (37/37 Vitest tests, 22 files); lint and typecheck clean; `nuxi generate` succeeds; Docker image builds and serves correctly (manually verified). See "Acceptance criteria evidence" below and `tasks.md` for the complete per-task R-G-F trail.
+
+### Acceptance criteria evidence
+
+R1 (spec coverage) found that criteria 1, 5, and 7 were under-cited in their most relevant commit messages — functionally covered, but not literally traceable by grepping "criterion N" the way criteria 2–4 are. Recorded here to close that gap:
+
+1. **Full text content in initial HTML before JS executes** — mechanism: `ssr: true` + `nuxi generate` (ADR 0001, `research.md` §nuxt@3.x). Evidence: `git show 8a3e009` (T001 green) manually confirmed `.output/public/index.html` contains the `app.vue` marker; re-confirmed at verify time for `/about`, `/certifications`, `/success-stories` (real page headings present in the prerendered HTML, not just injected by client JS). Every page-component test (`tests/nuxt/{home,about,resume,services,success-stories,certifications,libraries,contact}.nuxt.spec.ts`) asserts on synchronously rendered text, consistent with this criterion, though their Red commits cite criterion 3 (their primary ref) rather than criterion 1.
+2. **No third-party template asset requested** — `tests/unit/design-tokens.spec.ts` (T003, commits `b9dc4aa`/`8e235f0`) plus a verify-time grep of `.output/public/**/*.html` for `bootstrap|aos|boxicons|jquery|owl.carousel|isotope|counterup|venobox|icofont`: zero matches.
+3. **Every category reachable** — `tests/nuxt/layout.nuxt.spec.ts` (T009, `9a1b9d2`/`50e0558`) plus one page test per category (T011-T022).
+4. **Zero WCAG 2.1 AA critical violations** — `tests/nuxt/accessibility.nuxt.spec.ts` (T023, `48d333b`/`ac60cfd`), 9/9 cases (8 pages + `error.vue`) passing.
+5. **Static files, no persistent server process** — mechanism proven at T001 (`8a3e009`) and operationalized at T025 (Dockerfile, `7e112a6`): multi-stage build, runtime image confirmed to contain no Node/npm binaries; `docker compose up` serves the site. T025's own commit doesn't cite "criterion 5" by name — noted here instead of rewriting history.
+6. **Test command exits non-zero on failure** — `npm run test` runs `vitest run`, whose non-zero-exit-on-failure is Vitest's documented default behavior; exercised implicitly on every Red beat of every task in this feature (each Red commit's "Observed failure" is exactly that non-zero exit surfaced).
+7. **CI pipeline: lint, tests, build on every push** — `.github/workflows/ci.yml` (T024, `817478c`). Not run against an actual push in this environment (no `act` available, no push performed); verified by running the same four commands locally in the same order (`npm run lint && npm run typecheck && npm run test && npx nuxi generate`), all green. T024's own commit doesn't cite "criterion 7" by name — noted here instead of rewriting history.

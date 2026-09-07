@@ -1,25 +1,47 @@
 # my-portfolio
 
+José R. Gutierrez's professional portfolio — a Nuxt 3 site, statically generated (SSG). See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the spec-driven development workflow this project follows.
+
 ## Project setup
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Develop with hot-reload
+
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
+### Run the test suite
+
 ```
-npm run build
+npm run test
 ```
 
-### Lints and fixes files
+### Lint
+
 ```
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# my-portfolio
+### Type-check
+
+```
+npm run typecheck
+```
+
+### Build the static site
+
+```
+npm run generate
+```
+
+Output goes to `.output/public/` — servable by any static host (this project's own deployment: a bare nginx container, see `Dockerfile`).
+
+### Preview a production build locally
+
+```
+npm run preview
+```
