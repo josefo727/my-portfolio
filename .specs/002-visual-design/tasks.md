@@ -363,12 +363,12 @@ G: fix anything the accessibility suite or the manual review surfaces
 F: skipped unless a fix requires cleanup
 files:
   - (none expected — fixes, if any, land in whichever file the review flags)
-status: open
+status: closed
 commits:
   red: n/a — regression/manual-review task, no new red test (see spec.md non-goals on automated visual regression)
-  green:
-  refactor:
-notes: last task — depends on T001-T013 all being done so there's a finished design to review.
+  green: b7f73e1 — the layout-width fix this review surfaced
+  refactor: skipped — no smell detected
+notes: accessibility suite confirmed 9/9 green (unchanged) after all styling. User's manual review found the content column looked "narrow" on desktop (dead space beside a 65ch-capped, uncentered column) — fixed in the same pass (see T002's notes), then user confirmed the fix looked right on both mobile and desktop.
 ```
 
 ---
