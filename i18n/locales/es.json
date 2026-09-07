@@ -45,21 +45,21 @@
     },
     "vtexApiPhp": {
       "summary": "Vtex API PHP",
-      "title": "Libería para consumo de las API's de Vtex Framework",
+      "title": "Librería para consumo de las API's de Vtex Framework",
       "body": "Esta librería fue creada para el consumo de ecommerces creados en Vtex Framework para acelerar las integraciones de dichas tiendas con sus respectivos sistemas de ventas e inventarios (SAP, Intelisis, WinPOS, entre otros) a través de aplicaciones realizadas en PHP o Laravel",
       "compatibility": "Compatibilidad: PHP 8+, Laravel 7+",
       "whatIsVtexBody": "VTEX es una plataforma de comercio electrónico que ayuda a las empresas a crear su propio eCommerce y vender sus productos en línea. A través de esta herramienta podrás diseñar tu comercio digital, gestionar productos, recibir órdenes de compra, realizar cobros y consolidar toda la información de tus usuarios."
     },
     "vtexApiJs": {
       "summary": "Vtex API JS",
-      "title": "Libería para consumo de las API's de Vtex Framework",
+      "title": "Librería para consumo de las API's de Vtex Framework",
       "body": "Esta librería fue creada para el consumo de ecommerces creados en Vtex Framework para acelerar las integraciones de dichas tiendas con sus respectivos sistemas de ventas e inventarios (SAP, Intelisis, WinPOS, entre otros) a través de aplicaciones realizadas en NodeJS.",
       "compatibility": "Compatibilidad: JS, Node",
       "whatIsVtexBody": "VTEX es una plataforma de comercio electrónico que ayuda a las empresas a crear su propio eCommerce y vender sus productos en línea. A través de esta herramienta podrás diseñar tu comercio digital, gestionar productos, recibir órdenes de compra, realizar cobros y consolidar toda la información de tus usuarios."
     },
     "generalSettings": {
       "summary": "GeneralSettings",
-      "title": "Libería para gestionar configuraciones generales en una aplicación Laravel",
+      "title": "Librería para gestionar configuraciones generales en una aplicación Laravel",
       "body": "El paquete GeneralSettings para Laravel te permite gestionar configuraciones generales en una aplicación Laravel sin tener que precuparte por el casteo de datos, encriptación, vistas, rutas ni controladores. Con un par de comandos y pocos clicks ya tienes un excepcional módulo para gestionar parámetros y configuraciones generales de tu aplicación.",
       "compatibility": "Compatibilidad: PHP 8+, Laravel 8+"
     }

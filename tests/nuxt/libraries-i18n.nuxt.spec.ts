@@ -20,7 +20,7 @@ describe('pages/libraries — i18n', () => {
     const text = wrapper.text()
 
     expect(text).toContain('Librerías')
-    expect(text).toContain("Libería para consumo de las API's de Vtex Framework")
+    expect(text).toContain("Librería para consumo de las API's de Vtex Framework")
     expect(text).toContain('¿Qué es Vtex?')
   })
 })
