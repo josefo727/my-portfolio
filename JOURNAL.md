@@ -277,3 +277,48 @@ Same day, continuing directly from session 6. Ran the full lifecycle for 003, bu
 ### Resume from
 
 Run `/sdd-specify` for feature 004 (i18n: es default, `/en` path-based, visible switch).
+
+## 2026-09-06/07 — session 8 (004-i18n: specify → clarify → plan → tasks → implement T001-T007, PAUSED)
+
+### Context
+
+Same day (rolled past midnight into 2026-09-07), continuing from session 7. Ran specify through plan/tasks for 004, then implemented T001-T007 (half the task list). Paused mid-feature at the user's request — **not closed/verified**.
+
+### Done this session
+
+- **Specify**: 8 acceptance criteria (ES default unprefixed, `/en/*` equivalents, both pre-rendered SSG, visible same-page switch, full translation of 003's content, correct `lang`, hreflang tags, a11y regression guard for both locales). Resolved inline during specify: no browser-language auto-redirect (manual switch only); assistant drafts translations, user approves in batches; hreflang included now. Zero clarification markers — spec committed directly with 0 pending.
+- **Plan**: `@nuxtjs/i18n` (new ADR `0004-i18n-nuxtjs-module.md`), `strategy: prefix_except_default`, `defaultLocale: 'es'`. Two translation mechanisms: vue-i18n message catalogs (`i18n/locales/{es,en}.json`) for static copy, parallel `data/*.en.ts` files for structured content (not yet written — later tasks). Test strategy: translation-parity tests for both mechanisms.
+- **Tasks**: 14 tasks (T001-T014). T001-T005 infra (module config, lang/hreflang, switcher, `useLocalizedData()` composable). T006-T008 static-copy translation. T009-T012 content research/drafting (not started). T013 writes all `data/*.en.ts`. T014 final a11y regression.
+- **Implement T001-T007** (all closed):
+  - T001: `@nuxtjs/i18n` installed/configured. Confirmed `nuxi generate` auto-produces 36 routes (18 pages × 2 locales) with zero manual route-list wiring.
+  - T002: `useLocaleHead()` wired in `app.vue` — needed `i18n.baseUrl` (`https://hv.jose-gutierrez.com`) for valid absolute hreflang URLs. Verified real hreflang/lang output in the generate build.
+  - T003: `LocaleSwitcher.vue` (`useSwitchLocalePath()`), wired into `AppHeader`.
+  - T004: `i18n/locales/{es,en}.json` scaffolded, `AppNav` translated. **Found and fixed a real bug twice**: plain `<NuxtLink to="/x">` is not locale-aware under `@nuxtjs/i18n` — needed `useLocalePath()` wrapping every href, in both `AppNav` and (once spotted) `AppHeader`'s site-name link too.
+  - T005: `useLocalizedData()` composable (picks `es`/`en` value by current locale) — needed to live in `tests/nuxt/` (not `tests/unit/` as planned), since it calls `useI18n()` and needs Nuxt context.
+  - T006: About/Services/Contact static copy translated. **Found and fixed a critical, subtle bug**: `dayjs`'s per-instance `.locale()` call leaks state across routes under Nitro's *concurrent* SSG rendering — the Spanish `/about` page was rendering an English month name and "years" instead of "años" in the real `nuxi generate` output, even though an isolated *sequential* Node script showed no leak. Ruled out `useI18n().locale.value` as the cause first. Fix: dropped `dayjs` entirely (removed from `package.json`); rewrote `utils/dates.ts` with plain date arithmetic (age, translated via `t()` interpolation) + native `Intl.DateTimeFormat` (month names) — neither touches shared mutable state. Verified fixed in the real build for both locales.
+  - T007: Libraries page (3 write-ups) translated — the largest static-copy batch.
+- **User-requested deviation (2026-09-07, outside any task's DoD)**: user noticed the pre-existing "Libería" → should-be-"Librería" typo (carried over since `001`) while reviewing T007's translation, and explicitly asked for it to be fixed now — a deliberate one-off exception to this spec's own non-goal ("no changes to Spanish source text"), not a silent reopening of it. Fixed in `i18n/locales/es.json` (3 occurrences) and the two tests asserting the old spelling. Documented as an explicit exception in `spec.md`'s Non-goals. The unrelated `precuparte` typo in the same section was left untouched (not what was asked).
+
+### Open
+
+- **Feature 004 is NOT closed** — 7/14 tasks done (T001-T007). Remaining: T008 (`error.vue` translation), T009-T012 (content research/drafting for personal/facts/skills/education, certifications, experience, success-stories — the bulk of the remaining work, ending with the 19 success stories), T013 (write all `data/*.en.ts` + wire consumers), T014 (final a11y regression, both locales).
+- Resume with T008.
+
+### Blockers / open questions
+
+- None open.
+
+### Decisions recorded elsewhere
+
+- `.specs/004-i18n/spec.md`, `plan.md`, `research.md`, `tasks.md`.
+- `.specs/adr/0004-i18n-nuxtjs-module.md`.
+- `.specs/004-i18n/research.md` → the dayjs SSG-concurrency gotcha, full writeup.
+
+### Dead ends / discarded
+
+- `dayjs` for locale-aware date formatting: discarded mid-feature after discovering the concurrency leak (see T006 above) — replaced with plain arithmetic + native `Intl.DateTimeFormat`.
+- Deriving date-locale from `useRoute().path` instead of `useI18n().locale`: tried as a diagnostic step to isolate the dayjs bug; didn't fix it (confirming the bug was in dayjs, not the route/i18n composable), kept anyway in `AboutProfile.vue` since it's simple and correct, just wasn't the actual fix.
+
+### Resume from
+
+Continue `/sdd-implement` for `004-i18n` at T008 (`error.vue` translation — small batch, present for approval same as T006/T007). After T008, the remaining content-heavy tasks (T009-T012) will need per-project/per-entry research similar to `003`'s pattern, ending with the 19 success stories (T012, deliberately last/largest).
