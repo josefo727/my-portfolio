@@ -260,12 +260,12 @@ R: n/a — regression task, no new red test (mirrors 002's T014)
 G: fix anything the accessibility suite surfaces
 F: skipped unless a fix requires cleanup
 files: (none expected)
-status: open
+status: closed
 commits:
   red: n/a
-  green:
-  refactor:
-notes: last task — depends on T005, T006 (finished content to check).
+  green: n/a — no production change needed
+  refactor: skipped — no smell detected
+notes: accessibility suite confirmed 9/9 green, no regression. Corrected this task's own DoD assumption: AboutSkills.vue's `alt=""` is intentional (the skill title is already visible as adjacent text), not a defect — a valid WCAG pattern for decorative images with a redundant text label, which is exactly why axe-core already reports zero violations for it. No change made.
 ```
 
 ---
