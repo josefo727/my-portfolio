@@ -493,12 +493,12 @@ F: skipped — intentionally minimal
 files:
   - pages/services.vue
   - tests/nuxt/services.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T009 (layout). Real service catalog is feature-002 content work.
+  red: 27b8e8c
+  green: 59112bf
+  refactor: skipped — no smell detected
+notes: reachable at /services but intentionally not linked from AppNav (T009), matching the original's own already-hidden state.
 ```
 
 ---
