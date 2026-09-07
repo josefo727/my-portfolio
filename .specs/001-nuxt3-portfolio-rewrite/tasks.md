@@ -331,13 +331,14 @@ F: skipped — first pass
 files:
   - pages/about.vue
   - components/about/AboutProfile.vue
+  - utils/dates.ts
   - tests/nuxt/about.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T004 (personal/location/contact data), T009 (layout).
+  red: 22a9f05
+  green: 791609f
+  refactor: skipped — no smell detected
+notes: added utils/dates.ts (not in the original files list) porting helpers/index.js's calculateAge/formatDate — dayjs installed as a dependency (unchanged from the pre-deletion package.json).
 ```
 
 ---
