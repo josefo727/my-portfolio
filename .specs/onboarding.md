@@ -40,6 +40,16 @@ Sourced from a separate sweep of `~/Projects` (git log + README inspection acros
 - `~/Projects/urv-web-site/somos-urv` (product: **Somos URV**, institutional site, live at `https://somos-urv.org` — user confirmed authorization to name it, 2026-09-05)
 - `~/Projects/spec-tdd-kit` — not a project entry; to be woven in as the shared methodology narrative across the above ("designed and applies his own SDD+TDD framework"), per user-approved recommendation.
 
+A second sweep, of `~/Projects/massive-space` (2026-09-06, during `003-content-refresh`'s specify phase — user pointed to this directory as the main source of new success stories), found dozens of VTEX e-commerce client engagements plus agency-owned products. Full findings reviewed with the user (Explore agent report); user selected these as authorized, named additions:
+
+- `massive-space/qbano` (product: **Qbano**, VTEX fast-checkout with card-terminal integration + standalone survey-coupon microservice)
+- `massive-space/nequi-integration-be` (product: **Nequi/Gravity**, Laravel 13 + Pest, Credibanco DX4000 payment orchestration, TDD-heavy)
+- `massive-space/catalog-flip` (product: **CatalogFlip**, own SaaS, React/Redux Toolkit/Vite, non-VTEX)
+- `massive-space/almacenes-brissa` (product: **Almacenes Brissa**, multiple custom VTEX apps authored by the user — financing, kits, store-pickup, kiosk themes)
+- `massive-space/massive-whatsapp-service` (product: **massive-whatsapp-service**, Node/TS + VTEX admin-ui app, order-status WhatsApp notifications, multi-tenant rollout)
+
+Other strong candidates found in the same sweep (Calzatodo, Ficohsa/La Colonia, Pizzamania, Pepe Ganga, Juriscoop, Lilipink, Speedo, MassiveSpace Pro, and others) were explicitly left out of `003-content-refresh`'s scope by user choice — available for a future feature if wanted.
+
 ## Decisions log (this onboarding session)
 
 | Decision | Answer | Date |
@@ -51,6 +61,7 @@ Sourced from a separate sweep of `~/Projects` (git log + README inspection acros
 | Feature slicing | Three features: 001 rewrite (structure/design/tests/CI, current content as-is), 002 content refresh (new success stories/skills), 003 i18n (es default, `/en` path-based, after 002's content is final) | 2026-09-05 |
 | URL renaming (001) | Routes may be renamed freely when justified; no requirement to preserve exact current paths | 2026-09-05 |
 | Feature resequencing | 001 shipped functionally complete but with no real visual design applied (only CSS tokens, never used on components) — a gap between the constitution's "original, minimalist design" goal and what got task-broken-down. New feature inserted as **002 (visual design pass)**; content refresh becomes **003**, i18n becomes **004** | 2026-09-06 |
+| 003 success-story selection | 11 new entries: Sirocco (finished/production), Cauce (in dev), Maná del Cielo (in dev), Bajo la Lupa, Biogenesis, Somos URV (already authorized), plus Qbano, Nequi/Gravity, CatalogFlip, Almacenes Brissa, massive-whatsapp-service (from the `massive-space` sweep, user-curated selection out of ~13 strong candidates) | 2026-09-06 |
 
 ## Deviation from kit default
 
