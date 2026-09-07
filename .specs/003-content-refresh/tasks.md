@@ -34,11 +34,11 @@ files:
   - public/assets/img/logos/tailwindcss.svg
   - public/assets/img/logos/sdd-tdd.svg
   - tests/unit/skill-logo-assets.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: e8f81d5
+  green: 5f55777
+  refactor: skipped — no smell detected
 notes:
 ```
 
