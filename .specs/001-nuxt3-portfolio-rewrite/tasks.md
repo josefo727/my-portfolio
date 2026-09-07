@@ -693,4 +693,4 @@ notes: nginx_config/default.conf needed a real rewrite (not anticipated in the p
 
 | Date | Change | Reason |
 |------|--------|--------|
-|      |        |        |
+| 2026-09-06 | Verify closed: 25/25 tasks, full suite green (37 tests/22 files), lint/typecheck clean. Closing commit: `spec: 001 closed — verify green`. | `/sdd-verify` — see `spec.md`'s Closed footer for the full report and acceptance-criteria evidence. |
