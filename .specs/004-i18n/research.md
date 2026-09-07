@@ -38,6 +38,18 @@ export default defineNuxtConfig({
 
 `npm install @nuxtjs/i18n` resolved `@nuxtjs/i18n@10.6.0` with `vue-i18n@11.4.10` as its direct dependency (matches the docs), but a transitive sub-dependency (`@intlify/vue-i18n-extensions`, pulled in by `@intlify/unplugin-vue-i18n`) declares its own peer on the deprecated `vue-i18n@10.0.8`, producing an `npm warn deprecated` notice at install time. This is that sub-package's own unrelated dependency, not the version actually used at runtime (`npm ls` confirms the top-level `vue-i18n` is 11.4.10) — no action needed.
 
+### Critical gotcha found during T006 (2026-09-06/07)
+
+`dayjs`'s per-instance `.locale(x)` call (`dayjs().locale('en')`, documented as not mutating the global default) turned out **not safe under Nitro's concurrent SSG rendering**: `nuxi generate` prerenders many routes within one long-lived process, and the real output showed the Spanish `/about` page rendering an English month name and "years" instead of "años" — locale state leaking between routes. An isolated Node script calling `dayjs().locale('es')`/`.locale('en')` **sequentially** showed no leak, meaning the bug only manifests under whatever concurrency/interleaving Nitro's prerenderer actually uses — it was not caught by that quick manual check, only by inspecting the real `nuxi generate` output.
+
+Ruled out `useI18n().locale.value` as the cause first (switched to deriving locale from `useRoute().path` directly — the bug persisted identically), which isolated the defect to dayjs itself, not `@nuxtjs/i18n`.
+
+**Resolution:** dropped `dayjs` entirely for this project. Replaced with:
+- Plain date arithmetic for a whole-years age calculation (no locale involved at all).
+- The native `Intl.DateTimeFormat(locale, { month: 'long' })` API for localized month names — takes locale as an explicit per-call argument with no shared mutable state, by design.
+
+Verified fixed in the real `nuxi generate` output for both locales.
+
 ### Decision impact
 
 - Ties to `plan.md` §Stack decision: `@nuxtjs/i18n`, `strategy: 'prefix_except_default'`, `defaultLocale: 'es'`.
