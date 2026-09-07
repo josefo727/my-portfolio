@@ -94,6 +94,61 @@ const successStories: SuccessStory[] = [
       "Vtex",
     ],
   },
+  {
+    title: "Sirocco — Sistema de Votación Segura y Auditable",
+    body: "<p>Diseñé y desarrollé Sirocco, un sistema de votación/encuestas anónimo, de voto único y a prueba de manipulaciones, con un log de auditoría encadenado criptográficamente (estilo blockchain) y exportación de resultados firmada con Ed25519. Implementé defensas anti-fraude con device fingerprinting, Proof-of-Work contra bots, y atribución geográfica vía GeoIP. Todo el desarrollo siguió mi propia metodología de Spec-Driven Development + TDD. Construido con Laravel, PHP, PostgreSQL y Pest, desplegado con Cloudflare al frente. Finalizado y en producción, disponible en <a href='https://encuestas.josefo.link' target='_blank'>https://encuestas.josefo.link</a>.</p>",
+    tags: ["SDD/TDD", "Laravel", "PostgreSQL", "TDD", "Clean Code", "PHP"],
+  },
+  {
+    title: "Cauce — Plataforma B2B de Trueque Multilateral",
+    body: "<p>Estoy desarrollando Cauce, una plataforma B2B de trueque multilateral para Venezuela que permite a empresas intercambiar bienes y servicios sin efectivo mediante un algoritmo de emparejamiento cíclico (principio de \"seis grados\") y una unidad de crédito interna (Créditos Cauce). La arquitectura combina Laravel con Filament para el panel administrativo, un motor de emparejamiento en Python con FastAPI, y un frontend Quasar (Vue 3 + TypeScript) como SPA/PWA con soporte móvil vía Capacitor. Sigue mi propia metodología SDD+TDD, con invariantes del sistema respaldados por tests de propiedades. Actualmente en desarrollo activo (pre-MVP, fundamentos completos).</p>",
+    tags: ["Laravel", "Filament", "Python", "TypeScript", "SDD/TDD", "VueJS"],
+  },
+  {
+    title: "Maná del Cielo — Lector Bíblico Offline y Privado",
+    body: "<p>Estoy desarrollando Maná del Cielo, una app de lectura bíblica 100% offline, sin anuncios, sin rastreo y sin cuentas, con plan de lectura anual flexible y notificaciones condicionales. Construida en Flutter/Dart, con Riverpod, Drift (SQLite + FTS5), go_router e i18n completo. Las versiones bíblicas se distribuyen como paquetes firmados y verificados por integridad, producidos por un pipeline propio en Python (Content Forge) ya completo de extremo a extremo. Todo el desarrollo sigue mi metodología SDD+TDD. En desarrollo activo, con lanzamiento planeado primero en Android.</p>",
+    tags: ["Flutter", "Dart", "Python", "SDD/TDD", "Clean Code"],
+  },
+  {
+    title: "Bajo la Lupa — Plataforma Editorial y de Reseñas",
+    body: "<p>Desarrollé Bajo la Lupa, una plataforma editorial que publica reseñas de libros, artículos y cursos, con gestión de autores, series y categorías. Construida en Laravel con Filament para el panel administrativo y Livewire para las interacciones dinámicas, incluye búsqueda con Meilisearch, gestión de medios con Spatie Media Library, SEO completo (sitemap, feed RSS, schema.org) y almacenamiento en S3. Sigue mi metodología SDD+TDD. Disponible en <a href='https://bajolalupa.net' target='_blank'>bajolalupa.net</a>.</p>",
+    tags: ["Laravel", "Filament", "Livewire", "SDD/TDD", "SEO"],
+  },
+  {
+    title: "Biogenesis — Sistema de Gestión para Laboratorios Clínicos",
+    body: "<p>Desarrollé Biogenesis, un sistema de gestión para laboratorios clínicos con arquitectura multi-tenant, que administra pacientes, solicitudes de servicios, prefacturación y facturación. El backend usa Laravel con Horizon para colas, Sanctum para autenticación de API, y Spatie para permisos, auditoría y manejo de medios. El frontend en Vue 3 con Vuetify incluye dashboards con ApexCharts/Chart.js, un editor de texto enriquecido (TipTap) y autorización basada en habilidades con CASL.</p>",
+    tags: ["Laravel", "VueJS", "Multi-tenancy", "Clean Code", "API Rest"],
+  },
+  {
+    title: "Somos URV — Sitio Institucional",
+    body: "<p>Desarrollé Somos URV, el sitio institucional de la organización, con gestión de noticias, roster de liderazgo y contenido en varios idiomas. Construido en Laravel con Filament para el panel administrativo, búsqueda con Meilisearch, permisos y contenido multi-idioma vía Spatie, y generación de códigos QR. Sigue mi metodología SDD+TDD. Disponible en <a href='https://somos-urv.org' target='_blank'>somos-urv.org</a>.</p>",
+    tags: ["Laravel", "Filament", "SDD/TDD", "i18n"],
+  },
+  {
+    title: "Qbano — Checkout Rápido e Integración de Cupones VTEX",
+    body: "<p>Desarrollé para Qbano un checkout rápido con integración de datáfono físico y gift cards sobre VTEX IO, además de un microservicio independiente de encuestas y cupones que alimenta un sitio externo de encuestas al cliente. Trabajo full-stack con componentes React/TypeScript en el storefront y servicios backend en Node.</p>",
+    tags: ["VTEX", "React", "TypeScript", "Node", "API Rest"],
+  },
+  {
+    title: "Integración Nequi/Gravity — Orquestación de Pagos",
+    body: "<p>Desarrollé el backend de integración entre Nequi y un flujo de pagos ('Gravity') con Credibanco DX4000 para un cliente VTEX, incluyendo aprovisionamiento por comercio, superficies de pago en kiosco y notificaciones push de pago. Construido en Laravel con Sanctum, bajo un flujo estricto de TDD (tests rojo/verde por comando y contrato versionado).</p>",
+    tags: ["Laravel", "TDD", "SDD/TDD", "API Rest", "PHP"],
+  },
+  {
+    title: "CatalogFlip — Plataforma de Catálogos Digitales Interactivos",
+    body: "<p>Desarrollé CatalogFlip, una plataforma propia para crear catálogos digitales interactivos a partir de PDFs, con hotspots (botones de compra, enlaces, video), analítica integrada con Google Analytics 4, catálogos embebibles vía iframe/JavaScript y colaboración en equipo con permisos por rol. Construida en React con Vite, Tailwind CSS y Supabase (PostgreSQL, autenticación y almacenamiento).</p>",
+    tags: ["React", "Tailwind CSS", "PostgreSQL", "SaaS"],
+  },
+  {
+    title: "Almacenes Brissa — Ecosistema de Apps Custom VTEX",
+    body: "<p>Desarrollé un conjunto de aplicaciones a medida para Almacenes Brissa sobre VTEX IO: apps de financiamiento y kits de producto, recogida en tienda con notificaciones por WhatsApp, sincronización de datos de clientes entre subcuentas, checkout rápido con datáfono, y temas de kiosco/tótem para tiendas y eventos. Trabajo full-stack en React/TypeScript y servicios backend en Node.</p>",
+    tags: ["VTEX", "React", "TypeScript", "Node", "API Rest"],
+  },
+  {
+    title: "Servicio de Notificaciones WhatsApp por Estado de Pedido",
+    body: "<p>Desarrollé un servicio de notificaciones que escucha eventos de cambio de estado de pedidos en VTEX (vía \"orders-broadcast\") y los procesa con un middleware en Laravel, junto con un componente de administración en VTEX Admin para configurar qué estados notificar por WhatsApp. Desplegado en múltiples tiendas VTEX bajo un flujo spec-driven con journal de sesiones.</p>",
+    tags: ["Laravel", "VTEX", "Node", "SDD/TDD", "API Rest"],
+  },
 ]
 
 export default successStories
