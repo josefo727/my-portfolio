@@ -274,4 +274,4 @@ notes: accessibility suite confirmed 9/9 green, no regression. Corrected this ta
 
 | Date | Change | Reason |
 |------|--------|--------|
-|      |        |        |
+| 2026-09-06 | Verify closed: 7/7 tasks, full suite green (69 tests/36 files), lint/typecheck clean. Closing commit: `spec: 003 closed — verify green`. | `/sdd-verify` — see `spec.md`'s Closed footer for the full report and acceptance-criteria evidence. |

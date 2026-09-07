@@ -50,6 +50,13 @@ None outstanding.
 
 ## Closed (filled during verify)
 
-- Date: `<pending>`
-- Commit: `<pending>`
-- Notes: `<pending>`
+- Date: 2026-09-06
+- Commit: `spec: 003 closed — verify green` (this feature's closing commit)
+- Notes: all 7 tasks closed; full suite green (69/69 Vitest tests, 36 files); lint/typecheck clean; `nuxi generate` succeeds. All 11 success-story drafts and the skill-logo sourcing were verified against real project data before writing — two of my own draft mistakes were caught and corrected before publishing, not after: an assumed PostgreSQL DB for Biogenesis (no evidence, dropped) and an assumed TypeScript dependency for CatalogFlip (confirmed absent, corrected to plain JS). See `tasks.md` for the complete drafting/approval trail.
+
+### Acceptance criteria evidence
+
+Criteria 7 and 8 have no commit whose Refs line cites them by name (T007, their owner, closed as a docs-only commit with no production change needed — see its own notes). Recorded here instead of treating it as a gap:
+
+7. **Automated tests confirm the new counts/shapes** — `tests/unit/data-success-stories.spec.ts` (19 entries, 8 original titles present, 11 new ones with valid shape, status wording checked) and `tests/unit/data-skills.spec.ts` (24 entries, 16 original titles present, 8 new ones with valid shape, no duplicate titles) — both extended in T005/T006.
+8. **Existing accessibility suite stays at zero violations** — `tests/nuxt/accessibility.nuxt.spec.ts` re-run after T005/T006's content changes: still 9/9 passing.
