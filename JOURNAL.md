@@ -238,3 +238,42 @@ Same day, continuing directly from session 5's resequencing decision. Ran the en
 ### Resume from
 
 Run `/sdd-specify` for feature 003 (content refresh: new success stories + skills).
+
+## 2026-09-06 — session 7 (003-content-refresh: specify → clarify → plan → tasks → implement → verify — CLOSED)
+
+### Context
+
+Same day, continuing directly from session 6. Ran the full lifecycle for 003, but with a significant scope discovery mid-specify: the user pointed to `~/Projects/massive-space` as the main source of new success stories, which turned out to be a large agency-client codebase, not the small personal-project set originally scoped.
+
+### Done this session
+
+- **Specify**: initial draft assumed 6 new success stories (the original 3 personal + 3 already-authorized). A `massive-space` survey (dispatched as a background Explore agent, ~50+ directories) found ~13 strong client-engagement candidates (VTEX integrations for Calzatodo, Qbano, Almacenes Brissa, Lilipink, Speedo, Pizzamania, Pepe Ganga, Juriscoop, Ficohsa/La Colonia payment gateway, Nequi/Gravity payment orchestration, MassiveSpace Pro, massive-whatsapp-service, plus the non-VTEX CatalogFlip). Confirmed with the user: freelance/independent contractor (so authorization is the user's own per-client call, same as Biogenesis/Somos URV), and a user-curated subset of 5 (Qbano, Nequi/Gravity, CatalogFlip, Almacenes Brissa, massive-whatsapp-service) — explicitly not the other ~8 candidates, available for a future feature. Also corrected an assumption: Sirocco is finished/in production (not "in development" like Cauce and Maná del Cielo). Final: 11 new success stories (up from the originally-scoped 6), 8 new skills. Zero clarification markers.
+- **Plan**: no new dependency; extend `data/success-stories.ts`/`data/skills.ts` (same interfaces). 8 new skill-logo SVGs — 7 downloaded from Simple Icons (MIT), 1 hand-authored (SDD/TDD has no brand icon; user chose an original SVG over a template change).
+- **Tasks**: 7 tasks. T001 (logo assets) has a real red-green cycle (file-existence test). T002-T004 are content-drafting tasks with no automated red — research each repo, draft copy, present for approval (Article V) — split personal / already-authorized / massive-space, in that order. T005-T006 write the approved content with real red-green tests. T007 is the final accessibility regression check.
+- **Implement**: researched all 11 projects directly (READMEs, composer.json/package.json, git log — no subagent needed at this stage, the projects are local and the survey agent's earlier findings covered the massive-space ones already). Presented all 11 drafts to the user in 3 batches (T002, T003, T004), each approved with minor edits (dropped version numbers "Laravel 13"→"Laravel"; dropped a dense metrics parenthetical from Sirocco's draft). Caught and corrected two of my own wrong assumptions before publishing, not after: an unfounded PostgreSQL claim for Biogenesis (its `.env.example` defaults to SQLite, no confirmed prod engine) and an unfounded TypeScript claim for CatalogFlip (confirmed no `typescript` dependency in its `package.json`).
+- **Verify**: full report, no FAILs (see `003-content-refresh/spec.md`'s Closed footer). Criteria 7/8 citation gap documented as supplemental evidence, same pattern as 001/002's verify.
+- Closing commit: `spec: 003 closed — verify green` (`c9f6bf5`).
+- Site now has **19 success stories** (8 original + 11 new) and **24 skills** (16 original + 8 new).
+
+### Open
+
+- Feature 003 is closed. Next: feature 004 (i18n: es default, `/en` path-based, visible switch — per the resolution reached mid-specify of 001).
+- Available for a future feature if wanted: the ~8 other strong `massive-space` candidates not selected this time (Calzatodo, Ficohsa/La Colonia, Pizzamania, Pepe Ganga, Juriscoop, Lilipink, Speedo, MassiveSpace Pro) — see `.specs/onboarding.md`.
+
+### Blockers / open questions
+
+- None open.
+
+### Decisions recorded elsewhere
+
+- `.specs/003-content-refresh/spec.md` → Closed footer (verify report + acceptance-criteria evidence); Non-goals (client-naming boundaries).
+- `.specs/onboarding.md` → Decisions log + the massive-space sweep write-up.
+- `.specs/003-content-refresh/tasks.md` → T002/T003/T004 notes carry the full approved draft text for all 11 success stories, verbatim.
+
+### Dead ends / discarded
+
+- None — the scope correction (6 → 11 stories) was a genuine expansion, not a dead end; the ~8 unselected massive-space candidates are deferred, not discarded.
+
+### Resume from
+
+Run `/sdd-specify` for feature 004 (i18n: es default, `/en` path-based, visible switch).
