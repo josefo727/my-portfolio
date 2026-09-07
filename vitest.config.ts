@@ -6,11 +6,10 @@ export default defineConfig({
     projects: [
       // Component/page tests that need a real Nuxt context (auto-imports, router).
       await defineVitestProject({
-        name: 'nuxt',
         test: {
+          name: 'nuxt',
           include: ['tests/nuxt/**/*.nuxt.spec.ts'],
           environment: 'nuxt',
-          setupTimeout: 120000,
         },
       }),
       // Pure logic: composables, data-shaping helpers. No Nuxt bootstrap, fast.

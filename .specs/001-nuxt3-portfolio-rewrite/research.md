@@ -58,6 +58,8 @@ import { mountSuspended, renderSuspended, registerEndpoint } from '@nuxt/test-ut
 
 - `environment: 'nuxt'` tests are meaningfully slower to boot than plain `node`/`happy-dom` tests — reserve them for components that actually depend on Nuxt context (composables, auto-imports, router-aware components); pure presentational components and content-shaping logic (Article III) can run as plain Vitest unit tests.
 - **Version drift found during T001 (2026-09-06):** `npm install` resolved `vitest@4.1.11` and `@nuxt/test-utils@4.2.0`, newer than what context7 had indexed. Vitest 4 removed `test.workspace` in favor of `test.projects` — the `defineVitestProject`-based example above must use `test.projects`, not `test.workspace`, or Vitest fails at startup with "The `test.workspace` option was removed in Vitest 4." `defineVitestProject` itself is unchanged (still returns a `TestProjectInlineConfiguration`).
+- **`setupTimeout` is not a valid per-project key** in the installed Vitest 4.1.11 (`ProjectConfig` rejects it under `vue-tsc --noEmit` with TS2353) — dropped from `vitest.config.ts`; the `nuxt` project's `test.name` field is what actually needs to move inside `test:` (not a sibling of it) for `defineVitestProject`'s config shape.
+- **`typescript@latest` resolved to `7.0.2`** (the Go-based TS7 rewrite) and broke `vue-tsc@3.3.11`: `Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './lib/tsc' is not defined by "exports"`. Pinned `typescript@^5` instead — matches ADR 0002's "TypeScript 5.x" decision and is what `vue-tsc` actually supports today.
 
 ### Decision impact
 
