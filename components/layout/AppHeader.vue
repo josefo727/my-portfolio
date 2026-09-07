@@ -2,7 +2,7 @@
   <header>
     <img src="/assets/img/profile-img.jpeg" alt="" width="80" height="80">
     <h1>
-      <NuxtLink to="/">{{ personal.short_name }}</NuxtLink>
+      <NuxtLink :to="localePath('/')">{{ personal.short_name }}</NuxtLink>
     </h1>
     <ul>
       <li><a :href="contact.twitter" target="_blank" rel="noopener">Twitter</a></li>
@@ -21,6 +21,8 @@ import personal from '~/data/personal'
 import contact from '~/data/contact'
 import AppNav from './AppNav.vue'
 import LocaleSwitcher from './LocaleSwitcher.vue'
+
+const localePath = useLocalePath()
 </script>
 
 <style scoped>

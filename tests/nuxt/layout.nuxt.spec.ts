@@ -40,6 +40,15 @@ describe('components/layout/AppNav', () => {
   })
 })
 
+describe('components/layout/AppHeader — i18n', () => {
+  it('links the site name to the locale home, not always /', async () => {
+    const wrapper = await mountSuspended(AppHeader, { route: '/en/about' })
+    const homeLink = wrapper.find('h1 a')
+
+    expect(homeLink.attributes('href')).toBe('/en')
+  })
+})
+
 describe('components/layout/AppFooter', () => {
   it('shows a copyright line', async () => {
     const wrapper = await mountSuspended(AppFooter)
