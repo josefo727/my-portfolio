@@ -147,13 +147,13 @@ G: implement the composable
 F: skipped — no smell detected
 files:
   - composables/use-localized-data.ts
-  - tests/unit/use-localized-data.spec.ts
-status: open
+  - tests/nuxt/use-localized-data.nuxt.spec.ts
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: e84bf50
+  green: 7ce158f
+  refactor: skipped — no smell detected
+notes: test moved from tests/unit/ (per plan) to tests/nuxt/ — the composable calls useI18n(), which needs Nuxt context and doesn't work in the plain 'unit' Vitest project.
 ```
 
 ---
