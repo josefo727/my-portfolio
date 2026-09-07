@@ -78,7 +78,7 @@
 - **Clock:** none domain-relevant (no scheduling logic).
 - **Randomness:** none.
 - **Filesystem:** build-time only (bundler reading data/content files); no runtime filesystem access.
-- **Third parties:** Google Fonts stylesheet (load-time asset dependency, not a mockable boundary); no other third-party runtime services at v0.
+- **Third parties:** none. Google Fonts (Open Sans/Raleway/Poppins) was the only third-party runtime asset at v0; the 001 rewrite replaced it with a system-font stack (`system-ui` etc.) — found during verify (2026-09-06) to have happened without an explicit decision, confirmed with the user then: no external font request, better performance/privacy, consistent with the rewrite's "no third-party dependency" spirit. See Amendments.
 
 **Rationale.** Uniform isolation policy. Given the site is currently 100% static content, most boundaries are intentionally "none" — this list is the reference point for the plan phase to update honestly if the rewrite adds a contact form or similar.
 
@@ -119,4 +119,4 @@
 
 | Date | Article | Change | ADR |
 |------|---------|--------|-----|
-| | | | |
+| 2026-09-06 | VII — Boundaries | Third parties: Google Fonts dropped, replaced by a system-font stack (found during `001-nuxt3-portfolio-rewrite`'s verify, confirmed with the user) | n/a — user-confirmed at verify, not multi-task-impact; see `001-nuxt3-portfolio-rewrite/spec.md` Closed footer |

@@ -95,9 +95,9 @@ Migrations required: none (no database). "Port" here means a 1:1 rewrite of each
 | Filesystem | build-time only: Nuxt/Vite reading `data/*.ts` and `assets/` at `nuxi generate` time | n/a — no runtime filesystem access, per Article VII |
 | Clock | none domain-relevant | n/a |
 | Randomness | none | n/a |
-| Third parties | Google Fonts stylesheet (load-time asset, not mockable) | n/a — unchanged from Article VII |
+| Third parties | none — Google Fonts dropped, system-font stack instead | n/a — found during verify (2026-09-06), confirmed with the user, constitution Article VII amended |
 
-No boundary in this feature crosses a process/network edge, so `contracts/` stays a placeholder index (see `contracts/README.md`) — confirmed against Article VII; nothing here amends it.
+No boundary in this feature crosses a process/network edge, so `contracts/` stays a placeholder index (see `contracts/README.md`). Article VII's third-parties line is amended (Google Fonts dropped, see the Stack decision table and the constitution's Amendments) — a removal, not a new integration, so no contract is warranted.
 
 ## Error model
 
