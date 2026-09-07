@@ -153,12 +153,44 @@ R: n/a — content-drafting task, no automated red
 G: read the 5 ~/Projects/massive-space/* repos, draft the 5 entries, get user approval or revisions
 F: n/a
 files: (none)
-status: open
+status: closed
 commits:
   red: n/a
-  green:
+  green: n/a — approved in chat, written to data in T005
   refactor: n/a
-notes:
+notes: |
+  Approved drafts (2026-09-06), verified against the repos (corrected an initial wrong assumption:
+  CatalogFlip has no TypeScript dependency — plain JS/JSX):
+
+  **Qbano** — tags: VTEX, React, TypeScript, Node, API Rest
+  Desarrollé para Qbano un checkout rápido con integración de datáfono físico y gift cards sobre VTEX
+  IO, además de un microservicio independiente de encuestas y cupones que alimenta un sitio externo de
+  encuestas al cliente. Trabajo full-stack con componentes React/TypeScript en el storefront y servicios
+  backend en Node.
+
+  **Nequi/Gravity** — tags: Laravel, TDD, SDD/TDD, API Rest, PHP
+  Desarrollé el backend de integración entre Nequi y un flujo de pagos ('Gravity') con Credibanco DX4000
+  para un cliente VTEX, incluyendo aprovisionamiento por comercio, superficies de pago en kiosco y
+  notificaciones push de pago. Construido en Laravel con Sanctum, bajo un flujo estricto de TDD (tests
+  rojo/verde por comando y contrato versionado).
+
+  **CatalogFlip** — tags: React, Tailwind CSS, PostgreSQL, SaaS
+  Desarrollé CatalogFlip, una plataforma propia para crear catálogos digitales interactivos a partir de
+  PDFs, con hotspots (botones de compra, enlaces, video), analítica integrada con Google Analytics 4,
+  catálogos embebibles vía iframe/JavaScript y colaboración en equipo con permisos por rol. Construida
+  en React con Vite, Tailwind CSS y Supabase (PostgreSQL, autenticación y almacenamiento).
+
+  **Almacenes Brissa** — tags: VTEX, React, TypeScript, Node, API Rest
+  Desarrollé un conjunto de aplicaciones a medida para Almacenes Brissa sobre VTEX IO: apps de
+  financiamiento y kits de producto, recogida en tienda con notificaciones por WhatsApp, sincronización
+  de datos de clientes entre subcuentas, checkout rápido con datáfono, y temas de kiosco/tótem para
+  tiendas y eventos. Trabajo full-stack en React/TypeScript y servicios backend en Node.
+
+  **massive-whatsapp-service** — tags: Laravel, VTEX, Node, SDD/TDD, API Rest
+  Desarrollé un servicio de notificaciones que escucha eventos de cambio de estado de pedidos en VTEX
+  (vía "orders-broadcast") y los procesa con un middleware en Laravel, junto con un componente de
+  administración en VTEX Admin para configurar qué estados notificar por WhatsApp. Desplegado en
+  múltiples tiendas VTEX bajo un flujo spec-driven con journal de sesiones.
 ```
 
 ---
