@@ -82,11 +82,11 @@ files:
   - components/layout/LocaleSwitcher.vue
   - components/layout/AppHeader.vue
   - tests/nuxt/locale-switcher.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: c692ed9
+  green: 3f0f820
+  refactor: skipped — no smell detected
 notes:
 ```
 
