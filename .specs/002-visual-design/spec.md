@@ -56,7 +56,7 @@ None outstanding — see "Resolved during specify" and "Resolved during clarify"
 ## Closed (filled during verify)
 
 - Date: 2026-09-06
-- Commit: `spec: 002 closed — verify green` (this feature's closing commit)
+- Commit: `5d62412` — `spec: 002 closed — verify green`
 - Notes: all 14 tasks closed; full suite green (59/59 Vitest tests, 35 files); lint/typecheck clean; `nuxi generate` succeeds. One real bug found during T014's manual review (desktop content column looked "narrow" — an uncentered 65ch cap left a large empty gutter) and fixed in the same pass (`b7f73e1`), then confirmed by the user on both mobile and desktop. See `tasks.md` for the complete per-task R-G-F trail.
 
 ### Acceptance criteria evidence
