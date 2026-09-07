@@ -21,6 +21,8 @@ import AppFooter from '~/components/layout/AppFooter.vue'
     'sidebar'
     'content'
     'footer';
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .layout__sidebar {
@@ -30,7 +32,10 @@ import AppFooter from '~/components/layout/AppFooter.vue'
 .layout__content {
   grid-area: content;
   padding: var(--space-lg);
-  max-width: 65ch;
+}
+
+.layout__content :deep(p) {
+  max-width: 75ch;
 }
 
 .layout__footer {
