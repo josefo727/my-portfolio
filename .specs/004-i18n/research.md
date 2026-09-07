@@ -34,6 +34,10 @@ export default defineNuxtConfig({
 - Powered by Vue I18n v11 internally — translation *message* files (`i18n/locales/*.json`) are the natural fit for short, static UI/page copy (nav labels, headings, fixed prose), not for large structured content arrays.
 - An `experimental.prerenderMessages` option exists to serve message files as static assets — not needed at this scale (our message catalogs are small); default (bundled) behavior is fine.
 
+### Gotcha found during T001 (2026-09-06)
+
+`npm install @nuxtjs/i18n` resolved `@nuxtjs/i18n@10.6.0` with `vue-i18n@11.4.10` as its direct dependency (matches the docs), but a transitive sub-dependency (`@intlify/vue-i18n-extensions`, pulled in by `@intlify/unplugin-vue-i18n`) declares its own peer on the deprecated `vue-i18n@10.0.8`, producing an `npm warn deprecated` notice at install time. This is that sub-package's own unrelated dependency, not the version actually used at runtime (`npm ls` confirms the top-level `vue-i18n` is 11.4.10) — no action needed.
+
 ### Decision impact
 
 - Ties to `plan.md` §Stack decision: `@nuxtjs/i18n`, `strategy: 'prefix_except_default'`, `defaultLocale: 'es'`.

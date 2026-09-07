@@ -29,12 +29,12 @@ files:
   - package.json
   - package-lock.json
   - tests/unit/i18n-routes.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: f6c80f0
+  green: e4a4c40
+  refactor: skipped — no smell detected
+notes: confirmed nuxi generate produces 36 routes (18 pages x 2 locales) automatically, no manual route list needed. Harmless transitive vue-i18n@10.0.8 deprecation warning at install — noted in research.md, not the actual runtime version (11.4.10).
 ```
 
 ---
