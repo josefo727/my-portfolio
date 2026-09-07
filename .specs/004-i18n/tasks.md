@@ -178,13 +178,26 @@ files:
   - components/contact/ContactInfo.vue
   - i18n/locales/es.json
   - i18n/locales/en.json
-  - tests/unit/i18n-messages-parity.spec.ts
-status: open
+  - utils/dates.ts
+  - package.json
+  - package-lock.json
+  - tests/nuxt/about-i18n.nuxt.spec.ts
+  - tests/nuxt/about.nuxt.spec.ts
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 08e66af
+  green: 0793671
+  refactor: skipped — no smell detected
+notes: |
+  Critical finding: dayjs's per-instance .locale() leaks state across routes
+  under Nitro's concurrent SSG rendering (only visible in the real nuxi
+  generate output, not in an isolated sequential Node check). Ruled out
+  useI18n().locale.value as the cause (route-based detection didn't fix it
+  either). Fix: dropped dayjs, rewrote utils/dates.ts with plain arithmetic
+  (age) + native Intl.DateTimeFormat (month names) — no shared mutable
+  state either way. See research.md for the full writeup. Also fixed a
+  now-broken collateral test (tests/nuxt/about.nuxt.spec.ts from 001, which
+  imported the old calculateAge signature).
 ```
 
 ---
