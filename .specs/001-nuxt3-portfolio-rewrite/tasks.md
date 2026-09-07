@@ -572,12 +572,12 @@ files:
   - pages/libraries.vue
   - components/libraries/LibraryDoc.vue
   - tests/nuxt/libraries.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T009 (layout). No data module — content is inline in the source today too.
+  red: ae61977
+  green: 89d03de
+  refactor: skipped — no smell detected
+notes: LibraryDoc uses <details>/<summary> instead of Bootstrap nav-tabs — natively accessible, no JS/dependency needed. Library.vue (unused vue-cli stub) was not ported — dead code, not content.
 ```
 
 ---
