@@ -413,12 +413,12 @@ files:
   - pages/resume.vue
   - components/resume/ResumeSummary.vue
   - tests/nuxt/resume.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T004 (personal data), T009 (layout).
+  red: b98c6f9
+  green: f7d7734
+  refactor: skipped — no smell detected
+notes:
 ```
 
 ---
