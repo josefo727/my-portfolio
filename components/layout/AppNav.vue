@@ -1,16 +1,21 @@
 <template>
   <nav>
     <ul>
-      <li><NuxtLink to="/">Inicio</NuxtLink></li>
-      <li><NuxtLink to="/about">Acerca de mí</NuxtLink></li>
-      <li><NuxtLink to="/resume">Resumen</NuxtLink></li>
-      <li><NuxtLink to="/libraries">Librerías</NuxtLink></li>
-      <li><NuxtLink to="/success-stories">Casos de Éxito</NuxtLink></li>
-      <li><NuxtLink to="/certifications">Certificaciones</NuxtLink></li>
-      <li><NuxtLink to="/contact">Contacto</NuxtLink></li>
+      <li><NuxtLink :to="localePath('/')">{{ t('nav.home') }}</NuxtLink></li>
+      <li><NuxtLink :to="localePath('/about')">{{ t('nav.about') }}</NuxtLink></li>
+      <li><NuxtLink :to="localePath('/resume')">{{ t('nav.resume') }}</NuxtLink></li>
+      <li><NuxtLink :to="localePath('/libraries')">{{ t('nav.libraries') }}</NuxtLink></li>
+      <li><NuxtLink :to="localePath('/success-stories')">{{ t('nav.successStories') }}</NuxtLink></li>
+      <li><NuxtLink :to="localePath('/certifications')">{{ t('nav.certifications') }}</NuxtLink></li>
+      <li><NuxtLink :to="localePath('/contact')">{{ t('nav.contact') }}</NuxtLink></li>
     </ul>
   </nav>
 </template>
+
+<script setup lang="ts">
+const { t } = useI18n()
+const localePath = useLocalePath()
+</script>
 
 <style scoped>
 ul {

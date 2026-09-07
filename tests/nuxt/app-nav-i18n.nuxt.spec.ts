@@ -18,4 +18,13 @@ describe('components/layout/AppNav — i18n', () => {
     expect(wrapper.text()).toContain('About Me')
     expect(wrapper.text()).toContain('Contact')
   })
+
+  it('keeps links locale-aware — /en/about stays under /en', async () => {
+    const wrapper = await mountSuspended(AppNav, { route: '/en/about' })
+
+    const hrefs = wrapper.findAll('a').map((a) => a.attributes('href'))
+    expect(hrefs).toContain('/en/about')
+    expect(hrefs).toContain('/en/contact')
+    expect(hrefs).not.toContain('/about')
+  })
 })

@@ -1,1 +1,11 @@
-{}
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "resume": "Resume",
+    "libraries": "Libraries",
+    "successStories": "Success Stories",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  }
+}

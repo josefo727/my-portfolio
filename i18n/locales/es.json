@@ -1,1 +1,11 @@
-{}
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de mí",
+    "resume": "Resumen",
+    "libraries": "Librerías",
+    "successStories": "Casos de Éxito",
+    "certifications": "Certificaciones",
+    "contact": "Contacto"
+  }
+}
