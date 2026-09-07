@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Contacto</h1>
+    <h1>{{ t('contact.heading') }}</h1>
     <ul>
       <li><a :href="`mailto:${contact.email}`">{{ contact.email }}</a></li>
       <li>{{ contact.phone }}</li>
@@ -19,6 +19,8 @@
 
 <script setup lang="ts">
 import contact from '~/data/contact'
+
+const { t } = useI18n()
 </script>
 
 <style scoped>

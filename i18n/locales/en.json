@@ -7,5 +7,31 @@
     "successStories": "Success Stories",
     "certifications": "Certifications",
     "contact": "Contact"
+  },
+  "about": {
+    "heading": "About Me",
+    "intro": "Hello, I'm José Rafael Gutierrez, a family man with a lovely wife and two children growing up.",
+    "personalInfo": "Some personal details about me.",
+    "fields": {
+      "birthday": "Date of Birth:",
+      "website": "Website:",
+      "mobile": "Mobile:",
+      "city": "City:",
+      "age": "Age:",
+      "ageValue": "{count} years",
+      "level": "Level:",
+      "levelValue": "Senior",
+      "email": "Email:",
+      "freelance": "Freelance:",
+      "freelanceValue": "Available"
+    },
+    "closing": "I've long worked as a custom web-systems developer. I'm into electronics, technology, science, and reading. I value the personal growth that comes from family life. I enjoy chess, good music, and film, but more than anything, I value time with my loved ones."
+  },
+  "services": {
+    "heading": "Services",
+    "comingSoon": "The details of the services I offer are coming soon — check back later."
+  },
+  "contact": {
+    "heading": "Contact"
   }
 }

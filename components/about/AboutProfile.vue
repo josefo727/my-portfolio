@@ -1,35 +1,27 @@
 <template>
   <section>
-    <h2>Acerca de mí</h2>
-    <p>
-      Hola, soy José Rafael Gutierrez, un padre de familia con una hermosa esposa y dos retoños en proceso de
-      crecimiento.
-    </p>
+    <h2>{{ t('about.heading') }}</h2>
+    <p>{{ t('about.intro') }}</p>
 
     <img src="/assets/img/profile-img.jpeg" alt="">
     <h3>UI/UX Designer &amp; Web Developer.</h3>
-    <p>Algunos datos personales sobre mí.</p>
+    <p>{{ t('about.personalInfo') }}</p>
 
     <ul>
-      <li><strong>Fecha de Nac.:</strong> {{ birthday }}</li>
+      <li><strong>{{ t('about.fields.birthday') }}</strong> {{ birthday }}</li>
       <li>
-        <strong>Sitio Web:</strong>
+        <strong>{{ t('about.fields.website') }}</strong>
         <a :href="contact.web_site" target="_blank" rel="noopener">{{ contact.web_site }}</a>
       </li>
-      <li><strong>Móvil:</strong> {{ contact.mobil }}</li>
-      <li><strong>Ciudad:</strong> {{ location.city }}</li>
-      <li><strong>Edad:</strong> {{ age }}</li>
-      <li><strong>Perfil:</strong> Senior</li>
-      <li><strong>Email:</strong> {{ contact.email }}</li>
-      <li><strong>Freelance:</strong> Disponible</li>
+      <li><strong>{{ t('about.fields.mobile') }}</strong> {{ contact.mobil }}</li>
+      <li><strong>{{ t('about.fields.city') }}</strong> {{ location.city }}</li>
+      <li><strong>{{ t('about.fields.age') }}</strong> {{ age }}</li>
+      <li><strong>{{ t('about.fields.level') }}</strong> {{ t('about.fields.levelValue') }}</li>
+      <li><strong>{{ t('about.fields.email') }}</strong> {{ contact.email }}</li>
+      <li><strong>{{ t('about.fields.freelance') }}</strong> {{ t('about.fields.freelanceValue') }}</li>
     </ul>
 
-    <p>
-      Desde hace tiempo me desempeño como desarrollador de sistemas web a medida. Soy aficionado a la
-      electrónica, la tecnología, la ciencia y la lectura. Valoro el crecimiento y desarrollo personal que
-      surge de la convivencia familiar. Disfruto del ajedrez, la buena música y el cine, pero, más que
-      nada, valoro tener tiempo para mis seres queridos.
-    </p>
+    <p>{{ t('about.closing') }}</p>
   </section>
 </template>
 
@@ -37,10 +29,14 @@
 import personal from '~/data/personal'
 import location from '~/data/location'
 import contact from '~/data/contact'
-import { calculateAge, formatDate } from '~/utils/dates'
+import { calculateAgeYears, formatDate, type DateLocale } from '~/utils/dates'
 
-const age = calculateAge(personal.birthday)
-const birthday = formatDate(personal.birthday)
+const { t } = useI18n()
+const route = useRoute()
+const dateLocale = computed<DateLocale>(() => (route.path.startsWith('/en') ? 'en' : 'es'))
+
+const age = computed(() => t('about.fields.ageValue', { count: calculateAgeYears(personal.birthday) }))
+const birthday = computed(() => formatDate(personal.birthday, dateLocale.value))
 </script>
 
 <style scoped>

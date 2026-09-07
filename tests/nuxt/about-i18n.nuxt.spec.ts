@@ -12,15 +12,21 @@ describe('AboutProfile — i18n', () => {
     expect(text).toContain('About Me')
     expect(text).toContain('Date of Birth:')
     expect(text).toContain('Level:')
+    expect(text).toMatch(/\d+ years/)
+    expect(text).toMatch(/- October -/)
     expect(text).not.toMatch(/años/)
+    expect(text).not.toMatch(/octubre/)
   })
 
-  it('still renders Spanish static copy on the default route', async () => {
+  it('still renders Spanish static copy and a Spanish-formatted age/birthday on the default route', async () => {
     const wrapper = await mountSuspended(AboutProfile, { route: '/about' })
     const text = wrapper.text()
 
     expect(text).toContain('Acerca de mí')
     expect(text).toContain('Fecha de Nac.:')
+    expect(text).toMatch(/\d+ años/)
+    expect(text).toMatch(/- octubre -/)
+    expect(text).not.toMatch(/\bOctober\b/)
   })
 })
 

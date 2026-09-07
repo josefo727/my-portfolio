@@ -7,5 +7,31 @@
     "successStories": "Casos de Éxito",
     "certifications": "Certificaciones",
     "contact": "Contacto"
+  },
+  "about": {
+    "heading": "Acerca de mí",
+    "intro": "Hola, soy José Rafael Gutierrez, un padre de familia con una hermosa esposa y dos retoños en proceso de crecimiento.",
+    "personalInfo": "Algunos datos personales sobre mí.",
+    "fields": {
+      "birthday": "Fecha de Nac.:",
+      "website": "Sitio Web:",
+      "mobile": "Móvil:",
+      "city": "Ciudad:",
+      "age": "Edad:",
+      "ageValue": "{count} años",
+      "level": "Perfil:",
+      "levelValue": "Senior",
+      "email": "Email:",
+      "freelance": "Freelance:",
+      "freelanceValue": "Disponible"
+    },
+    "closing": "Desde hace tiempo me desempeño como desarrollador de sistemas web a medida. Soy aficionado a la electrónica, la tecnología, la ciencia y la lectura. Valoro el crecimiento y desarrollo personal que surge de la convivencia familiar. Disfruto del ajedrez, la buena música y el cine, pero, más que nada, valoro tener tiempo para mis seres queridos."
+  },
+  "services": {
+    "heading": "Servicios",
+    "comingSoon": "El detalle de los servicios que ofrezco está en preparación — vuelve pronto."
+  },
+  "contact": {
+    "heading": "Contacto"
   }
 }

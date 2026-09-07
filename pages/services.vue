@@ -1,9 +1,13 @@
 <template>
   <section>
-    <h1>Servicios</h1>
-    <p>El detalle de los servicios que ofrezco está en preparación — vuelve pronto.</p>
+    <h1>{{ t('services.heading') }}</h1>
+    <p>{{ t('services.comingSoon') }}</p>
   </section>
 </template>
+
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
 
 <style scoped>
 h1 {
