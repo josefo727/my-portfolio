@@ -14,7 +14,7 @@ As the site's maintainer, I want the rewrite backed by an automated test suite t
 
 1. Every page's initial HTML response contains the page's full text content, before any client-side JavaScript executes.
 2. No script or stylesheet asset belonging to the previous third-party template package (Bootstrap, AOS, Boxicons, jQuery, Owl Carousel, Isotope, CounterUp, Venobox) is requested by the browser on any page.
-3. Each of the current site's content categories — home/intro, about, skills, experience, success stories, certifications, libraries, services, contact — remains reachable after the rewrite, at a URL that may be renamed from the current one when the new name better reflects the content (resolved with the user, 2026-09-05: free renaming allowed, not required to preserve exact current paths).
+3. Each of the current site's content categories — home/intro, about, skills, experience, success stories, certifications, libraries, services, contact — remains reachable after the rewrite, at a URL that may be renamed from the current one when the new name better reflects the content (resolved with the user, 2026-09-05: free renaming allowed, not required to preserve exact current paths). For **services**, "reachable" is satisfied by a minimal real shell (a heading and one honest sentence) rather than the current fabricated catalog — see "Resolved during tasks" below.
 4. Automated accessibility checks report zero WCAG 2.1 AA critical violations on every page.
 5. The production build produces static files servable without a persistent server process at runtime.
 6. Running the project's test command locally executes the automated test suite and exits with a non-zero status if any test fails.
@@ -27,6 +27,8 @@ As the site's maintainer, I want the rewrite backed by an automated test suite t
 - Retaining the current animated counters, typewriter effect, or scroll-triggered animations — the new design starts without them (user decision, 2026-09-05); a future design iteration may reintroduce a specific effect deliberately.
 - Rewriting or improving existing wording/copy of skills, experience, or success stories — that is content work, reserved for feature 002. This feature only changes presentation.
 - Internationalization (Spanish default, English at `/en`, visible language switch) — reserved for feature 003, sequenced after 002 so translation happens once, against the final content. This feature's route naming must not preclude adding a locale prefix later (e.g., no page is named literally `en`).
+- The `/portfolio` route: discovered during tasks decomposition to be 100% BootstrapMade demo filler (Lorem Ipsum copy, stock images) — not real content, and not part of this criterion's category list to begin with. Not carried into this feature; a real projects gallery, if wanted, is content work for a future feature. Resolved with the user, 2026-09-06.
+- The current `/services` page's icon-box service list and its entire "Testimonials" section: also discovered to be demo filler (fabricated service descriptions; testimonials attributed to fictitious named people with stock photos, e.g. "Saul Goodman"). Neither is real content to "carry over as-is" — both are dropped. The real service catalog is content work reserved for feature 002.
 
 ## Applicable constitution articles
 
@@ -48,6 +50,20 @@ None outstanding — see "Resolved during specify" below and `clarify.md` for th
 ### Resolved during clarify
 
 - Performance budget: no numeric target (e.g., Lighthouse score) is required for this feature. Sufficient for now: static generation with the third-party template's weight removed (acceptance criteria 1, 2, 5). A numeric threshold can be introduced later, in its own iteration, if warranted. Resolved with the user, 2026-09-06 — see `clarify.md`.
+
+### Resolved during tasks (scope correction — Article V)
+
+Reading `Portfolio/Index.vue` and `Services/{Services,Testimonials}.vue` closely while drafting `tasks.md` (2026-09-06) surfaced that both are template demo filler, not real content:
+
+- `/portfolio`: dropped from this feature entirely (see Non-goals). Not a regression — it was already absent from acceptance criterion 3's category list.
+- `/services`: kept as a required category (criterion 3), but shipped this feature as a minimal honest shell (heading + one real sentence, no fabricated service list). The Testimonials section (fictitious named people, stock photos) is removed outright — never real content, same class of artifact as the third-party template assets already being dropped.
+- Both choices confirmed with the user, 2026-09-06, rather than assumed.
+
+## Amendments
+
+| Date | Section | Change | Reason |
+|------|---------|--------|--------|
+| 2026-09-06 | Acceptance criterion 3, Non-goals | `/portfolio` excluded; `/services` scoped to a minimal shell, Testimonials dropped | Both were BootstrapMade demo filler (Lorem Ipsum / fictitious testimonials), discovered while drafting `tasks.md`; not real content to preserve. See "Resolved during tasks" above. |
 
 ## Glossary additions
 

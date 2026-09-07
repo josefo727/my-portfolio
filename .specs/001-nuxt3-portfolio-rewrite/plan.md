@@ -33,8 +33,7 @@ my-portfolio/
 │  ├─ index.vue                  # home/intro
 │  ├─ about.vue
 │  ├─ resume.vue                 # experience + education
-│  ├─ portfolio.vue
-│  ├─ services.vue
+│  ├─ services.vue               # minimal shell only — see note below
 │  ├─ success-stories.vue
 │  ├─ certifications.vue
 │  ├─ libraries.vue
@@ -70,6 +69,8 @@ Public interfaces:
 **Routes:** kept identical to the current path set (`/`, `/about`, `/resume`, `/portfolio`, `/services`, `/success-stories`, `/certifications`, `/libraries`, `/contact`) — the spec permits free renaming when justified (resolved 2026-09-05), but no renaming is justified by this feature's scope (presentation-only, no content/IA change). Renaming stays available for feature 002 if new content categories make it worthwhile.
 
 **Contact page note:** the current form (`action="forms/contact.php"`) targets a PHP endpoint that cannot work on this Node-less, PHP-less static host — it is part of the BootstrapMade template's demo scaffolding, not a real feature (no evidence of a `forms/contact.php` file in the repo). The rewrite's `/contact` page shows contact info (email, phone, social links) as static content and a `mailto:` link — no submitting form, consistent with this spec's non-goal "any dynamic, server-processed feature."
+
+**Portfolio/Services note (scope correction, 2026-09-06 — see `spec.md` "Resolved during tasks"):** `Portfolio/Index.vue` (Lorem Ipsum gallery, stock images) and `Services/Testimonials.vue` (fictitious named testimonials, stock photos) are BootstrapMade demo filler, not real content. `/portfolio` is dropped from this feature (it was already outside acceptance criterion 3's category list). `/services` stays reachable per criterion 3 but ships as a minimal shell — a heading and one real sentence, no fabricated service list, no testimonials section. The real service catalog is reserved for feature 002, same as other new content.
 
 ## Data model
 
