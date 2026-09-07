@@ -33,5 +33,35 @@
   },
   "contact": {
     "heading": "Contact"
+  },
+  "libraries": {
+    "heading": "Libraries",
+    "labels": {
+      "summary": "Summary",
+      "github": "GitHub Repository:",
+      "packagist": "Packagist Package:",
+      "vtexDocs": "Vtex REST APIs Documentation:",
+      "whatIsVtex": "What is Vtex?"
+    },
+    "vtexApiPhp": {
+      "summary": "Vtex API PHP",
+      "title": "Library for consuming Vtex Framework APIs",
+      "body": "This library was built to consume ecommerce stores built on the Vtex Framework, speeding up integrations between those stores and their sales/inventory systems (SAP, Intelisis, WinPOS, among others) through PHP or Laravel applications.",
+      "compatibility": "Compatibility: PHP 8+, Laravel 7+",
+      "whatIsVtexBody": "VTEX is an ecommerce platform that helps companies build their own online store and sell their products. With this tool you can design your digital store, manage products, receive purchase orders, process payments, and consolidate all your customers' information."
+    },
+    "vtexApiJs": {
+      "summary": "Vtex API JS",
+      "title": "Library for consuming Vtex Framework APIs",
+      "body": "This library was built to consume ecommerce stores built on the Vtex Framework, speeding up integrations between those stores and their sales/inventory systems (SAP, Intelisis, WinPOS, among others) through NodeJS applications.",
+      "compatibility": "Compatibility: JS, Node",
+      "whatIsVtexBody": "VTEX is an ecommerce platform that helps companies build their own online store and sell their products. With this tool you can design your digital store, manage products, receive purchase orders, process payments, and consolidate all your customers' information."
+    },
+    "generalSettings": {
+      "summary": "GeneralSettings",
+      "title": "Library for managing general settings in a Laravel application",
+      "body": "The GeneralSettings package for Laravel lets you manage general settings in a Laravel application without worrying about data casting, encryption, views, routes, or controllers. With a couple of commands and a few clicks you get an excellent module for managing your application's general parameters and settings.",
+      "compatibility": "Compatibility: PHP 8+, Laravel 8+"
+    }
   }
 }
