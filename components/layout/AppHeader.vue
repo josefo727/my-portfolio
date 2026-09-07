@@ -12,6 +12,7 @@
       <li><a :href="contact.linkedin" target="_blank" rel="noopener">LinkedIn</a></li>
     </ul>
     <AppNav />
+    <LocaleSwitcher />
   </header>
 </template>
 
@@ -19,6 +20,7 @@
 import personal from '~/data/personal'
 import contact from '~/data/contact'
 import AppNav from './AppNav.vue'
+import LocaleSwitcher from './LocaleSwitcher.vue'
 </script>
 
 <style scoped>
