@@ -53,13 +53,14 @@ G: add the wiring per the module's SEO guide (research.md)
 F: skipped — no smell detected
 files:
   - app.vue
+  - nuxt.config.ts
   - tests/nuxt/locale-head.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 6a6f293
+  green: cd181fc
+  refactor: skipped — no smell detected
+notes: needed i18n.baseUrl (https://hv.jose-gutierrez.com) for valid absolute hreflang URLs — the module warns without it. Verified in the actual nuxi generate output: correct x-default/es/es-ES/en/en-US hreflang links and lang="es-ES"/"en-US" per locale.
 ```
 
 ---
