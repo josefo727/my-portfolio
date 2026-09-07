@@ -13,3 +13,26 @@
 <script setup lang="ts">
 import education from '~/data/education'
 </script>
+
+<style scoped>
+h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+}
+
+div > div {
+  margin-bottom: var(--space-lg);
+}
+
+h4 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-xs);
+}
+
+h5 {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-weight: normal;
+  margin: 0 0 var(--space-xs);
+}
+</style>

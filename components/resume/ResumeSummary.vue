@@ -21,3 +21,25 @@ import personal from '~/data/personal'
 import location from '~/data/location'
 import contact from '~/data/contact'
 </script>
+
+<style scoped>
+div {
+  margin-bottom: var(--space-xl);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-sm);
+}
+
+ul {
+  list-style: none;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  color: var(--color-text-muted);
+}
+</style>
