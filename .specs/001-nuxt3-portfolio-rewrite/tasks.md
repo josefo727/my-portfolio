@@ -1,0 +1,686 @@
+# Tasks — 001-nuxt3-portfolio-rewrite
+
+## Legend
+
+- `T{NNN}` — task id, unique within feature, zero-padded.
+- `[P]` — safe to execute in parallel with other `[P]` tasks (disjoint files, no shared mutable state).
+- `R` — Red beat description.
+- `G` — Green beat description.
+- `F` — Refactor beat description.
+- `status` — `open | in_progress | closed | skipped`.
+
+---
+
+## T001 Scaffold Nuxt 3 + TypeScript + Vitest workspace
+
+```
+spec-ref:        Acceptance criteria 5, 6 ("static build" / "test command exits non-zero on failure")
+contract-ref:    n/a
+constitution-ref:Article II (test-first, effective from this task on), Article VI (ADR 0001, 0002)
+DoD:
+  - `npx nuxi generate` produces `.output/public/index.html`
+  - `npm run test` runs a Vitest workspace with `unit` (node/happy-dom) and `nuxt` (environment: nuxt) projects
+  - `tsconfig.json` present; project is `.ts`/`.vue` with `<script setup lang="ts">`
+  - a first smoke test exists and passes
+R: a Vitest test importing `app.vue` via `mountSuspended` fails because no Nuxt project exists yet
+G: minimal `nuxt.config.ts`, `app.vue`, `package.json` scripts, `vitest.config.ts` (workspace) make the smoke test pass
+F: skipped — no smell detected in a bootstrap commit
+files:
+  - nuxt.config.ts
+  - app.vue
+  - package.json
+  - vitest.config.ts
+  - tests/nuxt/smoke.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T002 Wire `@nuxt/eslint` + `vue-tsc` type-checking
+
+```
+spec-ref:        Acceptance criterion 7 ("CI pipeline runs lint...")
+contract-ref:    n/a
+constitution-ref:Aspirational → "Dependency hygiene"; ADR 0002 (lint tooling)
+DoD:
+  - `npm run lint` runs `@nuxt/eslint`'s flat config against the project with zero errors on a clean tree
+  - `npm run typecheck` runs `vue-tsc --noEmit` with zero errors
+  - old `.eslintrc.js` / `@vue/cli-plugin-eslint` config removed (superseded, not dual-maintained)
+R: `npm run lint` fails with "no ESLint configuration found" (no `eslint.config.mjs` yet)
+G: add `@nuxt/eslint` module + generated `eslint.config.mjs`, `npm run lint`/`npm run typecheck` scripts
+F: skipped — no smell detected in a bootstrap commit
+files:
+  - nuxt.config.ts
+  - eslint.config.mjs
+  - package.json
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T003 Design tokens: `assets/css/main.css`
+
+```
+spec-ref:        Summary ("original, minimalist design"); acceptance criterion 2 (no third-party template asset)
+contract-ref:    n/a
+constitution-ref:ADR 0002 (plain CSS, no styling framework)
+DoD:
+  - custom properties for color palette, spacing scale, type scale defined on `:root`
+  - a global reset (box-sizing, margin resets) with no dependency on Bootstrap/AOS classes
+  - `main.css` is the only global stylesheet imported in `nuxt.config.ts`
+R: a component test asserting a design-token custom property (e.g. `--color-text`) is readable from `getComputedStyle` fails because `main.css` doesn't exist
+G: minimal `assets/css/main.css` with the token set, registered in `nuxt.config.ts` `css: []`
+F: skipped — first pass, nothing to deduplicate yet
+files:
+  - assets/css/main.css
+  - nuxt.config.ts
+  - tests/nuxt/design-tokens.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T004 [P] Port small data modules: personal, location, contact, facts
+
+```
+spec-ref:        Non-goal "content carried over as-is, no new content added"
+contract-ref:    n/a
+constitution-ref:Current (de facto) → "Content-as-data"; Article III (real collaborators, no mocking content)
+DoD:
+  - `data/personal.ts`, `data/location.ts`, `data/contact.ts`, `data/facts.ts` exist as typed modules
+  - each exports the same fields as its `src/data/*.js` counterpart, no additions/removals
+  - a shape-parity test asserts key sets and array lengths match the source files
+R: a test importing `data/personal.ts` (etc.) fails because the files don't exist
+G: minimal typed port of each of the 4 source files, unchanged values
+F: skipped — no smell detected in a mechanical port
+files:
+  - data/personal.ts
+  - data/location.ts
+  - data/contact.ts
+  - data/facts.ts
+  - tests/unit/data-small.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T005 [P] Port data modules: education, certifications
+
+```
+spec-ref:        Non-goal "content carried over as-is, no new content added"
+contract-ref:    n/a
+constitution-ref:Current (de facto) → "Content-as-data"; Article III
+DoD:
+  - `data/education.ts`, `data/certifications.ts` exist as typed modules
+  - fields/values match `src/data/education.js` and `src/data/certifications.js` exactly
+  - a shape-parity test asserts array length and required-field presence per entry
+R: a test importing `data/education.ts`/`data/certifications.ts` fails because the files don't exist
+G: minimal typed port of both source files, unchanged values
+F: skipped — no smell detected in a mechanical port
+files:
+  - data/education.ts
+  - data/certifications.ts
+  - tests/unit/data-education-certifications.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T006 [P] Port data module: skills
+
+```
+spec-ref:        Non-goal "content carried over as-is, no new content added"
+contract-ref:    n/a
+constitution-ref:Current (de facto) → "Content-as-data"; Article III
+DoD:
+  - `data/skills.ts` exists, typed, matching `src/data/skills.js` entries exactly
+  - a shape-parity test asserts entry count and required fields (title/image) per entry
+R: a test importing `data/skills.ts` fails because the file doesn't exist
+G: minimal typed port of `src/data/skills.js`
+F: skipped — no smell detected in a mechanical port
+files:
+  - data/skills.ts
+  - tests/unit/data-skills.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T007 [P] Port data module: experience
+
+```
+spec-ref:        Non-goal "content carried over as-is, no new content added"
+contract-ref:    n/a
+constitution-ref:Current (de facto) → "Content-as-data"; Article III
+DoD:
+  - `data/experience.ts` exists, typed, matching `src/data/experience.js` entries exactly
+  - a shape-parity test asserts entry count and required fields per entry
+R: a test importing `data/experience.ts` fails because the file doesn't exist
+G: minimal typed port of `src/data/experience.js`
+F: skipped — no smell detected in a mechanical port
+files:
+  - data/experience.ts
+  - tests/unit/data-experience.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T008 [P] Port data module: success stories
+
+```
+spec-ref:        Non-goal "content carried over as-is, no new content added"
+contract-ref:    n/a
+constitution-ref:Current (de facto) → "Content-as-data"; Article III
+DoD:
+  - `data/success-stories.ts` exists, typed (`title`, `body: string` HTML, `tags: string[]`)
+  - entries match `src/data/success-stories.js` exactly — no story added, removed, or reworded
+  - a shape-parity test asserts entry count and required fields per entry
+R: a test importing `data/success-stories.ts` fails because the file doesn't exist
+G: minimal typed port of `src/data/success-stories.js`
+F: skipped — no smell detected in a mechanical port
+files:
+  - data/success-stories.ts
+  - tests/unit/data-success-stories.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T009 Shared layout: header, nav, footer
+
+```
+spec-ref:        Acceptance criterion 3 (every category reachable — nav is how a visitor reaches them)
+contract-ref:    n/a
+constitution-ref:ADR 0002 (hand-authored SVG icons, no icon package)
+DoD:
+  - `layouts/default.vue` renders `AppHeader` + `<slot/>`/`<NuxtPage/>` + `AppFooter`
+  - `AppNav` lists a link to every route this feature ships (see T011–T022; excludes `/portfolio`)
+  - `AppFooter` shows contact/social links sourced from `data/contact.ts` (depends on T004)
+  - a component test asserts all expected nav links are present
+R: a test rendering `layouts/default.vue` fails because it doesn't exist
+G: minimal `layouts/default.vue` + `components/layout/{AppHeader,AppNav,AppFooter}.vue`
+F: extract any repeated link-list markup between `AppNav` and `AppFooter` into a shared list if duplication appears
+files:
+  - layouts/default.vue
+  - components/layout/AppHeader.vue
+  - components/layout/AppNav.vue
+  - components/layout/AppFooter.vue
+  - tests/nuxt/layout.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T004 (data/contact.ts) for AppFooter's social links.
+```
+
+---
+
+## T010 [P] `error.vue` — not-found page
+
+```
+spec-ref:        Plan §Error model (new — no catch-all exists in the current `vue-router` table)
+contract-ref:    n/a
+constitution-ref:Article VIII (a 404 page must remain navigable/accessible)
+DoD:
+  - `error.vue` renders a short "page not found" message and a link back to `/`
+  - `nuxi generate` emits a static `404.html` from it
+  - a component test asserts the message and the home link are present
+R: a test rendering `error.vue` fails because it doesn't exist
+G: minimal `error.vue` with message + link
+F: skipped — no smell detected
+files:
+  - error.vue
+  - tests/nuxt/error.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes:
+```
+
+---
+
+## T011 Home page
+
+```
+spec-ref:        Acceptance criterion 3 (home/intro category)
+contract-ref:    n/a
+constitution-ref:Non-goal (no typewriter effect — `vue-typed-js` dropped, per ADR 0001)
+DoD:
+  - `pages/index.vue` renders the intro using `data/personal.ts` (`short_name`, `activities`)
+  - `activities` shown as static text (list or single line) — no typewriter animation
+  - a component test asserts the name and at least one activity string render
+R: a test rendering `pages/index.vue` fails because it doesn't exist
+G: minimal `pages/index.vue` + `components/home/Hero.vue` consuming `data/personal.ts`
+F: skipped — single small component, nothing to extract yet
+files:
+  - pages/index.vue
+  - components/home/Hero.vue
+  - tests/nuxt/home.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T004 (data/personal.ts), T009 (layout).
+```
+
+---
+
+## T012 About page — shell + profile section
+
+```
+spec-ref:        Acceptance criterion 3 (about category)
+contract-ref:    n/a
+constitution-ref:Article III (real collaborators — no mocking `data/personal.ts` etc.)
+DoD:
+  - `pages/about.vue` renders an intro heading + `AboutProfile` (birthday/age, site, city, email — from `data/personal.ts`/`data/location.ts`/`data/contact.ts`)
+  - age/birthday computed matches the current `helpers` logic (ported, not reworded)
+  - a component test asserts the profile fields render with the source data's values
+R: a test rendering `pages/about.vue` fails because it doesn't exist
+G: minimal `pages/about.vue` + `components/about/AboutProfile.vue`
+F: skipped — first pass
+files:
+  - pages/about.vue
+  - components/about/AboutProfile.vue
+  - tests/nuxt/about.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T004 (personal/location/contact data), T009 (layout).
+```
+
+---
+
+## T013 About page — skills section
+
+```
+spec-ref:        Acceptance criterion 3 (skills category)
+contract-ref:    n/a
+constitution-ref:Article III (real collaborators — renders actual `data/skills.ts`)
+DoD:
+  - `components/about/AboutSkills.vue` lists every entry from `data/skills.ts`
+  - `pages/about.vue` composes it below the profile section
+  - a component test asserts the rendered skill count matches `data/skills.ts`'s length
+R: a test rendering `AboutSkills` fails because it doesn't exist
+G: minimal `components/about/AboutSkills.vue` + wiring into `pages/about.vue`
+F: skipped — small list component
+files:
+  - components/about/AboutSkills.vue
+  - pages/about.vue
+  - tests/nuxt/about-skills.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T006 (data/skills.ts), T012 (touches pages/about.vue again — sequential with T012 and T014, not [P]).
+```
+
+---
+
+## T014 About page — facts section
+
+```
+spec-ref:        Acceptance criterion 3 (about category — "facts" sub-section)
+contract-ref:    n/a
+constitution-ref:Non-goal (no animated counters — `vue-countup-v2` dropped, per ADR 0001)
+DoD:
+  - `components/about/AboutFacts.vue` lists every entry from `data/facts.ts` with static numbers (no count-up animation)
+  - `pages/about.vue` composes it below the skills section
+  - a component test asserts each fact's `quantity`/`title` renders as static text
+R: a test rendering `AboutFacts` fails because it doesn't exist
+G: minimal `components/about/AboutFacts.vue` + wiring into `pages/about.vue`
+F: skipped — small list component
+files:
+  - components/about/AboutFacts.vue
+  - pages/about.vue
+  - tests/nuxt/about-facts.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T004 (data/facts.ts), T013 (touches pages/about.vue again — sequential, not [P]).
+```
+
+---
+
+## T015 Resume page — shell + summary section
+
+```
+spec-ref:        Acceptance criterion 3 (experience category, summary sub-section)
+contract-ref:    n/a
+constitution-ref:Article III
+DoD:
+  - `pages/resume.vue` renders a summary section (from `data/personal.ts` / existing Summary copy)
+  - a component test asserts the summary text renders
+R: a test rendering `pages/resume.vue` fails because it doesn't exist
+G: minimal `pages/resume.vue` + `components/resume/ResumeSummary.vue`
+F: skipped — first pass
+files:
+  - pages/resume.vue
+  - components/resume/ResumeSummary.vue
+  - tests/nuxt/resume.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T004 (personal data), T009 (layout).
+```
+
+---
+
+## T016 Resume page — experience section
+
+```
+spec-ref:        Acceptance criterion 3 (experience category)
+contract-ref:    n/a
+constitution-ref:Article III (renders actual `data/experience.ts`)
+DoD:
+  - `components/resume/ResumeExperience.vue` lists every entry from `data/experience.ts` (role, employer, period, description)
+  - `pages/resume.vue` composes it below the summary
+  - a component test asserts the rendered entry count matches `data/experience.ts`'s length
+R: a test rendering `ResumeExperience` fails because it doesn't exist
+G: minimal `components/resume/ResumeExperience.vue` + wiring into `pages/resume.vue`
+F: skipped — list component
+files:
+  - components/resume/ResumeExperience.vue
+  - pages/resume.vue
+  - tests/nuxt/resume-experience.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T007 (data/experience.ts), T015 (touches pages/resume.vue — sequential with T017, not [P]).
+```
+
+---
+
+## T017 Resume page — education section
+
+```
+spec-ref:        Acceptance criterion 3 (experience category, education sub-section)
+contract-ref:    n/a
+constitution-ref:Article III (renders actual `data/education.ts`)
+DoD:
+  - `components/resume/ResumeEducation.vue` lists every entry from `data/education.ts`
+  - `pages/resume.vue` composes it below the experience section
+  - a component test asserts the rendered entry count matches `data/education.ts`'s length
+R: a test rendering `ResumeEducation` fails because it doesn't exist
+G: minimal `components/resume/ResumeEducation.vue` + wiring into `pages/resume.vue`
+F: skipped — list component
+files:
+  - components/resume/ResumeEducation.vue
+  - pages/resume.vue
+  - tests/nuxt/resume-education.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T005 (data/education.ts), T016 (touches pages/resume.vue — sequential, not [P]).
+```
+
+---
+
+## T018 Services page — minimal shell
+
+```
+spec-ref:        Acceptance criterion 3 (services category); spec.md Amendments 2026-09-06 ("minimal real shell, no fabricated list, Testimonials dropped")
+contract-ref:    n/a
+constitution-ref:Non-goal (no new content — the "coming soon" sentence is structural, not a service catalog)
+DoD:
+  - `pages/services.vue` renders a heading and one real sentence (no Lorem Ipsum, no fabricated service list, no testimonials)
+  - no `vue-owl-carousel`/testimonials markup exists anywhere in this page
+  - a component test asserts the page renders without any of the current fabricated strings ("Lorem Ipsum", "Saul Goodman", etc.)
+R: a test rendering `pages/services.vue` fails because it doesn't exist
+G: minimal `pages/services.vue` with the honest placeholder copy
+F: skipped — intentionally minimal
+files:
+  - pages/services.vue
+  - tests/nuxt/services.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T009 (layout). Real service catalog is feature-002 content work.
+```
+
+---
+
+## T019 Success stories page
+
+```
+spec-ref:        Acceptance criterion 3 (success stories category)
+contract-ref:    n/a
+constitution-ref:Article III (renders actual `data/success-stories.ts`, `v-html` body carried over as-is per plan.md §Data model)
+DoD:
+  - `pages/success-stories.vue` renders every entry from `data/success-stories.ts` (title, body, tags)
+  - a component test asserts the rendered story count matches `data/success-stories.ts`'s length
+R: a test rendering `pages/success-stories.vue` fails because it doesn't exist
+G: minimal `pages/success-stories.vue` + `components/success-stories/SuccessStoryCard.vue`
+F: skipped — first pass
+files:
+  - pages/success-stories.vue
+  - components/success-stories/SuccessStoryCard.vue
+  - tests/nuxt/success-stories.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T008 (data/success-stories.ts), T009 (layout).
+```
+
+---
+
+## T020 Certifications page
+
+```
+spec-ref:        Acceptance criterion 3 (certifications category)
+contract-ref:    n/a
+constitution-ref:Non-goal (no scroll/carousel animation — `vue-flux` dropped, per ADR 0001; a plain list/grid replaces the carousel)
+DoD:
+  - `pages/certifications.vue` renders every entry from `data/certifications.ts` as a static list/grid (no `vue-flux` dependency)
+  - a component test asserts the rendered entry count matches `data/certifications.ts`'s length
+R: a test rendering `pages/certifications.vue` fails because it doesn't exist
+G: minimal `pages/certifications.vue` + `components/certifications/CertificationCard.vue`
+F: skipped — first pass
+files:
+  - pages/certifications.vue
+  - components/certifications/CertificationCard.vue
+  - tests/nuxt/certifications.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T005 (data/certifications.ts), T009 (layout).
+```
+
+---
+
+## T021 Libraries page
+
+```
+spec-ref:        Acceptance criterion 3 (libraries category)
+contract-ref:    n/a
+constitution-ref:Non-goal ("no new content" — the VTEX library write-ups are ported verbatim, not data-driven in the source either)
+DoD:
+  - `pages/libraries.vue` renders the same library write-ups (Vtex API PHP, Vtex API JS, GeneralSettings) as today, unchanged wording
+  - tab/section markup replaces Bootstrap's `nav-tabs` with a template-free equivalent
+  - a component test asserts each library's heading renders
+R: a test rendering `pages/libraries.vue` fails because it doesn't exist
+G: minimal `pages/libraries.vue` + `components/libraries/LibraryDoc.vue`
+F: skipped — first pass
+files:
+  - pages/libraries.vue
+  - components/libraries/LibraryDoc.vue
+  - tests/nuxt/libraries.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T009 (layout). No data module — content is inline in the source today too.
+```
+
+---
+
+## T022 Contact page
+
+```
+spec-ref:        Acceptance criterion 3 (contact category); Non-goal ("any dynamic, server-processed feature")
+contract-ref:    n/a
+constitution-ref:Article VII (confirms no HTTP boundary — no submitting form)
+DoD:
+  - `pages/contact.vue` renders email, phone, and social links from `data/contact.ts`
+  - a `mailto:` link is present; no `<form>` element exists on the page
+  - a component test asserts the contact fields render and no form is present
+R: a test rendering `pages/contact.vue` fails because it doesn't exist
+G: minimal `pages/contact.vue` + `components/contact/ContactInfo.vue`
+F: skipped — first pass
+files:
+  - pages/contact.vue
+  - components/contact/ContactInfo.vue
+  - tests/nuxt/contact.nuxt.spec.ts
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T004 (data/contact.ts), T009 (layout).
+```
+
+---
+
+## T023 Accessibility test suite (all pages)
+
+```
+spec-ref:        Acceptance criterion 4 (zero WCAG 2.1 AA critical violations on every page)
+contract-ref:    n/a
+constitution-ref:Article VIII
+DoD:
+  - one parameterized Vitest case per shipped route (`/`, `/about`, `/resume`, `/services`, `/success-stories`, `/certifications`, `/libraries`, `/contact`, plus `error.vue`)
+  - each case renders the page via `renderSuspended` and runs `axe.run` with tags `wcag2a,wcag2aa,wcag21a,wcag21aa`
+  - every case asserts zero violations
+R: the parameterized test file fails to import (doesn't exist yet)
+G: minimal `tests/nuxt/accessibility.nuxt.spec.ts` iterating the route list with `axe-core`
+F: extract the "render + axe.run + assert zero violations" steps into a small test helper if the per-case body repeats verbatim
+files:
+  - tests/nuxt/accessibility.nuxt.spec.ts
+  - package.json (axe-core devDependency)
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T009–T022 (every page must exist first).
+```
+
+---
+
+## T024 CI pipeline
+
+```
+spec-ref:        Acceptance criterion 7
+contract-ref:    n/a
+constitution-ref:Aspirational → "CI"
+DoD:
+  - `.github/workflows/ci.yml` runs on every push: `npm run lint` → `npm run typecheck` → `npm run test` → `npx nuxi generate`
+  - any failing step fails the workflow (default GitHub Actions behavior — no `continue-on-error`)
+  - workflow uses a Node version ≥ 18 (matching ADR 0001)
+R: n/a — CI config has no local red/green cycle; verified by pushing and observing the workflow run
+G: minimal `.github/workflows/ci.yml` with the four steps above
+F: skipped — single small YAML file
+files:
+  - .github/workflows/ci.yml
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: depends on T001, T002 (scripts it invokes must exist).
+```
+
+---
+
+## T025 Docker multi-stage build
+
+```
+spec-ref:        Acceptance criterion 5 (static build, no persistent server process)
+contract-ref:    n/a
+constitution-ref:ADR 0001 (Node ≥18, `.output/public/`); ADR 0002 (multi-stage build)
+DoD:
+  - `Dockerfile` has a `builder` stage (`node:20-alpine`, runs `npm ci` + `npx nuxi generate`) and a runtime stage (`nginx:alpine`) that only copies `.output/public/`
+  - the runtime stage contains no Node/npm binaries
+  - `docker-compose.yml` / `nginx_config/*` still serve the container correctly (manually verified: `docker compose up` → site reachable on the mapped port)
+R: n/a — infrastructure task, verified by building and running the image, not a Vitest case
+G: rewritten multi-stage `Dockerfile`
+F: skipped — single file, already minimal
+files:
+  - Dockerfile
+status: open
+commits:
+  red:
+  green:
+  refactor:
+notes: last task — depends on the build succeeding (T001) and all pages existing so the served site is complete.
+```
+
+---
+
+## Amendments
+
+| Date | Change | Reason |
+|------|--------|--------|
+|      |        |        |
