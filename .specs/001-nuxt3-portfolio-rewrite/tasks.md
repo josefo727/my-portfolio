@@ -118,12 +118,12 @@ files:
   - data/contact.ts
   - data/facts.ts
   - tests/unit/data-small.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 4264d9e
+  green: cb54c56
+  refactor: skipped — no smell detected (mechanical port)
+notes: original src/data/*.js content recovered via `git show cfefc10^:src/data/<file>.js` (cfefc10 is the T001 chore-deletion commit).
 ```
 
 ---
