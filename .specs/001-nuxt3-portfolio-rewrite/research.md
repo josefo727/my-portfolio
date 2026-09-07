@@ -92,6 +92,7 @@ axe.run().then(results => {
 ### Decision impact
 
 - Ties to `plan.md` §Test strategy: one accessibility check per page component, rendered via `renderSuspended`, asserting `axe.run(container, { runOnly: { type: 'tag', values: ['wcag2a','wcag2aa','wcag21a','wcag21aa'] } })` returns zero violations. Runs inside the existing Vitest harness — no separate E2E tool needed for this feature.
+- **Found during T023 (2026-09-06):** used `mountSuspended` (already used everywhere else in this suite) instead of `renderSuspended`, to avoid adding `@testing-library/vue` as a new, unresearched dependency. `axe.run(wrapper.element, ...)` alone throws `Error: No elements found for include in page Context` — axe-core requires the scanned root to be connected to a live `document` (same gap as T003's global-CSS finding: `mountSuspended` mounts detached by default). Fix: pass `{ attachTo: document.body }` to `mountSuspended`.
 
 ---
 

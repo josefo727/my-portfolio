@@ -625,12 +625,13 @@ F: extract the "render + axe.run + assert zero violations" steps into a small te
 files:
   - tests/nuxt/accessibility.nuxt.spec.ts
   - package.json (axe-core devDependency)
-status: open
+  - package-lock.json
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T009–T022 (every page must exist first).
+  red: 48d333b
+  green: ac60cfd
+  refactor: skipped — no smell detected
+notes: used mountSuspended (not renderSuspended, per plan.md) to avoid adding @testing-library/vue as an unresearched dependency; needed `{ attachTo: document.body }` for axe-core to find a live document (research.md). All 9 cases passed with zero production changes — pages built in T011-T022 were already accessible.
 ```
 
 ---
