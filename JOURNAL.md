@@ -178,8 +178,9 @@ Ran `/sdd-verify` to close out the feature, same day as session 4's full impleme
 
 ### Open
 
-- Feature 001 is closed. Next: start feature 002 (content refresh — Sirocco, Cauce, Maná del Cielo + forge, Bajo la Lupa, Biogenesis, Somos URV as success stories; new skills per the earlier `~/Projects` sweep). Run `/sdd-specify` for 002.
-- Feature 003 (i18n: es default, `/en` path-based, visible switch) remains sequenced after 002.
+- Feature 001 is closed. When the user checked the running site (`npm run dev`), it turned out to have no real visual design applied — only CSS tokens (T003), never used on components; default browser styling throughout (underlined blue links, bullet-list nav). A real gap between the constitution's "original, minimalist design" goal and how 001's tasks were broken down — none of them actually styled a component.
+- Resequenced (`.specs/onboarding.md` → Decisions log, 2026-09-06): new **002 = visual design pass** (apply the existing tokens to real layout/spacing/typography); content refresh becomes **003**; i18n becomes **004**.
+- Next: `/sdd-specify` for 002 (visual design pass).
 
 ### Blockers / open questions
 
@@ -196,4 +197,4 @@ Ran `/sdd-verify` to close out the feature, same day as session 4's full impleme
 
 ### Resume from
 
-Run `/sdd-specify` for feature 002 (content refresh: new success stories + skills).
+Run `/sdd-specify` for feature 002 (visual design pass — apply the existing CSS tokens to real component layout/spacing/typography).

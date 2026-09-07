@@ -50,6 +50,7 @@ Sourced from a separate sweep of `~/Projects` (git log + README inspection acros
 | Test harness | Add Vitest + `@nuxt/test-utils` as part of this feature, not deferred | 2026-09-05 |
 | Feature slicing | Three features: 001 rewrite (structure/design/tests/CI, current content as-is), 002 content refresh (new success stories/skills), 003 i18n (es default, `/en` path-based, after 002's content is final) | 2026-09-05 |
 | URL renaming (001) | Routes may be renamed freely when justified; no requirement to preserve exact current paths | 2026-09-05 |
+| Feature resequencing | 001 shipped functionally complete but with no real visual design applied (only CSS tokens, never used on components) — a gap between the constitution's "original, minimalist design" goal and what got task-broken-down. New feature inserted as **002 (visual design pass)**; content refresh becomes **003**, i18n becomes **004** | 2026-09-06 |
 
 ## Deviation from kit default
 
