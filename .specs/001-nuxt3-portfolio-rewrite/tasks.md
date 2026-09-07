@@ -221,12 +221,12 @@ F: skipped — no smell detected in a mechanical port
 files:
   - data/success-stories.ts
   - tests/unit/data-success-stories.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 25a9222
+  green: a159b12
+  refactor: skipped — no smell detected (mechanical port)
+notes: 8 entries, not 9 as originally assumed (miscounted before implementing); corrected in the same green commit.
 ```
 
 ---
