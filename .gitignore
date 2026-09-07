@@ -1,5 +1,12 @@
 .DS_Store
 node_modules
+
+# Nuxt build/dev outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
 /dist
 
 

@@ -57,6 +57,7 @@ import { mountSuspended, renderSuspended, registerEndpoint } from '@nuxt/test-ut
 ### Gotchas, rate limits, versioning
 
 - `environment: 'nuxt'` tests are meaningfully slower to boot than plain `node`/`happy-dom` tests — reserve them for components that actually depend on Nuxt context (composables, auto-imports, router-aware components); pure presentational components and content-shaping logic (Article III) can run as plain Vitest unit tests.
+- **Version drift found during T001 (2026-09-06):** `npm install` resolved `vitest@4.1.11` and `@nuxt/test-utils@4.2.0`, newer than what context7 had indexed. Vitest 4 removed `test.workspace` in favor of `test.projects` — the `defineVitestProject`-based example above must use `test.projects`, not `test.workspace`, or Vitest fails at startup with "The `test.workspace` option was removed in Vitest 4." `defineVitestProject` itself is unchanged (still returns a `TestProjectInlineConfiguration`).
 
 ### Decision impact
 
