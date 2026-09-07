@@ -20,6 +20,14 @@ const skills: Skill[] = [
   { title: "Motores NoSQL's", image: '/assets/img/logos/no-sql.png' },
   { title: 'DevOps', image: '/assets/img/logos/dev-ops.png' },
   { title: 'Docker', image: '/assets/img/logos/docker.png' },
+  { title: 'SDD/TDD', image: '/assets/img/logos/sdd-tdd.svg' },
+  { title: 'Filament', image: '/assets/img/logos/filament.svg' },
+  { title: 'Livewire', image: '/assets/img/logos/livewire.svg' },
+  { title: 'PostgreSQL', image: '/assets/img/logos/postgresql.svg' },
+  { title: 'Python', image: '/assets/img/logos/python.svg' },
+  { title: 'Flutter/Dart', image: '/assets/img/logos/flutter.svg' },
+  { title: 'TypeScript', image: '/assets/img/logos/typescript.svg' },
+  { title: 'Tailwind CSS', image: '/assets/img/logos/tailwindcss.svg' },
 ]
 
 export default skills
