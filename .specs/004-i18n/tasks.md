@@ -109,14 +109,25 @@ files:
   - i18n/locales/es.json
   - i18n/locales/en.json
   - components/layout/AppNav.vue
+  - components/layout/AppHeader.vue
   - tests/unit/i18n-messages-parity.spec.ts
   - tests/nuxt/app-nav-i18n.nuxt.spec.ts
-status: open
+  - tests/nuxt/layout.nuxt.spec.ts
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: nav labels (Inicio/Acerca de mí/etc.) are short enough to translate inline without a separate approval batch — flagged to the user at present-time, not silently assumed.
+  red: b29f631
+  green: 68e4b6e, 1d6b40b
+  refactor: skipped — no smell detected
+notes: |
+  Nav labels translated inline (short, low-risk), not a separate approval batch.
+  Real bug found and fixed twice in this task: plain `<NuxtLink to="/x">` is not
+  locale-aware under @nuxtjs/i18n — needs `useLocalePath()`. Fixed in AppNav (green
+  commit) and, once spotted, also in AppHeader's site-name link (a second commit,
+  same task) — both verified in the real `nuxi generate` output.
+  Also needed empty `i18n/locales/{es,en}.json` placeholders before any red test
+  could run at all — the module crashes Nuxt/Vitest startup (ENOENT) if a
+  configured locale `file` doesn't exist on disk, not a graceful feature-absent
+  failure.
 ```
 
 ---
