@@ -88,13 +88,13 @@ F: skipped — first pass, nothing to deduplicate yet
 files:
   - assets/css/main.css
   - nuxt.config.ts
-  - tests/nuxt/design-tokens.nuxt.spec.ts
-status: open
+  - tests/unit/design-tokens.spec.ts
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: b9dc4aa
+  green: 8e235f0
+  refactor: skipped — no smell detected (first-pass token file)
+notes: the original red (15bb2c4) used a nuxt-environment mountSuspended test asserting on getComputedStyle — discovered mountSuspended does not inject nuxt.config's global css into the test DOM, so that test shape can never pass. Corrected to a unit test reading the CSS source text directly (see commit b9dc4aa). Test file path changed from the planned tests/nuxt/design-tokens.nuxt.spec.ts to tests/unit/design-tokens.spec.ts accordingly.
 ```
 
 ---
