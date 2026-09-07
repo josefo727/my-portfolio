@@ -108,12 +108,33 @@ R: n/a — content-drafting task, no automated red
 G: read ~/Projects/{bajo-la-lupa,bio-labs-dev/bio-labs,urv-web-site/somos-urv}, draft the 3 entries, get user approval or revisions
 F: n/a
 files: (none)
-status: open
+status: closed
 commits:
   red: n/a
-  green:
+  green: n/a — approved in chat, written to data in T005
   refactor: n/a
-notes:
+notes: |
+  Approved drafts (2026-09-06):
+
+  **Bajo la Lupa** — tags: Laravel, Filament, Livewire, SDD/TDD, SEO
+  Desarrollé Bajo la Lupa, una plataforma editorial que publica reseñas de libros, artículos y cursos,
+  con gestión de autores, series y categorías. Construida en Laravel con Filament para el panel
+  administrativo y Livewire para las interacciones dinámicas, incluye búsqueda con Meilisearch, gestión
+  de medios con Spatie Media Library, SEO completo (sitemap, feed RSS, schema.org) y almacenamiento en
+  S3. Sigue mi metodología SDD+TDD. Disponible en bajolalupa.net.
+
+  **Biogenesis** — tags: Laravel, VueJS, Multi-tenancy, Clean Code, API Rest
+  Desarrollé Biogenesis, un sistema de gestión para laboratorios clínicos con arquitectura multi-tenant,
+  que administra pacientes, solicitudes de servicios, prefacturación y facturación. El backend usa
+  Laravel con Horizon para colas, Sanctum para autenticación de API, y Spatie para permisos, auditoría y
+  manejo de medios. El frontend en Vue 3 con Vuetify incluye dashboards con ApexCharts/Chart.js, un
+  editor de texto enriquecido (TipTap) y autorización basada en habilidades con CASL.
+
+  **Somos URV** — tags: Laravel, Filament, SDD/TDD, i18n
+  Desarrollé Somos URV, el sitio institucional de la organización, con gestión de noticias, roster de
+  liderazgo y contenido en varios idiomas. Construido en Laravel con Filament para el panel
+  administrativo, búsqueda con Meilisearch, permisos y contenido multi-idioma vía Spatie, y generación
+  de códigos QR. Sigue mi metodología SDD+TDD. Disponible en somos-urv.org.
 ```
 
 ---
