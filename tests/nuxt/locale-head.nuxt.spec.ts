@@ -3,16 +3,16 @@ import { mountSuspended } from '@nuxt/test-utils/runtime'
 import App from '~/app.vue'
 
 describe('app.vue — locale head (lang attribute + hreflang)', () => {
-  it('sets <html lang="es"> on a default-locale route', async () => {
+  it('sets <html lang="es-ES"> on a default-locale route', async () => {
     await mountSuspended(App, { route: '/about' })
 
-    expect(document.documentElement.lang).toBe('es')
+    expect(document.documentElement.lang).toBe('es-ES')
   })
 
-  it('sets <html lang="en"> on an /en route', async () => {
+  it('sets <html lang="en-US"> on an /en route', async () => {
     await mountSuspended(App, { route: '/en/about' })
 
-    expect(document.documentElement.lang).toBe('en')
+    expect(document.documentElement.lang).toBe('en-US')
   })
 
   it('emits hreflang alternate link tags', async () => {

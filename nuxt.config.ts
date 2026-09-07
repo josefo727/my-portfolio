@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
   css: ['~/assets/css/main.css'],
   i18n: {
+    baseUrl: 'https://hv.jose-gutierrez.com',
     strategy: 'prefix_except_default',
     defaultLocale: 'es',
     locales: [
