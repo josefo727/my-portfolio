@@ -51,7 +51,7 @@ None outstanding.
 ## Closed (filled during verify)
 
 - Date: 2026-09-06
-- Commit: `spec: 003 closed — verify green` (this feature's closing commit)
+- Commit: `c9f6bf5` — `spec: 003 closed — verify green`
 - Notes: all 7 tasks closed; full suite green (69/69 Vitest tests, 36 files); lint/typecheck clean; `nuxi generate` succeeds. All 11 success-story drafts and the skill-logo sourcing were verified against real project data before writing — two of my own draft mistakes were caught and corrected before publishing, not after: an assumed PostgreSQL DB for Biogenesis (no evidence, dropped) and an assumed TypeScript dependency for CatalogFlip (confirmed absent, corrected to plain JS). See `tasks.md` for the complete drafting/approval trail.
 
 ### Acceptance criteria evidence
