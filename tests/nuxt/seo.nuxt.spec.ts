@@ -6,6 +6,7 @@ import ResumePage from '~/pages/resume.vue'
 import ServicesPage from '~/pages/services.vue'
 import SuccessStoriesPage from '~/pages/success-stories.vue'
 import ContactPage from '~/pages/contact.vue'
+import ErrorPage from '~/error.vue'
 
 // @unhead's DOM plugin flushes title/meta tag updates asynchronously (debounced) — see
 // tests/nuxt/use-page-seo.nuxt.spec.ts for the same gotcha, documented there first.
@@ -64,5 +65,17 @@ describe('per-page SEO tags', () => {
     await mountSuspended(ContactPage, { route: '/en/contact', attachTo: document.body })
     await waitForTitle('Contact — José R. Gutierrez')
     assertPageHasSeoTags('Contact — José R. Gutierrez')
+  })
+
+  it('renders a noindex meta tag on the 404 page, not og:image', async () => {
+    await mountSuspended(ErrorPage, {
+      route: '/does-not-exist',
+      attachTo: document.body,
+      props: { error: { statusCode: 404 } },
+    })
+    await waitForTitle('Página no encontrada — José R. Gutierrez')
+
+    const robots = document.head.querySelector('meta[name="robots"]')
+    expect(robots?.getAttribute('content')).toBe('noindex')
   })
 })
