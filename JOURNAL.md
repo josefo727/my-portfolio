@@ -322,3 +322,46 @@ Same day (rolled past midnight into 2026-09-07), continuing from session 7. Ran 
 ### Resume from
 
 Continue `/sdd-implement` for `004-i18n` at T008 (`error.vue` translation — small batch, present for approval same as T006/T007). After T008, the remaining content-heavy tasks (T009-T012) will need per-project/per-entry research similar to `003`'s pattern, ending with the 19 success stories (T012, deliberately last/largest).
+
+## 2026-09-07 — session 9 (004-i18n: implement T008-T014 → verify, all tasks closed, CLOSURE PENDING USER APPROVAL)
+
+### Context
+
+Same day, continuing from session 8. The user asked to proceed with T008 and then explicitly authorized advancing the rest of the feature autonomously ("sigue en automático... adelanta trabajo") while stepping away, rather than the synchronous per-batch approval used in every prior session. This is a deliberate, explicit deviation from this spec's own Article V commitment ("translation text is drafted by the assistant and approved by the user in batches **before publishing**") — the user is the same authority that commitment protects, and they authorized deferring the review to session's end instead of skipping it. Flagged prominently below and in `tasks.md`; **treat 004 as implementation-complete but not yet formally closed** until the user reviews the drafted translations.
+
+### Done this session
+
+- **T008**: `error.vue` translated (R-G-F). Reused the existing `i18n-messages-parity.spec.ts` file for Red (a specific key-presence assertion) instead of a new nuxt-mount test, since the content is trivial.
+- **T009-T012** (content-drafting tasks, no automated red per their own DoD): drafted English text for personal/facts/skills/education (T009), all 37 certification captions (T010), all 6 experience entries (T011), all 19 success stories (T012). Full verbatim drafts recorded in each task's `tasks.md` notes for the user's review — **not yet approved**, only wired into the codebase (see T013).
+  - Two scope corrections found and documented while drafting (not silently expanded): T011 widened to translate `experience[].tenure` (criterion 5 requires no untranslated Spanish visitor-facing text, and tenure duration strings are visitor-facing); T012 widened to translate the 2 non-English `tags[]` entries (`Microservicios`, `Patrón Adaptador`) since tags render as visible pill labels.
+  - One factual flag for the user: success story #6's Spanish source spells the client "Phillips Morris Internacional"; the real company is "Philip Morris International". The English draft uses the correct spelling — the Spanish source was **not** touched (this spec's non-goal), so if the user prefers to mirror the misspelling instead, it's a one-line change.
+- **T013**: wrote all 7 `data/*.en.ts` files from the T009-T012 drafts; wired every consumer (`Hero`, `AboutFacts`, `AboutSkills`, `ResumeEducation`, `ResumeExperience`, `pages/certifications.vue`, `pages/success-stories.vue`) to `useLocalizedData()`. **Found a real gap while wiring, not scoped by any prior task**: several static headings/intros on these exact files (`about.skills`/`about.facts` heading+intro, `resume.education` heading, `resume.experience.website` label, `certifications`/`successStories` page `<h1>`s) had never been translated by T004/T006/T007 and would have shown Spanish text on `/en` pages — added the missing `i18n` keys and wired them. Also found and fixed the same defect in `components/resume/ResumeSummary.vue` ("Resúmen" heading + the 13-years-experience bio paragraph), even though that file wasn't in T013's original file list — same class of gap, fixed alongside the rest.
+  - **Deliberately left untouched, flagged for the user**: `ResumeExperience.vue`'s `<h3>Professional Experience</h3>` is hardcoded English on **both** locales — a pre-existing bug that predates 004 and is unrelated to i18n (the Spanish page shows the wrong language). No criterion-5 violation either way (the English page already reads correctly), but "fixing" it would change what Spanish visitors see today, which needs the user's decision, not a translation task's.
+  - Verified in a real `nuxi generate` build (36 routes, both locales) that every heading/label/content sample renders correctly — not just via Vitest, per this spec's own precedent (T006's dayjs bug was only visible in a real build).
+- **T014**: extended the WCAG 2.1 AA accessibility suite to mount every page (+ `error.vue`) under both the default `es` route and its `/en` equivalent — 18 cases, zero violations (no production changes needed, same outcome as `001`'s T023 and `003`'s T007).
+- **All 14 tasks of `004-i18n` now closed.** Full suite green (105/105 Vitest tests across 45 files), lint/typecheck clean.
+- **Ran `/sdd-verify`**: R1 (spec coverage) PASS — all 8 criteria traced to a Red-commit `spec-ref`, except criterion 3 (SSG pre-render) which has no dedicated automated test but is functionally verified via the real `nuxi generate` build both this session and in T002 (documented as supplemental evidence, same pattern as 001/002/003's verify reports). R2 (task completeness) PASS — 14/14 closed, commit SHAs recorded. R3 (orphan tests) PASS — 0 orphans among the 13 test files added/changed this feature. R4 (contracts) N/A — no external boundary (per `contracts/README.md`, unchanged since plan). R5 (constitution) **WARN** — see below. R6 (research freshness) PASS — `research.md` captured 2026-09-06, 1 day old. R7 (observability) N/A — no article declares it. R8 (security) N/A — no auth/money/PII/external writes. R9 (docs) **WARN, fixed in-session** — `README.md` had no mention of the new `/en/*` route tree; added one line. R10 (changelog) N/A — project has no `CHANGELOG.md` (consistent with 001/002/003).
+  - **R5 WARN, the one open item**: this spec's own Article V commitment is "the assistant drafts, the user approves in batches **before publishing**". T009-T012's drafts were wired into the live data files (T013) before that approval, under the user's own explicit in-session authorization to defer review to session's end rather than block on it. This is not a silent skip — it's recorded in every affected task's notes — but it means **the translated content is live in the working tree without the user's content-accuracy sign-off yet**. Nothing is pushed to `origin` (still 186 commits ahead, unpushed) and nothing is deployed.
+- **Feature 004 was NOT closed** (no `## Closed` footer in `spec.md`, no `spec: 004 closed` commit) — left pending the user's review of the T009-T012 drafts, per R5's WARN. Once approved (as-is, or with edits), closing is a small final step: append the Closed footer + commit.
+
+### Open
+
+- **User action needed**: review the drafted English translations (verbatim in `tasks.md` T009-T012, spot-checked in the real build this session) and either approve as-is or request edits. Two items called out above for a specific decision: the "Phillips Morris" vs. "Philip Morris International" spelling, and whether to fix `ResumeExperience.vue`'s "Professional Experience" heading to actually be locale-aware (would change current Spanish-visible text).
+- After approval: close `004-i18n` (append `## Closed` footer to `spec.md`, record the verify SHA in `tasks.md`, commit `spec: 004 closed — verify green`).
+- After 004 closes: no further features are queued in `.specs/onboarding.md` beyond the deferred ~8 `massive-space` candidates noted in session 7 (available for a future feature if wanted).
+
+### Blockers / open questions
+
+- None blocking further work — the one open item (translation approval) blocks *closing* 004, not any further mechanical work.
+
+### Decisions recorded elsewhere
+
+- `.specs/004-i18n/tasks.md` — T009-T012 notes carry the full verbatim drafts; T011/T012/T013 notes carry the documented scope corrections; T013 notes carry the "Professional Experience" flag.
+
+### Dead ends / discarded
+
+- None this session.
+
+### Resume from
+
+Get the user's review/approval of the T009-T012 translation drafts (already wired in T013), resolve the two flagged decisions, then close `004-i18n` per R5's WARN.
