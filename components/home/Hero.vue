@@ -6,7 +6,9 @@
         <li v-for="activity in personal.activities" :key="activity" class="hero__badge">{{ activity }}</li>
       </ul>
     </div>
-    <HeatmapGrid class="hero__heatmap" />
+    <div class="hero__heatmap-wrapper">
+      <HeatmapGrid />
+    </div>
   </section>
 </template>
 
@@ -42,15 +44,14 @@ h1 {
   color: var(--color-text-muted);
 }
 
-.hero__heatmap {
+.hero__heatmap-wrapper {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .hero__heatmap {
+  .hero__heatmap-wrapper {
     display: block;
     margin-top: var(--space-xl);
-    width: 100%;
   }
 }
 </style>
