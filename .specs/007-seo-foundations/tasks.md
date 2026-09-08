@@ -193,11 +193,11 @@ files:
   - i18n/locales/es.json
   - i18n/locales/en.json
   - tests/unit/seo-i18n.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: 5f0399c
+  green: 3530adb
+  refactor: skipped — no smell detected
 notes:
 ```
 
