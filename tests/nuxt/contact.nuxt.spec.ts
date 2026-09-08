@@ -9,7 +9,8 @@ describe('pages/contact', () => {
     const text = wrapper.text()
 
     expect(text).toContain(contact.email)
-    expect(text).toContain(contact.phone)
+    expect(text).toContain(contact.mobil)
+    expect(text).not.toContain('+576018394169')
     expect(wrapper.find(`a[href="mailto:${contact.email}"]`).exists()).toBe(true)
     expect(wrapper.find(`a[href="${contact.linkedin}"]`).exists()).toBe(true)
     expect(wrapper.find('form').exists()).toBe(false)
