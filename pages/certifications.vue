@@ -16,6 +16,8 @@ import certificationsEn from '~/data/certifications.en'
 
 const { t } = useI18n()
 const certifications = useLocalizedData(certificationsEs, certificationsEn)
+
+usePageSeo('certifications')
 </script>
 
 <style scoped>

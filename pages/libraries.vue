@@ -84,4 +84,6 @@
 import LibraryDoc from '~/components/libraries/LibraryDoc.vue'
 
 const { t } = useI18n()
+
+usePageSeo('libraries')
 </script>

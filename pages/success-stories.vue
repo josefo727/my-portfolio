@@ -12,4 +12,6 @@ import successStoriesEn from '~/data/success-stories.en'
 
 const { t } = useI18n()
 const successStories = useLocalizedData(successStoriesEs, successStoriesEn)
+
+usePageSeo('successStories')
 </script>
