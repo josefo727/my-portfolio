@@ -26,12 +26,46 @@ R: n/a — content-drafting task, no automated red (see spec.md Article V note, 
 G: read massive-space/{calzatodo/backend-services,pizzamania/auto-invoicer,lilipink/credi-pink,massivespace-pro}, confirm/extend the triage findings, draft the 4 entries, get user approval or revisions
 F: n/a
 files: (none — output is approved draft text, not yet written to a file)
-status: open
+status: closed
 commits:
   red: n/a
   green: n/a — approved in chat, written to data in T003
   refactor: n/a
-notes:
+notes: |
+  Approved drafts (2026-09-08), verified directly against each repo (README, CLAUDE.md,
+  composer.json/package.json, manifest.json, app/node directory structure) before drafting:
+
+  **Calzatodo — Tarjetas de Regalo VTEX IO** — tags: VTEX, Node, TypeScript, Microservicios
+  Desarrollé para Calzatodo un microservicio VTEX IO (Node.js/TypeScript con KoaJS) que gestiona de
+  forma segura la emisión de tarjetas de regalo sobre Master Data, con reintentos automáticos y
+  alertas a Slack ante fallos, validación de límites mensuales de canje por cliente, y una capa de
+  integración con el OMS para procesar eventos de pago aprobado y facturación. Autoescalado de 2 a 4
+  réplicas según demanda.
+
+  **Pizzamania — Auto Invoicer con SDD+TDD** — tags: VTEX, Node, SDD/TDD, Automatización
+  Diseñé y desarrollé Auto Invoicer, una app VTEX IO para Pizzamania que cierra automáticamente
+  pedidos de marketplace atascados en estado "pago aprobado", facturando la orden espejo en la
+  cuenta franquicia (seller) correspondiente para que VTEX propague el estado de facturado de vuelta
+  al marketplace. Apliqué mi propia metodología SDD+TDD, con especificación, plan y contratos
+  documentados; el barrido es idempotente y paginado por cursor, con un modo de recuperación
+  histórica (backfill) capaz de reanudarse tras una interrupción.
+
+  **CrediPink — Crédito en Checkout VTEX** — tags: Laravel, Filament, PHP, VTEX, PHPUnit
+  Desarrollé CrediPink, el backend del producto de compra a crédito propio de la marca LiliPink,
+  integrado al checkout de su tienda VTEX y construido en PHP/Laravel con panel administrativo en
+  Filament. Implementé la validación de identidad y cupo del cliente, la generación de pagarés y
+  confirmación de venta contra la API de crédito, sincronización con el order form del checkout,
+  cancelación automática de pedidos huérfanos y monitoreo del estado del gate de pago en producción.
+  Utilicé PHPUnit para pruebas unitarias y de integración.
+
+  **MassiveSpace Pro — Plataforma Interna Multi-cliente** — tags: Laravel, Filament, PHP, Redis, RBAC, Clean Architecture
+  Diseñé y desarrollé MassiveSpace Pro, una plataforma propia en Laravel/Filament para centralizar la
+  gestión de múltiples clientes de comercio electrónico integrados con VTEX: notificaciones por
+  WhatsApp, recuperación de carritos abandonados, checkout rápido, generación de URLs cortas con
+  códigos QR y facturación masiva de pedidos con reintentos y recuperación histórica (backfill).
+  Apliqué Clean Architecture (controladores de una sola acción, Services, Actions, Repositories sobre
+  Redis, DTOs) con control de roles y permisos (RBAC) vía Spatie, y cobertura de pruebas con PHPUnit
+  para cada dominio de negocio.
 ```
 
 ---
