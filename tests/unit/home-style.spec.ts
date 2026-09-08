@@ -10,4 +10,13 @@ describe('components/home/Hero.vue — styling', () => {
     expect(source).toMatch(/var\(--space-/)
     expect(source).toMatch(/var\(--font-size-/)
   })
+
+  it('renders the activity list as individual badges, not a middle-dot separated line', () => {
+    expect(source).not.toMatch(/content:\s*['"]·['"]/)
+    expect(source).toMatch(/border-radius:\s*999px/)
+  })
+
+  it('only shows the decorative heatmap on viewports >=768px', () => {
+    expect(source).toMatch(/@media\s*\(min-width:\s*768px\)/)
+  })
 })

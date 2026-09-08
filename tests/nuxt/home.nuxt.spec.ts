@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
 import HomePage from '~/pages/index.vue'
+import HeatmapGrid from '~/components/home/HeatmapGrid.vue'
 import personal from '~/data/personal'
 
 describe('pages/index', () => {
@@ -9,5 +10,11 @@ describe('pages/index', () => {
 
     expect(wrapper.text()).toContain(personal.short_name)
     expect(wrapper.text()).toContain(personal.activities[0])
+  })
+
+  it('renders the decorative HeatmapGrid', async () => {
+    const wrapper = await mountSuspended(HomePage)
+
+    expect(wrapper.findComponent(HeatmapGrid).exists()).toBe(true)
   })
 })
