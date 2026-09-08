@@ -12,7 +12,7 @@ const ORIGINAL_TITLES = [
   'Custom Blog The Bar Colombia',
 ]
 
-const NEW_TITLES = [
+const NEW_TITLES_003 = [
   'Sirocco — Sistema de Votación Segura y Auditable',
   'Cauce — Plataforma B2B de Trueque Multilateral',
   'Maná del Cielo — Lector Bíblico Offline y Privado',
@@ -26,9 +26,16 @@ const NEW_TITLES = [
   'Servicio de Notificaciones WhatsApp por Estado de Pedido',
 ]
 
+const NEW_TITLES_006 = [
+  'Calzatodo — Tarjetas de Regalo VTEX IO',
+  'Pizzamania — Auto Invoicer con SDD+TDD',
+  'CrediPink — Crédito en Checkout VTEX',
+  'MassiveSpace Pro — Plataforma Interna Multi-cliente',
+]
+
 describe('data/success-stories', () => {
-  it('has the original 8 entries unchanged, plus 11 new ones (19 total)', () => {
-    expect(successStories).toHaveLength(19)
+  it('has the original 8 entries unchanged, plus 11 from 003 and 4 from 006 (23 total)', () => {
+    expect(successStories).toHaveLength(23)
 
     // Original 8 unchanged
     expect(successStories[0].title).toBe('Artículos para Vultr')
@@ -37,10 +44,18 @@ describe('data/success-stories', () => {
       expect(successStories.some((s) => s.title === title)).toBe(true)
     }
 
-    // 11 new entries present with the expected shape
-    for (const title of NEW_TITLES) {
+    // 11 entries from 003 still present, unchanged shape
+    for (const title of NEW_TITLES_003) {
       const story = successStories.find((s) => s.title === title)
-      expect(story, `missing new story: ${title}`).toBeTruthy()
+      expect(story, `missing 003 story: ${title}`).toBeTruthy()
+      expect(story!.body).toMatch(/^<p>/)
+      expect(story!.tags.length).toBeGreaterThan(0)
+    }
+
+    // 4 new entries from 006 present with the expected shape
+    for (const title of NEW_TITLES_006) {
+      const story = successStories.find((s) => s.title === title)
+      expect(story, `missing 006 story: ${title}`).toBeTruthy()
       expect(story!.body).toMatch(/^<p>/)
       expect(story!.tags.length).toBeGreaterThan(0)
     }
@@ -60,5 +75,22 @@ describe('data/success-stories', () => {
     expect(sirocco.body).toMatch(/producci[oó]n/i)
     expect(cauce.body).toMatch(/desarrollo activo/i)
     expect(mana.body).toMatch(/desarrollo activo/i)
+  })
+
+  it('scopes the 006 entries to what the user actually authored, per triage', () => {
+    const calzatodo = successStories.find((s) => s.title.startsWith('Calzatodo'))!
+    const credipink = successStories.find((s) => s.title.startsWith('CrediPink'))!
+    const massiveSpacePro = successStories.find((s) => s.title.startsWith('MassiveSpace Pro'))!
+
+    // Calzatodo: scoped to the backend-services microservice, not the storefront theme
+    expect(calzatodo.body).not.toMatch(/theme|tienda|storefront/i)
+
+    // CrediPink: scoped to the credit product, not the LiliPink storefront/theme
+    expect(credipink.body).not.toMatch(/theme|storefront/i)
+
+    // MassiveSpace Pro: an internal tool, names no specific client
+    for (const client of ['Calzatodo', 'Pizzamania', 'CrediPink', 'LiliPink', 'Qbano']) {
+      expect(massiveSpacePro.body).not.toContain(client)
+    }
   })
 })
