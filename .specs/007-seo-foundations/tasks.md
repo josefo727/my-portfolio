@@ -32,7 +32,7 @@ files:
 status: closed
 commits:
   red: n/a
-  green: 2eb35c1
+  green: 6327c4b
   refactor: n/a
 notes: |
   Reality differed from plan: @nuxtjs/sitemap's automatic @nuxtjs/i18n integration produces
