@@ -735,12 +735,17 @@ G: fix anything the accessibility suite surfaces
 F: skipped unless a fix requires cleanup
 files:
   - tests/nuxt/accessibility.nuxt.spec.ts
-status: open
+status: closed
 commits:
   red: n/a
-  green:
-  refactor:
-notes: last task — depends on all prior tasks (a finished, fully translated site to check).
+  green: 912f7f9
+  refactor: skipped — no smell detected
+notes: |
+  Last task — depended on all prior tasks (a finished, fully translated site to check). Extended
+  PAGES × LOCALES (es, en) into 18 mount cases (8 pages + error.vue, × 2 locales) via
+  `mountSuspended(component, { route })`. Zero violations across the board — the pages built in
+  T001-T013 were already accessible in both locales, same "no production changes needed" outcome
+  as 001's T023.
 ```
 
 ---
