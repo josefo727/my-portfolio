@@ -43,9 +43,24 @@ describe('components/layout/AppNav', () => {
 describe('components/layout/AppHeader — i18n', () => {
   it('links the site name to the locale home, not always /', async () => {
     const wrapper = await mountSuspended(AppHeader, { route: '/en/about' })
-    const homeLink = wrapper.find('h1 a')
+    const homeLink = wrapper.find('.site-name a')
 
     expect(homeLink.attributes('href')).toBe('/en')
+  })
+})
+
+describe('components/layout/AppHeader — heading structure', () => {
+  it('does not wrap the site name in an <h1> — every page already has its own page heading', async () => {
+    const wrapper = await mountSuspended(AppHeader)
+
+    expect(wrapper.find('h1').exists()).toBe(false)
+  })
+
+  it('gives the profile photo real alt text naming the site owner', async () => {
+    const wrapper = await mountSuspended(AppHeader)
+    const img = wrapper.find('img')
+
+    expect(img.attributes('alt')).toBe('Foto de perfil de José R. Gutierrez')
   })
 })
 

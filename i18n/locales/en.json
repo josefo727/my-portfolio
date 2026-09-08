@@ -1,4 +1,7 @@
 {
+  "common": {
+    "profilePhotoAlt": "Profile photo of {name}"
+  },
   "nav": {
     "home": "Home",
     "about": "About Me",
