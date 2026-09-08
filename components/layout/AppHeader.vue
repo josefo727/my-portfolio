@@ -5,11 +5,11 @@
       <NuxtLink :to="localePath('/')">{{ personal.short_name }}</NuxtLink>
     </h1>
     <ul>
-      <li><a :href="contact.twitter" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a :href="contact.x" target="_blank" rel="noopener">X</a></li>
       <li><a :href="contact.facebook" target="_blank" rel="noopener">Facebook</a></li>
       <li><a :href="contact.instagram" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a :href="contact.skype" target="_blank" rel="noopener">Skype</a></li>
       <li><a :href="contact.linkedin" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a :href="contact.github" target="_blank" rel="noopener">GitHub</a></li>
     </ul>
     <AppNav />
     <LocaleSwitcher />
