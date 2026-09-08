@@ -6,7 +6,6 @@ export interface Contact {
   github: string
   linkedin: string
   instagram: string
-  phone: string
   mobil: string
 }
 
@@ -18,7 +17,6 @@ const contact: Contact = {
   github: 'https://github.com/josefo727',
   linkedin: 'https://www.linkedin.com/in/jose-gutierrez-5a2293128/',
   instagram: 'https://www.instagram.com/josefo1981/',
-  phone: '+576018394169',
   mobil: '+573026178155',
 }
 

@@ -3,7 +3,6 @@
     <h1>{{ t('contact.heading') }}</h1>
     <ul>
       <li><a :href="`mailto:${contact.email}`">{{ contact.email }}</a></li>
-      <li>{{ contact.phone }}</li>
       <li>{{ contact.mobil }}</li>
       <li><a :href="contact.web_site" target="_blank" rel="noopener">{{ contact.web_site }}</a></li>
     </ul>
