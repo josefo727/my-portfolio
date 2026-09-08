@@ -319,12 +319,54 @@ R: n/a — content-drafting task, no automated red
 G: draft the 37 captions, get user approval or revisions
 F: n/a
 files: (none)
-status: open
+status: closed
 commits:
   red: n/a
-  green:
+  green: n/a — drafting only, no data file touched
   refactor: n/a
-notes: its own task given the volume (37 entries), separate from T009's smaller batch.
+notes: |
+  Its own task given the volume (37 entries), separate from T009's smaller batch. Drafted under
+  the same in-session deferred-approval authorization as T009 — flagged for the user's review on
+  return; nothing wired until T013. Technical/product names (Laravel, VueJS, Vuex, Sanctum, etc.)
+  kept as-is; only the descriptive Spanish wording translated.
+
+  1.  'JSON Web Tokens, Laravel 6 and VueJS'
+  2.  'Preventing multiple simultaneous logins with Laravel'
+  3.  'Introduction to working with queues in Laravel'
+  4.  'REST API with Laravel 5 and tokens with Eloquent API Resource and Passport'
+  5.  'Building admin panels with Laravel in record time'
+  6.  "In Laravel, protect your customers' accounts"
+  7.  'Building PWA applications with VueJS and Quasar Framework'
+  8.  'Mobile development course with VueJS and Quasar: offline apps with LocalStorage'
+  9.  'Deployment with Laravel Envoy and Amazon Web Services'
+  10. 'Realtime with Laravel Echo, Socket.IO and Redis'
+  11. 'Support chat with Laravel Echo and VueJS'
+  12. 'Multi-language applications with Laravel'
+  13. 'PHP 7'
+  14. 'First steps with VueJS 3 and Vuex 4'
+  15. 'VueJS 2 and Vuex from scratch with best practices'
+  16. 'VueJS 2 and Vuex course with TypeScript'
+  17. 'Authentication with Laravel Sanctum'
+  18. 'React - The Complete Guide: Hooks, Context, Redux, MERN, +15 Apps'
+  19. 'SQL Basic - Intermediate'
+  20. 'Learn to build reusable packages for Laravel and PHP'
+  21. 'Learn to build and document a REST API with Laravel'
+  22. 'Architecture concepts in Laravel'
+  23. 'Configuring multiple domains with Apache2 and Ubuntu on an Amazon EC2 instance'
+  24. 'Docker for developers'
+  25. 'Eloquent ORM from scratch'
+  26. 'File management in Laravel with polymorphic relationships using the storage system'
+  27. 'Laravel with Jetstream and Inertia'
+  28. "What's new in Laravel 8 and Jetstream"
+  29. 'Laravel 8 and VueJS 3 with Vuex 4, Vue Router and Composition API'
+  30. 'Laravel 9'
+  31. 'Laravel Multi-Tenancy: multi-tenant SaaS apps'
+  32. 'Laravel Sanctum: authentication with cookies and API tokens in Laravel'
+  33. 'React Native and Laravel Echo with Sanctum: realtime applications'
+  34. 'SEO for Laravel developers, from scratch'
+  35. 'Subscription system with Laravel and Stripe'
+  36. 'Laravel Sanctum REST API testing'
+  37. 'Tenancy for Laravel basics'
 ```
 
 ---
