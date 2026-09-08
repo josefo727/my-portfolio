@@ -4,7 +4,7 @@
     <p>{{ t('about.intro') }}</p>
 
     <div class="about-profile__columns">
-      <img class="about-profile__photo" src="/assets/img/profile-img.jpeg" alt="">
+      <img class="about-profile__photo" src="/assets/img/profile-img.jpeg" :alt="t('common.profilePhotoAlt', { name: personal.short_name })">
       <div class="about-profile__details">
         <h3>UI/UX Designer &amp; Web Developer.</h3>
         <p>{{ t('about.personalInfo') }}</p>

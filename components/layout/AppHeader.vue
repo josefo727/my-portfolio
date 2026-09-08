@@ -1,9 +1,9 @@
 <template>
   <header>
-    <img src="/assets/img/profile-img.jpeg" alt="" width="80" height="80">
-    <h1>
+    <img src="/assets/img/profile-img.jpeg" :alt="t('common.profilePhotoAlt', { name: personal.short_name })" width="80" height="80">
+    <p class="site-name">
       <NuxtLink :to="localePath('/')">{{ personal.short_name }}</NuxtLink>
-    </h1>
+    </p>
     <ul>
       <li><a :href="contact.x" target="_blank" rel="noopener">X</a></li>
       <li><a :href="contact.facebook" target="_blank" rel="noopener">Facebook</a></li>
@@ -23,6 +23,7 @@ import AppNav from './AppNav.vue'
 import LocaleSwitcher from './LocaleSwitcher.vue'
 
 const localePath = useLocalePath()
+const { t } = useI18n()
 </script>
 
 <style scoped>
@@ -40,12 +41,13 @@ img {
   object-fit: cover;
 }
 
-h1 {
+.site-name {
   font-size: var(--font-size-lg);
+  font-weight: bold;
   margin: 0;
 }
 
-h1 a {
+.site-name a {
   color: var(--color-text);
   text-decoration: none;
 }
