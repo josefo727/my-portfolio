@@ -145,8 +145,9 @@ files:
 status: closed
 commits:
   red: n/a
-  green: n/a — zero violations found, no fix needed
+  green: 35a4052, e8d8ca0 (two real bugs found and fixed during this task's manual review)
   refactor: n/a
+  regression-test: 2b2bd7a
 notes: |
   Automated half done: tests/nuxt/accessibility.nuxt.spec.ts re-run with all of T001-T004 in
   place — 18/18 passing, zero violations (HeatmapGrid's aria-hidden="true" keeps it out of the
