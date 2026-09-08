@@ -16,8 +16,8 @@ As a search engine crawler (Google, Bing) or a social platform generating a link
 4. Every one of those 8 pages renders a Twitter Card (`summary_large_image`) with title, description, and image, mirroring the Open Graph values.
 5. The 404 error page renders a generic title/description and a `noindex` robots meta tag; it is not listed in `sitemap.xml`.
 6. `og:image`/`twitter:image` on all indexable pages point to the existing profile photo (`public/assets/img/profile-img.jpeg`) served as an absolute URL — no new image asset is created for this feature.
-7. `robots.txt` is served at the site root, allows all crawlers, and references the sitemap's absolute URL.
-8. `sitemap.xml` is served at the site root and lists every indexable route (8 pages × 2 locales = 16 URLs), each with its `hreflang` alternates, excluding the 404 page.
+7. `robots.txt` is served at the site root, allows all crawlers, and references the sitemap's absolute URL (`sitemap_index.xml`, per Amendment below).
+8. A sitemap index (`sitemap_index.xml`) plus one XML sitemap per locale is served at the site root and, together, list every indexable route (8 pages × 2 locales = 16 URLs), each with its `hreflang` alternates, excluding the 404 page. `sitemap.xml` itself is a static HTML redirect page to `sitemap_index.xml` (see Amendment) — not the literal artifact crawlers are pointed at.
 9. The homepage and the about page render JSON-LD structured data (`Person` schema) naming the site owner, his job title, and `sameAs` links to the social profiles already in `data/contact.ts`.
 10. Automated tests confirm the presence and shape of title, meta description, Open Graph, Twitter Card, and JSON-LD on a representative sample of pages (not the homepage alone).
 11. The existing accessibility suite (`tests/nuxt/accessibility.nuxt.spec.ts`) continues to report zero violations after these changes, for both locales.
@@ -45,6 +45,10 @@ None outstanding — the two genuine ambiguities (default OG image source, 404 p
 
 - **Default OG/Twitter image**: `public/assets/img/profile-img.jpeg`, served as an absolute URL (`https://hv.jose-gutierrez.com/assets/img/profile-img.jpeg`).
 - **Indexable routes**: the 8 pages under `pages/` (`index`, `about`, `resume`, `services`, `success-stories`, `certifications`, `libraries`, `contact`), each in `es` (unprefixed) and `en` (`/en/*`) — 16 URLs total. `error.vue` (404) is excluded per criterion 5.
+
+## Amendments
+
+- **2026-09-08, during T001**: `@nuxtjs/sitemap`'s automatic `@nuxtjs/i18n` integration, once it detects 2+ locales, switches to a sitemap-index structure by design (`sitemap_index.xml` + one XML file per locale under `/__sitemap__/`) rather than a single flat `sitemap.xml`. Confirmed in the module's own docs: "use the primary `/sitemap.xml` file **or the `/sitemap_index.xml` if multiple sitemaps are in use**." On a fully static (no server) deployment, the module emits `/sitemap.xml` as a static HTML meta-refresh redirect to `/sitemap_index.xml` for browser convenience — but that HTML page is not something a real crawler's sitemap fetcher accepts (it expects XML at the exact URL it's given). Criteria 7 and 8 above were amended to point `robots.txt` and "the sitemap" at `sitemap_index.xml`, the actual valid-XML entry point, instead of the originally-assumed flat `sitemap.xml`. Verified directly in a real `nuxi generate` build before writing this amendment.
 
 ---
 

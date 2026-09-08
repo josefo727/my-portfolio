@@ -11,13 +11,13 @@ Static file served at the site root: `/robots.txt`.
 User-agent: *
 Allow: /
 
-Sitemap: https://hv.jose-gutierrez.com/sitemap.xml
+Sitemap: https://hv.jose-gutierrez.com/sitemap_index.xml
 ```
 
 ## Invariants
 
 - Allows all crawlers, all paths.
-- References the sitemap's absolute URL (matches `sitemap.md`'s contract).
+- References the sitemap **index's** absolute URL, `sitemap_index.xml` — not `sitemap.xml` (a static HTML redirect page in this multi-locale setup, not valid XML — see `sitemap.md`'s contract and `spec.md`'s Amendments).
 - Content never changes as pages are added/removed — this is why it stays a hand-authored static file rather than a generated one (see `research.md`, ADR 0006).
 
 ## Verification

@@ -21,19 +21,24 @@ DoD:
   - @nuxtjs/sitemap installed, added to nuxt.config.ts modules
   - site.url set to https://hv.jose-gutierrez.com (not left to default to localhost)
   - sitemap.zeroRuntime set to true
-  - a real `nuxi generate` produces .output/public/sitemap.xml with 16 <url> entries (8 pages x 2 locales), each with xhtml:link hreflang alternates, no entry for the 404 page
+  - a real `nuxi generate` produces .output/public/sitemap_index.xml (2 sub-sitemaps) + .output/public/__sitemap__/{es-ES,en-US}.xml with 16 <url> entries total (8 pages x 2 locales), each with xhtml:link hreflang alternates, no entry for the 404 page — see spec.md Amendments (2026-09-08) for why sitemap_index.xml, not the flat sitemap.xml, is the real artifact
 R: n/a — infra/dependency task, no local TDD cycle (mirrors 001's T024/T025); verified via a real nuxi generate build instead
 G: install the dependency, add the config, run nuxi generate and inspect the output
 F: skipped — no smell detected
 files:
   - nuxt.config.ts
   - package.json
-status: open
+  - package-lock.json
+status: closed
 commits:
   red: n/a
-  green:
+  green: 2eb35c1
   refactor: n/a
-notes:
+notes: |
+  Reality differed from plan: @nuxtjs/sitemap's automatic @nuxtjs/i18n integration produces
+  sitemap_index.xml + one sitemap per locale (16 URLs total, confirmed: 8+8), not a single flat
+  sitemap.xml — see spec.md Amendments (2026-09-08) and the updated contracts/sitemap.md. Verified
+  directly in a real `nuxi generate` build before amending anything.
 ```
 
 ---
@@ -278,7 +283,7 @@ contract-ref:    contracts/sitemap.md, contracts/robots.md
 constitution-ref:Article VIII
 DoD:
   - tests/nuxt/accessibility.nuxt.spec.ts still reports zero violations with the new head tags/JSON-LD present, both locales
-  - a real `nuxi generate` build is inspected directly: sitemap.xml has the expected 16 URLs, robots.txt has the expected content, and a spot-check of the real HTML for a few pages (both locales) shows correct title/description/OG/Twitter/JSON-LD
+  - a real `nuxi generate` build is inspected directly: sitemap_index.xml + the two per-locale sitemaps have the expected 16 URLs total, robots.txt has the expected content (pointing at sitemap_index.xml), and a spot-check of the real HTML for a few pages (both locales) shows correct title/description/OG/Twitter/JSON-LD
 R: n/a — regression/verification task, no new red test (mirrors 003's T007, 005's T005, 006's T005)
 G: fix anything the accessibility suite or the build inspection surfaces
 F: skipped unless a fix requires cleanup
@@ -297,4 +302,4 @@ notes:
 
 | Date | Change | Reason |
 |------|--------|--------|
-|      |        |        |
+| 2026-09-08 | T001: `@nuxtjs/sitemap`'s i18n integration produces `sitemap_index.xml` + per-locale sitemaps, not a flat `sitemap.xml` (which is a static HTML redirect page). T001/T002/T011's DoD and `spec.md`/`contracts/sitemap.md`/`contracts/robots.md` updated to reference `sitemap_index.xml` as the real crawlable artifact. | Discovered in a real `nuxi generate` build; confirmed against the module's own docs before amending — see `spec.md` Amendments. |
