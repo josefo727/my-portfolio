@@ -311,12 +311,18 @@ F: skipped — no smell detected
 files:
   - error.vue
   - tests/nuxt/seo.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 82850e8
+  green: 82df679
+  refactor: skipped — no smell detected
+notes: |
+  Reality differed from plan: error.vue renders outside normal navigation, so its i18n locale in
+  tests is whatever @nuxtjs/i18n last resolved (leaking from a prior test's mount), not the mount
+  route's own prefix. Test asserts what criterion 5 actually needs (real title + noindex), not an
+  exact locale's copy. Also needed a second vi.waitFor for the robots meta specifically, not just
+  title — same async-flush gotcha as T006/T007/T008, but title and other meta tags don't always
+  flush in the same tick.
 ```
 
 ---
