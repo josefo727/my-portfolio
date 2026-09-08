@@ -10,6 +10,7 @@ describe('pages/libraries — i18n', () => {
     expect(text).toContain('Libraries')
     expect(text).toContain('Library for consuming Vtex Framework APIs')
     expect(text).toContain('Library for managing general settings in a Laravel application')
+    expect(text).toContain('Library for managing general settings in Filament')
     expect(text).toContain('What is Vtex?')
     expect(text).toContain('GitHub Repository:')
     expect(text).not.toMatch(/Librería/)
