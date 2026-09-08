@@ -142,7 +142,7 @@ G: fix anything the accessibility suite or the manual review surfaces
 F: skipped unless a fix requires cleanup
 files:
   - tests/nuxt/accessibility.nuxt.spec.ts (only if a fix is needed)
-status: in_progress
+status: closed
 commits:
   red: n/a
   green: n/a — zero violations found, no fix needed
@@ -178,9 +178,14 @@ notes: |
   Re-verified after both fixes: full suite green (119/119), lint/typecheck clean, confirmed live
   via Chrome (not just curl/build output) that the heatmap renders and stays rendered.
 
-  Remaining: the user's viewport-width review for criterion 9 (no horizontal scroll, 320-1920px)
-  — no automated tool for that specific check, same as 002's T014. Task stays open until that
-  review comes back clean.
+  Criterion 9 (no horizontal scroll 320-1920px): unlike 002's T014, this session had Chrome
+  browser tooling available, so this was checked directly instead of deferred entirely to the
+  user. Programmatic check (`document.documentElement.scrollWidth > innerWidth`) at ~318px (via
+  an iframe — the OS window in this environment has a ~555px floor, so a real 320px viewport
+  needed that workaround), 768px (the breakpoint), and 1920px, on `/`, `/about`, and `/en/about`:
+  no overflow at any width. User separately confirmed the heatmap fix works correctly on their
+  own screen. Not exhaustive (didn't sweep every page or every pixel in the range), but covers
+  the two changed pages at the range's edges and the breakpoint, in both locales.
 ```
 
 ---
