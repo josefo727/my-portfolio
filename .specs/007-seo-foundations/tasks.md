@@ -285,12 +285,13 @@ files:
   - pages/libraries.vue
   - pages/contact.vue
   - tests/nuxt/seo.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 9232def
+  green: cba1224
+  refactor: skipped — no smell detected
+notes: extended seo.nuxt.spec.ts with success-stories + contact (representative sample per
+  plan.md's test strategy); certifications/libraries wired but not separately tested, same pattern.
 ```
 
 ---
