@@ -2,6 +2,14 @@ import { describe, expect, it } from 'vitest'
 import es from '../../i18n/locales/es.json'
 import en from '../../i18n/locales/en.json'
 
+interface SeoEntry {
+  title: string
+  description: string
+}
+
+const seoEs: Record<string, SeoEntry> = es.seo
+const seoEn: Record<string, SeoEntry> = en.seo
+
 const PAGES = [
   'home',
   'about',
@@ -16,8 +24,8 @@ const PAGES = [
 
 describe('i18n seo.* keys', () => {
   it.each(PAGES)('%s has a non-empty title and a <=160-char description in both locales, and they differ between es/en', (page) => {
-    const esEntry = (es as any).seo?.[page]
-    const enEntry = (en as any).seo?.[page]
+    const esEntry = seoEs[page]
+    const enEntry = seoEn[page]
 
     expect(esEntry, `missing es.json seo.${page}`).toBeTruthy()
     expect(enEntry, `missing en.json seo.${page}`).toBeTruthy()
