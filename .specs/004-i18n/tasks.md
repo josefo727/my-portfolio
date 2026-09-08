@@ -504,11 +504,10 @@ notes: |
   "Patrón Adaptador" -> "Adapter Pattern" (entry 4). Every other tag is already an English/brand
   term (Laravel, TDD, Vtex, SDD/TDD, API Rest, etc.) and stays unchanged in both locales.
 
-  Factual flag for the user's review (not corrected in the Spanish source, per this spec's own
-  non-goal): entry 6's Spanish source spells the client "Phillips Morris Internacional" — the
-  real company is "Philip Morris International". The English draft below uses the correct
-  spelling; if the user prefers to mirror the (misspelled) Spanish source exactly instead, this
-  is a one-line change before T013.
+  Factual flag, resolved 2026-09-07: entry 6's Spanish source spelled the client "Phillips Morris
+  Internacional" — the real company is "Philip Morris International". User decision: correct the
+  Spanish source too (same kind of deliberate one-off exception as the "Libería" typo fix — see
+  spec.md's Non-goals). Fixed in `data/success-stories.ts` (commit `f401e78`).
 
   1. title: 'Articles for Vultr'
      body: "<p>I've written several technical articles for Vultr, sharing my knowledge and
@@ -708,12 +707,12 @@ notes: |
     (T004/T006/T007) had scoped, and that criterion 5 requires translated since they're
     visitor-facing. tags[] in success-stories.en.ts also widened per T012's note.
 
-  Flagged, deliberately NOT touched: components/resume/ResumeExperience.vue's `<h3>Professional
-  Experience</h3>` is hardcoded English on *both* locales (a pre-existing bug predating 004,
-  unrelated to i18n — the Spanish page shows the wrong language). Leaving it alone preserves
-  current behavior; "fixing" it would change what Spanish visitors see today, which is a content
-  decision for the user, not something a translation task should decide unilaterally. No
-  criterion-5 violation either way since the English page already shows English text there.
+  Flagged, deliberately NOT touched at the time: components/resume/ResumeExperience.vue's
+  `<h3>Professional Experience</h3>` was hardcoded English on *both* locales (a pre-existing bug
+  predating 004, unrelated to i18n). Resolved 2026-09-07 — user decision: translate per locale.
+  Added `resume.experience.heading` ("Experiencia Profesional" / "Professional Experience"),
+  wired in `ResumeExperience.vue`. Verified in a real build: `/resume` now reads "Experiencia
+  Profesional", `/en/resume` unchanged. Commits `f401e78` (red)/`8f559cf` (green).
 
   Verified in a real `nuxi generate` build (36 routes, both locales) — not just Vitest — per this
   spec's precedent (T006's dayjs bug was only visible in a real build).

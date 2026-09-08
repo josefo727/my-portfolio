@@ -26,7 +26,9 @@ As a Spanish-speaking visitor, I want the site to stay in Spanish by default wit
 - Auto-detecting the visitor's browser language or redirecting on first visit — Spanish is always the default at the unprefixed routes; moving to English is always an explicit, manual action via the switch (resolved with the user, 2026-09-06).
 - Locales beyond Spanish and English.
 - Locale-specific content changes beyond translation — no different case studies, pricing, or region logic per locale.
-- New or reworded Spanish content — this feature translates what `003-content-refresh` shipped; any change to the Spanish source text is out of scope. **Deliberate exception (2026-09-07):** the user noticed a pre-existing typo ("Libería" → "Librería", carried over since `001`) while reviewing T007's translation and explicitly asked for it to be fixed — a one-off correction, not a reopening of this non-goal.
+- New or reworded Spanish content — this feature translates what `003-content-refresh` shipped; any change to the Spanish source text is out of scope. **Deliberate exceptions**, each a one-off correction requested explicitly by the user, not a reopening of this non-goal:
+  - **2026-09-07:** a pre-existing typo ("Libería" → "Librería", carried over since `001`), noticed while reviewing T007's translation.
+  - **2026-09-07:** success story #6's client name ("Phillips Morris Internacional" → "Philip Morris International", the real company name), noticed while reviewing the drafted English translation.
 - Automated translation-quality checks (e.g., back-translation verification) — accuracy is ensured by the user reviewing and approving each translated batch before it is published (Article V), not by an automated test.
 
 ## Applicable constitution articles
