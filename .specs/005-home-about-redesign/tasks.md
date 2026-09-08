@@ -142,12 +142,20 @@ G: fix anything the accessibility suite or the manual review surfaces
 F: skipped unless a fix requires cleanup
 files:
   - tests/nuxt/accessibility.nuxt.spec.ts (only if a fix is needed)
-status: open
+status: in_progress
 commits:
   red: n/a
-  green:
-  refactor:
-notes: last task — depends on all prior tasks (a finished redesign to check).
+  green: n/a — zero violations found, no fix needed
+  refactor: n/a
+notes: |
+  Automated half done: tests/nuxt/accessibility.nuxt.spec.ts re-run with all of T001-T004 in
+  place — 18/18 passing, zero violations (HeatmapGrid's aria-hidden="true" keeps it out of the
+  accessibility tree as intended). Full suite green (118/118), lint/typecheck clean, real
+  `nuxi generate` build succeeds (36 routes).
+
+  Remaining: the user's manual viewport review for criterion 9 (no horizontal scroll, 320-1920px)
+  — no browser/viewport tool in this environment, same as 002's T014. Task stays open until that
+  review comes back clean.
 ```
 
 ---
