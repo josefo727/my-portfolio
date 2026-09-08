@@ -406,3 +406,4 @@ notes: |
 | Date | Change | Reason |
 |------|--------|--------|
 | 2026-09-08 | T001: `@nuxtjs/sitemap`'s i18n integration produces `sitemap_index.xml` + per-locale sitemaps, not a flat `sitemap.xml` (which is a static HTML redirect page). T001/T002/T011's DoD and `spec.md`/`contracts/sitemap.md`/`contracts/robots.md` updated to reference `sitemap_index.xml` as the real crawlable artifact. | Discovered in a real `nuxi generate` build; confirmed against the module's own docs before amending — see `spec.md` Amendments. |
+| 2026-09-08 | Verify closed: 11/11 tasks, full suite green (144 tests/55 files), lint/typecheck clean, confirmed in a real `nuxi generate` build. Closing commit: `spec: 007 closed — verify green`. | `/sdd-verify` — see `spec.md`'s Closed footer for the full report and acceptance-criteria evidence. |

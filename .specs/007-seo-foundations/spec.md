@@ -54,6 +54,15 @@ None outstanding — the two genuine ambiguities (default OG image source, 404 p
 
 ## Closed (filled during verify)
 
-- Date: `<pending>`
-- Commit: `<pending>`
-- Notes: `<pending>`
+- Date: 2026-09-08
+- Commit: `spec: 007 closed — verify green` (SHA recorded in a follow-up commit)
+- Notes: all 11 tasks closed; full suite green (144/144 Vitest tests, 55 files); lint/typecheck clean; `nuxi generate` succeeds (41 routes) and was checked directly — robots.txt, sitemap_index.xml + 2 per-locale sitemaps (16 URLs total), and title/description/OG/Twitter/JSON-LD on home/about (es/en) all confirmed in the real build output, not just via Vitest. New dependency `@nuxtjs/sitemap` added per ADR 0006. One README update (R9) to document the new build output.
+
+### Acceptance criteria evidence
+
+All 11 criteria trace to a task with an explicit `spec-ref` (see `tasks.md`); no citation gaps this time — every closed task's `spec-ref` cites its criterion(s) by number.
+
+### Amendments (see also `tasks.md`'s Amendments table)
+
+- **2026-09-08, T001**: `@nuxtjs/sitemap`'s automatic `@nuxtjs/i18n` integration produces `sitemap_index.xml` + one sitemap per locale, not a flat `sitemap.xml` (a static HTML redirect page instead, not valid XML). Criteria 7-8 and `contracts/sitemap.md`/`robots.md` amended to reference `sitemap_index.xml` as the real crawlable artifact. Full writeup in the spec's own Amendments section above.
+- **2026-09-08, T011**: confirmed `.output/public/404.html` is a client-only CSR shell with no title/meta in the raw file — this is pre-existing, documented behavior from `001`'s T010 ("standard for the SPA-fallback file, not a defect"), not a regression introduced here. `error.vue`'s `noindex` meta (criterion 5) applies once the shell hydrates client-side, same as the rest of that page's content.
