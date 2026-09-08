@@ -195,4 +195,4 @@ notes: |
 
 | Date | Change | Reason |
 |------|--------|--------|
-|      |        |        |
+| 2026-09-07 | Verify closed: 5/5 tasks, full suite green (119 tests/48 files), lint/typecheck clean. Two real bugs found and fixed during T005's manual review (heatmap layout, CSS class collision) — see `spec.md`'s Closed footer. Closing commit: `spec: 005 closed — verify green`. | `/sdd-verify` — see `spec.md`'s Closed footer for the full report and acceptance-criteria evidence. |

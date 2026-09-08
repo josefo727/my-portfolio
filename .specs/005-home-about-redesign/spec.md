@@ -55,6 +55,21 @@ None outstanding — see "Resolved during specify" below.
 
 ## Closed (filled during verify)
 
-- Date: `<pending>`
-- Commit: `<pending>`
-- Notes: `<pending>`
+- Date: 2026-09-07
+- Commit: `<pending>` — `spec: 005 closed — verify green`
+- Notes: all 5 tasks closed; full suite green (119/119 Vitest tests, 48 files); lint/typecheck clean; `nuxi generate` succeeds. T005's manual review (this session had Chrome browser tooling available, unlike `002`'s T014) found and fixed two real bugs before closing: the heatmap's cramped 2-column layout (`35a4052`) and a CSS class-collision bug that collapsed the heatmap to zero height after client-side hydration (`e8d8ca0`), root-caused via direct `getBoundingClientRect()` inspection in a live browser rather than guesswork — a permanent regression test was added (`2b2bd7a`). Criterion 9 (no horizontal scroll) was verified programmatically this session (`scrollWidth` checks at ~318px/768px/1920px on `/`, `/about`, `/en/about`) instead of left entirely to the user.
+
+### Verify report
+
+- R1 Spec coverage: PASS (9/9 criteria covered — criteria 1-8 each traced to a Red-commit `spec-ref`; criterion 9 has no dedicated automated test by design (no viewport/browser tool assumed available), verified as supplemental evidence instead — see Notes above)
+- R2 Task completeness: PASS (5/5 tasks closed, each with commit SHAs or documented rationale)
+- R3 Orphan tests: PASS (0 true orphans; a few test files were also touched by out-of-band chores unrelated to 005's spec — the contact-info update (X/GitHub/Skype) and the dynamic years-of-experience fix — both fully documented in their own commits, not silent)
+- R4 Contracts: PASS/N/A (no external boundary, per `contracts/README.md`)
+- R5 Constitution: PASS (Article II: proper R-G-F on T001-T004; Article VII: `utils/heatmap.ts` confirmed free of `Math.random`/`Date.now`/`fetch`, per ADR 0005; Article VIII: 18 accessibility cases still zero violations, `HeatmapGrid` is `aria-hidden`; no `console.log`/`debugger` leftovers)
+- R6 Research freshness: PASS (`research.md` captured 2026-09-07, same day)
+- R7 Observability: N/A (fully static site, no article declares it)
+- R8 Security: N/A (no auth/money/PII/external writes)
+- R9 Docs: PASS (no user-facing behavior change needing a README update — visual/layout only)
+- R10 Changelog: N/A (no `CHANGELOG.md` convention in this repo, consistent with 001-004)
+
+No FAILs.
