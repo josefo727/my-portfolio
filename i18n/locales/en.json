@@ -89,6 +89,12 @@
       "title": "Library for managing general settings in a Laravel application",
       "body": "The GeneralSettings package for Laravel lets you manage general settings in a Laravel application without worrying about data casting, encryption, views, routes, or controllers. With a couple of commands and a few clicks you get an excellent module for managing your application's general parameters and settings.",
       "compatibility": "Compatibility: PHP 8+, Laravel 8+"
+    },
+    "filamentGeneralSettings": {
+      "summary": "FilamentGeneralSettings",
+      "title": "Library for managing general settings in Filament, an evolution of GeneralSettings",
+      "body": "A Filament plugin for managing general settings in a Laravel application: dynamic form inputs based on data type (string, integer, float, boolean, array, json, date, time, datetime, url, email, emails, password), encryption support for password values, multilingual support (English/Spanish), and a configurable table prefix. It's the evolution of my GeneralSettings package, now natively integrated into the Filament 4 admin panel.",
+      "compatibility": "Compatibility: PHP 8.2+, Laravel 11.28+, Filament 4+"
     }
   },
   "error": {

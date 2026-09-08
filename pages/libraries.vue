@@ -64,6 +64,19 @@
         </li>
       </ul>
     </LibraryDoc>
+
+    <LibraryDoc :summary="t('libraries.filamentGeneralSettings.summary')">
+      <h2>{{ t('libraries.filamentGeneralSettings.title') }}</h2>
+      <h3>{{ t('libraries.labels.summary') }}</h3>
+      <p>{{ t('libraries.filamentGeneralSettings.body') }}</p>
+      <ul>
+        <li>{{ t('libraries.filamentGeneralSettings.compatibility') }}</li>
+        <li>
+          {{ t('libraries.labels.github') }}
+          <a href="https://github.com/josefo727/filament-general-settings" target="_blank" rel="noopener">https://github.com/josefo727/filament-general-settings</a>
+        </li>
+      </ul>
+    </LibraryDoc>
   </div>
 </template>
 

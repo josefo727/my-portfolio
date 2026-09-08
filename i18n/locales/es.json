@@ -89,6 +89,12 @@
       "title": "Librería para gestionar configuraciones generales en una aplicación Laravel",
       "body": "El paquete GeneralSettings para Laravel te permite gestionar configuraciones generales en una aplicación Laravel sin tener que precuparte por el casteo de datos, encriptación, vistas, rutas ni controladores. Con un par de comandos y pocos clicks ya tienes un excepcional módulo para gestionar parámetros y configuraciones generales de tu aplicación.",
       "compatibility": "Compatibilidad: PHP 8+, Laravel 8+"
+    },
+    "filamentGeneralSettings": {
+      "summary": "FilamentGeneralSettings",
+      "title": "Librería para gestionar configuraciones generales en Filament, evolución de GeneralSettings",
+      "body": "Plugin de Filament para gestionar configuraciones generales en una aplicación Laravel: formularios dinámicos según el tipo de dato (texto, entero, decimal, booleano, arreglo, json, fecha, hora, fecha y hora, url, email, emails, contraseña), soporte de encriptación para contraseñas, multilenguaje (inglés/español) y prefijo de tabla configurable. Es la evolución de mi paquete GeneralSettings, ahora integrado nativamente al panel administrativo de Filament 4.",
+      "compatibility": "Compatibilidad: PHP 8.2+, Laravel 11.28+, Filament 4+"
     }
   },
   "error": {
