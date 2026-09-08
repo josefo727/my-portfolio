@@ -379,12 +379,24 @@ R: n/a — regression/verification task, no new red test (mirrors 003's T007, 00
 G: fix anything the accessibility suite or the build inspection surfaces
 F: skipped unless a fix requires cleanup
 files: (none expected)
-status: open
+status: closed
 commits:
   red: n/a
-  green: n/a
+  green: n/a — no production change needed
   refactor: n/a
-notes:
+notes: |
+  Accessibility suite: 18/18 green, no regression.
+  Full suite: 144/144 tests (55 files), lint/typecheck clean.
+  Real nuxi generate build inspected directly:
+  - robots.txt: correct 3 lines, points to sitemap_index.xml.
+  - sitemap_index.xml: 2 sub-sitemaps; __sitemap__/{es-ES,en-US}.xml: 8 URLs each (16 total).
+  - Home (es/en), About (es) spot-checked: title/description/OG/Twitter/JSON-LD all correct and
+    absolute where required.
+  - Confirmed 404.html is a client-only CSR shell (no title/meta in the raw file) — this is
+    pre-existing, documented behavior from 001's T010 ("standard for the SPA-fallback file, not a
+    defect"), not something this feature introduced or regressed. error.vue's noindex meta (like
+    its visible content) applies once the shell hydrates client-side, same as every other piece of
+    error.vue's content.
 ```
 
 ---
