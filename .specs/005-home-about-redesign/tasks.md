@@ -87,12 +87,17 @@ files:
   - components/home/Hero.vue
   - tests/unit/home-style.spec.ts
   - tests/nuxt/home.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T002 (imports HeatmapGrid.vue) — sequential after it.
+  red: 7d702ab
+  green: e61779d
+  refactor: skipped — no smell detected
+notes: |
+  Depends on T002 (imports HeatmapGrid.vue) — sequential after it. Reused the existing
+  pill/badge visual pattern already used by SuccessStoryCard's tags (border-radius:999px,
+  --color-background-alt, --color-border) instead of inventing a new style. Heatmap hidden below
+  768px — criterion 4 only requires filling the empty space on wide viewports, and mobile has no
+  such empty space to fill. Verified live via the dev server (HMR).
 ```
 
 ---
