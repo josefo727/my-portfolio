@@ -2,6 +2,8 @@
 
 José R. Gutierrez's professional portfolio — a Nuxt 3 site, statically generated (SSG). See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the spec-driven development workflow this project follows.
 
+Available in Spanish (default, unprefixed routes) and English (`/en/*`), both pre-rendered at build time.
+
 ## Project setup
 
 ```
