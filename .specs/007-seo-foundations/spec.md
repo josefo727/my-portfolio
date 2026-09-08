@@ -55,7 +55,7 @@ None outstanding — the two genuine ambiguities (default OG image source, 404 p
 ## Closed (filled during verify)
 
 - Date: 2026-09-08
-- Commit: `spec: 007 closed — verify green` (SHA recorded in a follow-up commit)
+- Commit: `a5b1762` — `spec: 007 closed — verify green`
 - Notes: all 11 tasks closed; full suite green (144/144 Vitest tests, 55 files); lint/typecheck clean; `nuxi generate` succeeds (41 routes) and was checked directly — robots.txt, sitemap_index.xml + 2 per-locale sitemaps (16 URLs total), and title/description/OG/Twitter/JSON-LD on home/about (es/en) all confirmed in the real build output, not just via Vitest. New dependency `@nuxtjs/sitemap` added per ADR 0006. One README update (R9) to document the new build output.
 
 ### Acceptance criteria evidence
