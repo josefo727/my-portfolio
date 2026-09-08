@@ -153,16 +153,33 @@ notes: |
   accessibility tree as intended). Full suite green (118/118), lint/typecheck clean, real
   `nuxi generate` build succeeds (36 routes).
 
-  Manual review (2026-09-07) caught a real layout bug before the horizontal-scroll question was
-  even reached: the heatmap sat squeezed into a slim top-right column (the `.hero` 2-column grid
-  gave it only a `1fr` track beside the name), reading as flashing/unstable rather than a solid
-  decorative element. User's ask: keep it stable, and have it fill space below rather than beside.
-  Fixed (`35a4052`): removed the 2-column grid — Hero now stacks normally, heatmap renders full
-  width below the intro block; grid grown from 7x14 to 7x36 (252 cells) to actually read as
-  filling space. Re-verified: full suite green, lint/typecheck clean, live on the dev server.
+  Manual review (2026-09-07) caught two real bugs before the horizontal-scroll question was even
+  reached:
+
+  1. Layout: the heatmap sat squeezed into a slim top-right column (the `.hero` 2-column grid gave
+     it only a `1fr` track beside the name). Fixed (`35a4052`): removed the 2-column grid — Hero
+     now stacks normally, heatmap renders full width below the intro block; grid grown from 7x14
+     to 7x36 (252 cells) to actually read as filling space.
+
+  2. The real "appears for ~1s then disappears, no console error" bug — reported again after fix
+     #1, so this session got Chrome browser tooling loaded and inspected it live instead of
+     guessing further. Root cause, confirmed via `getBoundingClientRect()` on the actual page:
+     `<HeatmapGrid class="hero__heatmap" />` put Hero.vue's `display: block` class directly on
+     HeatmapGrid's own root element, which already carries its own scoped `.heatmap` class with
+     `display: grid`. Equal-specificity, same element — whichever scoped stylesheet the bundler
+     ordered last won, and that order differed between the server-rendered HTML and the
+     client-hydrated one, collapsing the grid to `height: 0` (empty `<span>` cells with no
+     `display` of their own) with zero JS errors, since it's a pure CSS cascade outcome. Fixed
+     (`e8d8ca0`): wrap `<HeatmapGrid />` in Hero's own plain wrapper div instead of overloading a
+     class onto the child's root. Confirmed live: height went from exactly 0 to 164px, stable
+     after a 3-second wait. Added a permanent regression test (`2b2bd7a`) asserting no component
+     ever gets a `class=` attribute applied directly in Hero.vue's template.
+
+  Re-verified after both fixes: full suite green (119/119), lint/typecheck clean, confirmed live
+  via Chrome (not just curl/build output) that the heatmap renders and stays rendered.
 
   Remaining: the user's viewport-width review for criterion 9 (no horizontal scroll, 320-1920px)
-  — no browser/viewport tool in this environment, same as 002's T014. Task stays open until that
+  — no automated tool for that specific check, same as 002's T014. Task stays open until that
   review comes back clean.
 ```
 
