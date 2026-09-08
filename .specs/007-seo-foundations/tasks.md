@@ -82,12 +82,44 @@ R: n/a — content-drafting task, no automated red (same pattern as 003's T002-T
 G: draft the 9 title/description pairs (8 pages + 404), get user approval or revisions
 F: n/a
 files: (none — output is approved draft text, not yet written to a file)
-status: open
+status: closed
 commits:
   red: n/a
   green: n/a — approved in chat, written to data in T005
   refactor: n/a
-notes:
+notes: |
+  Approved drafts (2026-09-08). All descriptions validated <=160 chars (max was 140, "services").
+  Home's initial title draft (69 chars) exceeded the ~60-char practical SEO guideline (not a spec
+  criterion, but flagged and fixed anyway) — shortened before approval.
+
+  home:            title: "José R. Gutierrez — Desarrollador Web Full-Stack" (49 chars)
+                   description: "Portafolio de José R. Gutierrez, desarrollador web full-stack
+                   especializado en Laravel, Vue/Nuxt e integraciones VTEX, con SDD+TDD propia."
+  about:           title: "Acerca de mí — José R. Gutierrez"
+                   description: "Conoce a José R. Gutierrez: perfil, habilidades técnicas y datos
+                   profesionales de un desarrollador full-stack en Laravel, Vue/Nuxt y VTEX."
+  resume:          title: "Resumen Profesional — José R. Gutierrez"
+                   description: "Resumen profesional de José R. Gutierrez: experiencia laboral,
+                   formación académica y trayectoria como desarrollador full-stack freelance."
+  services:        title: "Servicios — José R. Gutierrez"
+                   description: "Servicios de desarrollo de José R. Gutierrez, freelance
+                   full-stack en Laravel, Vue/Nuxt y VTEX. El detalle de la oferta está en
+                   preparación."
+  success-stories: title: "Casos de Éxito — José R. Gutierrez"
+                   description: "23 casos de éxito reales de José R. Gutierrez: integraciones
+                   VTEX, sistemas Laravel, plataformas propias y proyectos con SDD+TDD."
+  certifications:  title: "Certificaciones — José R. Gutierrez"
+                   description: "Certificaciones y cursos completados por José R. Gutierrez en
+                   desarrollo web: Laravel, Vue, PHP, arquitectura y buenas prácticas."
+  libraries:       title: "Librerías — José R. Gutierrez"
+                   description: "Librerías de código abierto de José R. Gutierrez: SDKs para VTEX
+                   API y paquetes de configuración general para Laravel y Filament."
+  contact:         title: "Contacto — José R. Gutierrez"
+                   description: "Contacta a José R. Gutierrez, desarrollador web full-stack
+                   freelance, por email o redes sociales para tu próximo proyecto."
+  notFound:        title: "Página no encontrada — José R. Gutierrez"
+                   description: "La página que buscas no existe o fue movida. Vuelve al inicio
+                   del portafolio de José R. Gutierrez."
 ```
 
 ---
