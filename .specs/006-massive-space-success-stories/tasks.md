@@ -83,12 +83,44 @@ R: n/a — content-drafting task, no automated red
 G: translate the 4 approved entries, get user approval or revisions
 F: n/a
 files: (none — output is approved draft text, not yet written to a file)
-status: open
+status: closed
 commits:
   red: n/a
   green: n/a — approved in chat, written to data in T004
   refactor: n/a
-notes:
+notes: |
+  Approved English translations (2026-09-08), same structure/tags as their Spanish counterpart
+  (T001), tags translated where they weren't already English proper nouns (Microservicios →
+  Microservices, Automatización → Automation):
+
+  **Calzatodo — VTEX IO Gift Cards** — tags: VTEX, Node, TypeScript, Microservices
+  I built a VTEX IO microservice (Node.js/TypeScript with KoaJS) for Calzatodo that securely manages
+  gift-card issuance on top of Master Data, with automatic retries and Slack alerts on failure,
+  per-customer monthly redemption-limit validation, and an OMS integration layer to process
+  payment-approved and invoicing events. Auto-scales from 2 to 4 replicas based on demand.
+
+  **Pizzamania — Auto Invoicer with SDD+TDD** — tags: VTEX, Node, SDD/TDD, Automation
+  I designed and built Auto Invoicer, a VTEX IO app for Pizzamania that automatically closes
+  marketplace orders stuck in "payment-approved" status by invoicing the mirror order on the
+  corresponding franchise (seller) account, so VTEX propagates the invoiced status back to the
+  marketplace. Applied my own SDD+TDD methodology, with a documented spec, plan, and contracts; the
+  sweep is idempotent and cursor-paginated, with a resumable historical backfill mode.
+
+  **CrediPink — Credit at VTEX Checkout** — tags: Laravel, Filament, PHP, VTEX, PHPUnit
+  I built CrediPink, the backend of the LiliPink brand's own credit-purchase product, integrated into
+  its VTEX storefront checkout and built in PHP/Laravel with a Filament admin panel. Implemented
+  customer identity/quota validation, promissory-note generation and sale confirmation against the
+  credit API, order-form synchronization with the checkout, automatic cancellation of orphaned
+  orders, and production monitoring of the payment gate's status. Used PHPUnit for unit and
+  integration testing.
+
+  **MassiveSpace Pro — Internal Multi-Client Platform** — tags: Laravel, Filament, PHP, Redis, RBAC, Clean Architecture
+  I designed and built MassiveSpace Pro, my own Laravel/Filament platform for centralizing the
+  management of multiple e-commerce clients integrated with VTEX: WhatsApp notifications,
+  abandoned-cart recovery, fast checkout, short URL generation with QR codes, and bulk order
+  invoicing with retries and historical backfill recovery. Applied Clean Architecture (single-action
+  controllers, Services, Actions, Redis-backed Repositories, DTOs) with role-based access control
+  (RBAC) via Spatie, and PHPUnit test coverage for each business domain.
 ```
 
 ---
