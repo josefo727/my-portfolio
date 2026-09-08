@@ -153,7 +153,15 @@ notes: |
   accessibility tree as intended). Full suite green (118/118), lint/typecheck clean, real
   `nuxi generate` build succeeds (36 routes).
 
-  Remaining: the user's manual viewport review for criterion 9 (no horizontal scroll, 320-1920px)
+  Manual review (2026-09-07) caught a real layout bug before the horizontal-scroll question was
+  even reached: the heatmap sat squeezed into a slim top-right column (the `.hero` 2-column grid
+  gave it only a `1fr` track beside the name), reading as flashing/unstable rather than a solid
+  decorative element. User's ask: keep it stable, and have it fill space below rather than beside.
+  Fixed (`35a4052`): removed the 2-column grid — Hero now stacks normally, heatmap renders full
+  width below the intro block; grid grown from 7x14 to 7x36 (252 cells) to actually read as
+  filling space. Re-verified: full suite green, lint/typecheck clean, live on the dev server.
+
+  Remaining: the user's viewport-width review for criterion 9 (no horizontal scroll, 320-1920px)
   — no browser/viewport tool in this environment, same as 002's T014. Task stays open until that
   review comes back clean.
 ```
