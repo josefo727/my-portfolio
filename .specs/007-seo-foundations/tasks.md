@@ -218,13 +218,23 @@ G: implement the composable
 F: skipped unless duplication with use-person-schema.ts's absolute-URL logic suggests an extraction
 files:
   - composables/use-page-seo.ts
+  - utils/site.ts
+  - nuxt.config.ts
   - tests/nuxt/use-page-seo.nuxt.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: f467168
+  green: a3402f4
+  refactor: skipped — no smell detected (the SITE_URL extraction happened as part of green, not a
+    separate refactor beat, since it was needed to avoid a third hardcoded copy of the domain)
+notes: |
+  Reality differed from plan twice:
+  1. Added utils/site.ts (SITE_URL + absoluteUrl helper), not in the original files list — needed
+     to avoid a third hardcoded copy of the production domain (nuxt.config already had two: site.url
+     and i18n.baseUrl). nuxt.config.ts now imports it too.
+  2. @unhead's DOM plugin flushes title/meta tag updates asynchronously (debounced) in the test
+     environment — tests/nuxt/use-page-seo.nuxt.spec.ts uses vi.waitFor instead of asserting
+     immediately after mountSuspended.
 ```
 
 ---
