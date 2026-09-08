@@ -682,15 +682,41 @@ files:
   - components/about/AboutSkills.vue
   - components/resume/ResumeEducation.vue
   - components/resume/ResumeExperience.vue
+  - components/resume/ResumeSummary.vue
   - pages/certifications.vue
   - pages/success-stories.vue
   - tests/unit/data-en-parity.spec.ts
-status: open
+  - i18n/locales/es.json
+  - i18n/locales/en.json
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: files list exceeds the usual 5 — acceptable here since it's one mechanical wiring pass (same change shape) across every content consumer, not several different kinds of work; depends on T009-T012's approved drafts.
+  red: ad237c4
+  green: c32d8b0
+  refactor: skipped — no smell detected (the repeated `useI18n()` + `useLocalizedData(xEs, xEn)` shape is already the intended abstraction; nothing further to extract)
+notes: |
+  Files list exceeds the usual 5 — acceptable here since it's one mechanical wiring pass (same
+  change shape) across every content consumer, not several different kinds of work; depended on
+  T009-T012's approved drafts.
+
+  Widened beyond the original file list, documented (not silent):
+  - components/resume/ResumeSummary.vue: not originally listed, but has the same defect (heading
+    "Resúmen" + the 13-years-experience bio paragraph were never translated by any prior task) —
+    fixed alongside the rest since it's the same class of gap.
+  - i18n/locales/{es,en}.json: added keys for about.skills.*, about.facts.*, resume.summary.*,
+    resume.education.heading, resume.experience.website, certifications.heading,
+    successStories.heading — static headings/intros on these exact consumer files that no task
+    (T004/T006/T007) had scoped, and that criterion 5 requires translated since they're
+    visitor-facing. tags[] in success-stories.en.ts also widened per T012's note.
+
+  Flagged, deliberately NOT touched: components/resume/ResumeExperience.vue's `<h3>Professional
+  Experience</h3>` is hardcoded English on *both* locales (a pre-existing bug predating 004,
+  unrelated to i18n — the Spanish page shows the wrong language). Leaving it alone preserves
+  current behavior; "fixing" it would change what Spanish visitors see today, which is a content
+  decision for the user, not something a translation task should decide unilaterally. No
+  criterion-5 violation either way since the English page already shows English text there.
+
+  Verified in a real `nuxi generate` build (36 routes, both locales) — not just Vitest — per this
+  spec's precedent (T006's dayjs bug was only visible in a real build).
 ```
 
 ---
