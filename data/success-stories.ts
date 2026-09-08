@@ -56,7 +56,7 @@ const successStories: SuccessStory[] = [
   },
   {
     title: "OT&V de PMI",
-    body: "<p>Se desarrolló el sistema Order Tracking and Visualization para Phillips Morris Internacional con una integración a Vtex para inyectar órdenes de diferentes medios de ventas y tipos. Utilicé un enfoque Event-Driven y el patrón Hexagonal para procesar órdenes en tiempo real. En el backend se utilizó Laravel con TDD para garantizar estabilidad, mientras que en el frontend se empleó Vtex IO y ReactJS para componentes administrativos customizados.</p>",
+    body: "<p>Se desarrolló el sistema Order Tracking and Visualization para Philip Morris International con una integración a Vtex para inyectar órdenes de diferentes medios de ventas y tipos. Utilicé un enfoque Event-Driven y el patrón Hexagonal para procesar órdenes en tiempo real. En el backend se utilizó Laravel con TDD para garantizar estabilidad, mientras que en el frontend se empleó Vtex IO y ReactJS para componentes administrativos customizados.</p>",
     tags: [
       "Clean Code",
       "Event-Driven",

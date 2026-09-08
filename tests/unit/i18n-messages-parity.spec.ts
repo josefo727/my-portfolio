@@ -34,4 +34,12 @@ describe('i18n/locales — translation-key parity', () => {
     expect(en.error?.notFoundBody).toBeTypeOf('string')
     expect(en.error?.homeLink).toBeTypeOf('string')
   })
+
+  it('declares a locale-aware resume.experience.heading, distinct per locale', () => {
+    const es = JSON.parse(readFileSync(resolve(process.cwd(), 'i18n/locales/es.json'), 'utf-8'))
+    const en = JSON.parse(readFileSync(resolve(process.cwd(), 'i18n/locales/en.json'), 'utf-8'))
+
+    expect(es.resume?.experience?.heading).toBe('Experiencia Profesional')
+    expect(en.resume?.experience?.heading).toBe('Professional Experience')
+  })
 })
