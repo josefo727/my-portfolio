@@ -28,11 +28,11 @@ F: skipped unless the arithmetic formula needs a clearer name/extraction
 files:
   - utils/heatmap.ts
   - tests/unit/heatmap.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: 2331be8
+  green: 358a718
+  refactor: skipped — no smell detected
 notes: fully independent of T002-T004's files — first task, no dependency.
 ```
 
