@@ -246,12 +246,12 @@ files:
   - i18n/locales/es.json
   - i18n/locales/en.json
   - tests/unit/i18n-messages-parity.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: short enough to translate inline, like T004's nav labels.
+  red: 865a5b0
+  green: b95c6e8
+  refactor: skipped — no smell detected
+notes: short enough to translate inline, like T004's nav labels. Red reused the existing parity spec file (added a specific key-presence assertion) instead of a new nuxt-mount test, since error.vue's content is trivial.
 ```
 
 ---
