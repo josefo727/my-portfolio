@@ -58,7 +58,7 @@ None outstanding — see "Resolved during specify" below.
 ## Closed (filled during verify)
 
 - Date: 2026-09-07
-- Commit: `<pending>` — `spec: 004 closed — verify green`
+- Commit: `6414134` — `spec: 004 closed — verify green`
 - Notes: all 14 tasks closed; full suite green (106/106 Vitest tests, 45 files); lint/typecheck clean; `nuxi generate` succeeds (36 routes, both locales). Two items flagged during the user's local review were resolved and fixed before closing (see "Acceptance criteria evidence" and Non-goals): the "Phillips Morris" → "Philip Morris International" client-name correction, and `resume.experience.heading` made locale-aware ("Experiencia Profesional" / "Professional Experience"), fixing a pre-existing bug that predated this feature.
 
 ### Verify report
