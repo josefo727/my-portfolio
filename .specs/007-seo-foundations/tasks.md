@@ -342,14 +342,26 @@ G: implement the composable, wire it into app.vue
 F: skipped unless duplication with use-page-seo.ts's absolute-URL logic suggests an extraction
 files:
   - composables/use-person-schema.ts
+  - utils/person-schema.ts
   - app.vue
   - tests/unit/person-schema.spec.ts
-status: open
+  - tests/nuxt/person-schema-present.nuxt.spec.ts
+  - tests/nuxt/person-schema-absent.nuxt.spec.ts
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 5b8c9a9
+  green: 06565d1
+  refactor: skipped — no smell detected
+notes: |
+  Reality differed from plan twice:
+  1. Extracted the object-building logic into utils/person-schema.ts (buildPersonSchema, pure
+     function) instead of one Nuxt-coupled composable as plan.md sketched — matches this project's
+     established pattern (utils/dates.ts, utils/heatmap.ts) and let the main test stay a real
+     classicist unit test with no Nuxt bootstrap.
+  2. The route-gate test needed two separate spec files, not one: @unhead dedupes <script> tags by
+     content, so a single-file "mount home, remove the tag, mount contact, assert absence" test
+     passed even with the gate forced open. Verified the split tests are meaningful by temporarily
+     forcing the gate open and confirming the absence test then fails, before restoring it.
 ```
 
 ---
