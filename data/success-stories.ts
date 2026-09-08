@@ -149,6 +149,26 @@ const successStories: SuccessStory[] = [
     body: "<p>Desarrollé un servicio de notificaciones que escucha eventos de cambio de estado de pedidos en VTEX (vía \"orders-broadcast\") y los procesa con un middleware en Laravel, junto con un componente de administración en VTEX Admin para configurar qué estados notificar por WhatsApp. Desplegado en múltiples tiendas VTEX bajo un flujo spec-driven con journal de sesiones.</p>",
     tags: ["Laravel", "VTEX", "Node", "SDD/TDD", "API Rest"],
   },
+  {
+    title: "Calzatodo — Tarjetas de Regalo VTEX IO",
+    body: "<p>Desarrollé para Calzatodo un microservicio VTEX IO (Node.js/TypeScript con KoaJS) que gestiona de forma segura la emisión de tarjetas de regalo sobre Master Data, con reintentos automáticos y alertas a Slack ante fallos, validación de límites mensuales de canje por cliente, y una capa de integración con el OMS para procesar eventos de pago aprobado y facturación. Autoescalado de 2 a 4 réplicas según demanda.</p>",
+    tags: ["VTEX", "Node", "TypeScript", "Microservicios"],
+  },
+  {
+    title: "Pizzamania — Auto Invoicer con SDD+TDD",
+    body: "<p>Diseñé y desarrollé Auto Invoicer, una app VTEX IO para Pizzamania que cierra automáticamente pedidos de marketplace atascados en estado \"pago aprobado\", facturando la orden espejo en la cuenta franquicia (seller) correspondiente para que VTEX propague el estado de facturado de vuelta al marketplace. Apliqué mi propia metodología SDD+TDD, con especificación, plan y contratos documentados; el barrido es idempotente y paginado por cursor, con un modo de recuperación histórica (backfill) capaz de reanudarse tras una interrupción.</p>",
+    tags: ["VTEX", "Node", "SDD/TDD", "Automatización"],
+  },
+  {
+    title: "CrediPink — Crédito en Checkout VTEX",
+    body: "<p>Desarrollé CrediPink, el backend del producto de compra a crédito propio de la marca LiliPink, integrado al checkout de su tienda VTEX y construido en PHP/Laravel con panel administrativo en Filament. Implementé la validación de identidad y cupo del cliente, la generación de pagarés y confirmación de venta contra la API de crédito, sincronización con el order form del checkout, cancelación automática de pedidos huérfanos y monitoreo del estado del gate de pago en producción. Utilicé PHPUnit para pruebas unitarias y de integración.</p>",
+    tags: ["Laravel", "Filament", "PHP", "VTEX", "PHPUnit"],
+  },
+  {
+    title: "MassiveSpace Pro — Plataforma Interna Multi-cliente",
+    body: "<p>Diseñé y desarrollé MassiveSpace Pro, una plataforma propia en Laravel/Filament para centralizar la gestión de múltiples clientes de comercio electrónico integrados con VTEX: notificaciones por WhatsApp, recuperación de carritos abandonados, checkout rápido, generación de URLs cortas con códigos QR y facturación masiva de pedidos con reintentos y recuperación histórica (backfill). Apliqué Clean Architecture (controladores de una sola acción, Services, Actions, Repositories sobre Redis, DTOs) con control de roles y permisos (RBAC) vía Spatie, y cobertura de pruebas con PHPUnit para cada dominio de negocio.</p>",
+    tags: ["Laravel", "Filament", "PHP", "Redis", "RBAC", "Clean Architecture"],
+  },
 ]
 
 export default successStories
