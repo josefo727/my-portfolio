@@ -24,17 +24,30 @@ const PAGES = [
   { name: '/contact', component: ContactPage },
 ]
 
+const LOCALES = [
+  { code: 'es', prefix: '' },
+  { code: 'en', prefix: '/en' },
+]
+
+const CASES = LOCALES.flatMap(({ code, prefix }) =>
+  PAGES.map(({ name, component }) => {
+    const route = name === '/' ? `${prefix}/` : `${prefix}${name}`
+    return { label: `${route} (${code})`, route, component }
+  }),
+)
+
 describe('accessibility (WCAG 2.1 AA)', () => {
-  it.each(PAGES)('$name has zero WCAG 2.1 AA violations', async ({ component }) => {
-    const wrapper = await mountSuspended(component, { attachTo: document.body })
+  it.each(CASES)('$label has zero WCAG 2.1 AA violations', async ({ route, component }) => {
+    const wrapper = await mountSuspended(component, { route, attachTo: document.body })
 
     const results = await axe.run(wrapper.element, { runOnly: { type: 'tag', values: WCAG_TAGS } })
 
     expect(results.violations).toEqual([])
   })
 
-  it('error.vue has zero WCAG 2.1 AA violations', async () => {
+  it.each(LOCALES)('error.vue has zero WCAG 2.1 AA violations ($code)', async ({ prefix }) => {
     const wrapper = await mountSuspended(ErrorPage, {
+      route: `${prefix}/`,
       props: { error: { statusCode: 404, statusMessage: 'Not Found' } },
       attachTo: document.body,
     })
