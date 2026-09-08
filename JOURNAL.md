@@ -365,3 +365,50 @@ Same day, continuing from session 8. The user asked to proceed with T008 and the
 ### Resume from
 
 Get the user's review/approval of the T009-T012 translation drafts (already wired in T013), resolve the two flagged decisions, then close `004-i18n` per R5's WARN.
+
+## 2026-09-07 — session 9 continued (004 closed; contact/bio fixes; 005 full lifecycle — CLOSED)
+
+### Context
+
+Same session as above, continuing after the user reviewed the site locally. Covers: closing `004-i18n`'s two flagged items, two out-of-band content fixes the user requested while reviewing, and the entire lifecycle of a new feature (`005-home-about-redesign`) end to end.
+
+### Done this session
+
+- **004-i18n closed**: user's decisions — (1) correct "Phillips Morris" → "Philip Morris International" in the Spanish source too (same deliberate-exception pattern as the "Libería" typo), (2) make `resume.experience.heading` locale-aware ("Experiencia Profesional" / "Professional Experience") rather than leaving the pre-existing English-on-both-locales bug. Both fixed with real R-G-F, verified in a live `nuxi generate` build. Verify re-run clean; `spec: 004 closed — verify green` (`6414134`).
+- **Contact info update** (user-requested, out-of-band chore, not tied to any spec): X handle changed to `x.com/josefo727` (renamed `contact.twitter` → `contact.x`), Skype removed (discontinued), GitHub profile added (`github.com/josefo727`). `AppHeader.vue`/`ContactInfo.vue` updated. R-G-F, verified live via the dev server's HMR.
+- **Dynamic years-of-experience** (user-requested, out-of-band): the resume bio's "13 años" was stale — real start of paid programming work is 2010-01-01 (pre-2010 Fortran/Matlab/Maple/Octave/Derive coursework doesn't count, per the user). Renamed `calculateAgeYears` → `calculateYearsSince` (now generic, used for both age and experience), added `personal.professional_since`, `resume.summary.bio` now interpolates `{count}` instead of a hardcoded number. Verified live: "más de 16 años" / "more than 16 years", self-updating going forward.
+- **Profile photo**: swapped in a new headshot the user provided (`~/Pictures/josefo.jpg`) at the same path/filename — no code changes needed. Incidentally fixed a latent inconsistency (the old file was actually a PNG despite its `.jpeg` extension).
+- **`005-home-about-redesign`, full lifecycle in one sitting**, prompted by the user's screenshots of the running site:
+  - **Specify**: 9 acceptance criteria — About two-column layout (≥768px), Home activity-list badges, a decorative GitHub-heatmap-style animated grid filling the Home page's empty space (explicitly no real data — resolved via `AskUserQuestion` this session, "gráfica decorativa animada" chosen over a live/API-backed version to avoid a new external boundary). Zero clarification markers.
+  - **Plan**: no new dependency. New **ADR 0005**: the heatmap's cell pattern comes from a deterministic pure function (`utils/heatmap.ts`) rather than hand-authored CSS or `nth-child` tricks — the first piece of real (non-CSS) logic since `001`'s date utils, so it gets a genuine classicist unit test, documented as a deliberate, bounded departure from `002`'s pure-source-text-CSS testing approach (ADR 0003).
+  - **Tasks**: 5 tasks (T001-T005): heatmap generator → `HeatmapGrid.vue` → Home wiring+badges → About two-column → final accessibility/viewport pass.
+  - **Implement T001-T004**: all closed with proper R-G-F, verified live via the dev server after each. T004 introduced a wrapping `<div>` in `AboutProfile.vue` to group the photo + personal-details block for the two-column CSS Grid.
+  - **T005 — two real bugs found and fixed, not glossed over**:
+    1. User's manual review: the heatmap was squeezed into a slim top-right column, reading as "flashes then disappears". Fixed by dropping the 2-column `.hero` grid entirely — heatmap now renders full-width **below** the intro block; grid grown from 7×14 to 7×36 (252 cells, matching a real GitHub graph's proportions) to actually read as filling space.
+    2. User reported it *still* disappeared after ~1s, no console error. This session loaded Chrome browser tooling (`mcp__claude-in-chrome__*`, available in this environment, unlike session 6's) and root-caused it live instead of guessing further: `<HeatmapGrid class="hero__heatmap" />` put `Hero.vue`'s `display: block` class directly onto `HeatmapGrid`'s own root element, which already carries its own scoped `.heatmap` class with `display: grid`. Equal-specificity, same element, same-order-wins-by-bundling-order — SSR and post-hydration CSS injection disagreed on which won, collapsing the grid to `height: 0` (confirmed via `getBoundingClientRect()`: exactly `0` broken, `164px` fixed) with zero JS errors, since it's a pure CSS cascade outcome. Fixed by wrapping `<HeatmapGrid />` in Hero's own plain wrapper div instead of overloading a class onto the child's root. Added a permanent regression test asserting no component in `Hero.vue`'s template ever gets a `class=` attribute applied directly, with the exact failure mode documented inline.
+    3. Criterion 9 (no horizontal scroll, 320-1920px) was verified **programmatically this session**, not deferred entirely to the user like `002`'s T014 — Chrome's window-resize floor in this environment is ~555px, so a real 320px viewport needed an iframe workaround; checked `scrollWidth > innerWidth` at ~318px/768px/1920px on `/`, `/about`, `/en/about`. No overflow anywhere.
+  - **Verify**: full report, no FAILs. Closing commit `spec: 005 closed — verify green` (`bc2cdea`).
+- Site's dev server ran continuously in the background for the whole session (`npm run dev`, started early on); used both for `curl`-based smoke checks and, once Chrome tooling was loaded, for actual live-browser verification — the first time this project could verify a running-site claim (hydration behavior, real viewport widths) instead of relying on static build output or the user's own eyes.
+
+### Open
+
+- Nothing queued. `.specs/onboarding.md` still lists the ~8 deferred `massive-space` candidates from session 7 as available for a future feature, if wanted.
+- Both new user-facing bugs found this session (heatmap layout, CSS collision) were found *before* the user had to report them as separate complaints in a later session — worth noting as a case where getting a live browser connected mid-session materially improved verification quality over prior sessions' curl/build-only approach.
+
+### Blockers / open questions
+
+- None open.
+
+### Decisions recorded elsewhere
+
+- `.specs/004-i18n/spec.md` → Closed footer (updated); Non-goals (Philip Morris exception).
+- `.specs/005-home-about-redesign/spec.md`, `plan.md`, `research.md`, `tasks.md` → Closed footer, full verify report.
+- `.specs/adr/0005-heatmap-decoration-approach.md`.
+
+### Dead ends / discarded
+
+- None — both heatmap bugs were fixed, not discarded; the first fix (layout) was necessary but insufficient, which is why the second (CSS collision) needed live browser inspection rather than more guessing.
+
+### Resume from
+
+No open feature. If the user wants to continue, the next candidate is drawing from the deferred `massive-space` success-story candidates (session 7) via `/sdd-specify`, or any new feedback from further review of the live site.
