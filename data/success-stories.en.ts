@@ -3,7 +3,7 @@ import type { SuccessStory } from './success-stories'
 const successStories: SuccessStory[] = [
   {
     title: "Articles for Vultr",
-    body: "<p>I've written several technical articles for Vultr, sharing my knowledge and experience across various technologies and development practices. I applied Clean Code, Docker, and Kubernetes to keep the articles clear, concise, and easy to follow, making them easier for other developers to put into practice. You can find my posts here: <a href='https://docs.vultr.com/author/josé-rafael-gutierrez' target='_blank'>https://docs.vultr.com/author/josé-rafael-gutierrez</a>. These articles cover a wide range of topics, from server configuration to application development and cloud best practices.</p>",
+    body: "<p>I've written several technical articles for Vultr, sharing my knowledge and experience across various technologies and development practices. I applied Clean Code, Docker, and Kubernetes to keep the articles clear, concise, and easy to follow, making them easier for other developers to put into practice. You can find my posts here: <a href='https://docs.vultr.com/author/jose-rafael-gutierrez' target='_blank'>https://docs.vultr.com/author/jose-rafael-gutierrez</a>. These articles cover a wide range of topics, from server configuration to application development and cloud best practices.</p>",
     tags: ["Clean Code", "Docker", "Kubernetes", "DevOPS", "Linux"],
   },
   {
@@ -162,7 +162,7 @@ const successStories: SuccessStory[] = [
   },
   {
     title: "MassiveSpace Pro — Internal Multi-Client Platform",
-    body: "<p>I designed and built MassiveSpace Pro, my own Laravel/Filament platform for centralizing the management of multiple e-commerce clients integrated with VTEX: WhatsApp notifications, abandoned-cart recovery, fast checkout, short URL generation with QR codes, and bulk order invoicing with retries and historical backfill recovery. Applied Clean Architecture (single-action controllers, Services, Actions, Redis-backed Repositories, DTOs) with role-based access control (RBAC) via Spatie, and PHPUnit test coverage for each business domain.</p>",
+    body: "<p>I designed and built MassiveSpace Pro, my own Laravel/Filament platform for centralizing the management of multiple e-commerce clients integrated with VTEX: WhatsApp notifications, abandoned-cart recovery, custom checkout, short URL generation with QR codes, and bulk order invoicing with retries and historical backfill recovery. Applied Clean Architecture (single-action controllers, Services, Actions, Redis-backed Repositories, DTOs) with role-based access control (RBAC) via Spatie, and PHPUnit test coverage for each business domain.</p>",
     tags: ["Laravel", "Filament", "PHP", "Redis", "RBAC", "Clean Architecture"],
   },
 ]

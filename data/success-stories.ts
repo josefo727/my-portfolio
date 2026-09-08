@@ -7,7 +7,7 @@ export interface SuccessStory {
 const successStories: SuccessStory[] = [
   {
     title: "Artículos para Vultr",
-    body: "<p>He escrito varios artículos técnicos para Vultr, compartiendo mis conocimientos y experiencia en diversas tecnologías y prácticas de desarrollo. Implementé Clean Code, Docker y Kubernetes para asegurar que los artículos sean claros, concisos y fáciles de entender, facilitando su aplicación por otros desarrolladores. Puedes ver mis publicaciones en el siguiente enlace: <a href='https://docs.vultr.com/author/josé-rafael-gutierrez' target='_blank'>https://docs.vultr.com/author/josé-rafael-gutierrez</a>. Estos artículos cubren una amplia gama de temas, desde la configuración de servidores hasta el desarrollo de aplicaciones y la implementación de mejores prácticas en la nube.</p>",
+    body: "<p>He escrito varios artículos técnicos para Vultr, compartiendo mis conocimientos y experiencia en diversas tecnologías y prácticas de desarrollo. Implementé Clean Code, Docker y Kubernetes para asegurar que los artículos sean claros, concisos y fáciles de entender, facilitando su aplicación por otros desarrolladores. Puedes ver mis publicaciones en el siguiente enlace: <a href='https://docs.vultr.com/author/jose-rafael-gutierrez' target='_blank'>https://docs.vultr.com/author/jose-rafael-gutierrez</a>. Estos artículos cubren una amplia gama de temas, desde la configuración de servidores hasta el desarrollo de aplicaciones y la implementación de mejores prácticas en la nube.</p>",
     tags: ["Clean Code", "Docker", "Kubernetes", "DevOPS", "Linux"],
   },
   {
@@ -166,7 +166,7 @@ const successStories: SuccessStory[] = [
   },
   {
     title: "MassiveSpace Pro — Plataforma Interna Multi-cliente",
-    body: "<p>Diseñé y desarrollé MassiveSpace Pro, una plataforma propia en Laravel/Filament para centralizar la gestión de múltiples clientes de comercio electrónico integrados con VTEX: notificaciones por WhatsApp, recuperación de carritos abandonados, checkout rápido, generación de URLs cortas con códigos QR y facturación masiva de pedidos con reintentos y recuperación histórica (backfill). Apliqué Clean Architecture (controladores de una sola acción, Services, Actions, Repositories sobre Redis, DTOs) con control de roles y permisos (RBAC) vía Spatie, y cobertura de pruebas con PHPUnit para cada dominio de negocio.</p>",
+    body: "<p>Diseñé y desarrollé MassiveSpace Pro, una plataforma propia en Laravel/Filament para centralizar la gestión de múltiples clientes de comercio electrónico integrados con VTEX: notificaciones por WhatsApp, recuperación de carritos abandonados, checkout custom, generación de URLs cortas con códigos QR y facturación masiva de pedidos con reintentos y recuperación histórica (backfill). Apliqué Clean Architecture (controladores de una sola acción, Services, Actions, Repositories sobre Redis, DTOs) con control de roles y permisos (RBAC) vía Spatie, y cobertura de pruebas con PHPUnit para cada dominio de negocio.</p>",
     tags: ["Laravel", "Filament", "PHP", "Redis", "RBAC", "Clean Architecture"],
   },
 ]
