@@ -1,3 +1,5 @@
+import { SITE_URL } from './utils/site'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2026-09-06',
@@ -6,13 +8,13 @@ export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxtjs/i18n', '@nuxtjs/sitemap'],
   css: ['~/assets/css/main.css'],
   site: {
-    url: 'https://hv.jose-gutierrez.com',
+    url: SITE_URL,
   },
   sitemap: {
     zeroRuntime: true,
   },
   i18n: {
-    baseUrl: 'https://hv.jose-gutierrez.com',
+    baseUrl: SITE_URL,
     strategy: 'prefix_except_default',
     defaultLocale: 'es',
     locales: [
