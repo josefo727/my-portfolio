@@ -5,6 +5,8 @@ export interface Personal {
   gender: string
   activities: string[]
   birthday: string
+  /** Start of paid programming work (Visual Basic, then PHP) — pre-2010 Fortran/Matlab/Maple/Octave/Derive coursework doesn't count. */
+  professional_since: string
 }
 
 const personal: Personal = {
@@ -14,6 +16,7 @@ const personal: Personal = {
   gender: 'Masculino',
   activities: ['Desarrollador Web', 'Diseñador UI/UX', 'Matemático', 'Freelancer'],
   birthday: '1981-10-05',
+  professional_since: '2010-01-01',
 }
 
 export default personal

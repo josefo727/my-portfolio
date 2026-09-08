@@ -3,7 +3,7 @@
     <h3>{{ t('resume.summary.heading') }}</h3>
     <h4>{{ personal.short_name }}</h4>
     <p>
-      <em>{{ t('resume.summary.bio') }}</em>
+      <em>{{ bio }}</em>
     </p>
     <ul>
       <li>{{ location.department }}, {{ location.city }}</li>
@@ -18,9 +18,11 @@ import personalEs from '~/data/personal'
 import personalEn from '~/data/personal.en'
 import location from '~/data/location'
 import contact from '~/data/contact'
+import { calculateYearsSince } from '~/utils/dates'
 
 const { t } = useI18n()
 const personal = useLocalizedData(personalEs, personalEn)
+const bio = computed(() => t('resume.summary.bio', { count: calculateYearsSince(personal.professional_since) }))
 </script>
 
 <style scoped>

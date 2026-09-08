@@ -5,7 +5,7 @@ import contact from '../../data/contact'
 import facts from '../../data/facts'
 
 describe('data/personal', () => {
-  it('matches the ported src/data/personal.js content', () => {
+  it('matches the current personal details, including professional_since', () => {
     expect(personal).toEqual({
       name: 'José Rafael',
       surname: 'Gutierrez Blanco',
@@ -13,6 +13,7 @@ describe('data/personal', () => {
       gender: 'Masculino',
       activities: ['Desarrollador Web', 'Diseñador UI/UX', 'Matemático', 'Freelancer'],
       birthday: '1981-10-05',
+      professional_since: '2010-01-01',
     })
   })
 })

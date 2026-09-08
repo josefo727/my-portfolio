@@ -7,6 +7,7 @@ const personal: Personal = {
   gender: 'Masculino',
   activities: ['Web Developer', 'UI/UX Designer', 'Mathematician', 'Freelancer'],
   birthday: '1981-10-05',
+  professional_since: '2010-01-01',
 }
 
 export default personal

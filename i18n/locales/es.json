@@ -38,7 +38,7 @@
   "resume": {
     "summary": {
       "heading": "Resúmen",
-      "bio": "Desarrollador web innovador con más de 13 años de experiencia en el diseño, desarrollo e implementación de sistemas informáticos como soluciones al sector público y privado."
+      "bio": "Desarrollador web innovador con más de {count} años de experiencia en el diseño, desarrollo e implementación de sistemas informáticos como soluciones al sector público y privado."
     },
     "education": {
       "heading": "Educación"
