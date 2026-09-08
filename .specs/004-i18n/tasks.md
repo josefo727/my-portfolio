@@ -384,12 +384,91 @@ R: n/a — content-drafting task, no automated red
 G: draft the 6 entries, get user approval or revisions
 F: n/a
 files: (none)
-status: open
+status: closed
 commits:
   red: n/a
-  green:
+  green: n/a — drafting only, no data file touched
   refactor: n/a
-notes:
+notes: |
+  Drafted under the same in-session deferred-approval authorization as T009/T010 — flagged for
+  the user's review on return.
+
+  Scope correction found while drafting (not silently expanded — documented here): this task's
+  DoD only scoped title + items[], but criterion 5 requires "no untranslated Spanish text ... on
+  an /en page", and `tenure` ("9 meses", "1 año y 3 meses", etc.) is visitor-facing text rendered
+  as-is by ResumeExperience.vue. Widened this task's draft to include `tenure`. `company` and
+  `web_site` stay untranslated (proper nouns/URLs, same precedent as education institutions in
+  T009). Also found: ResumeExperience.vue hardcodes the label "Sitio Web" outside any data field —
+  not a drafting task, but needs a $t() key wired in T013 alongside the data consumers.
+
+  1. title: 'Full Stack Developer' / tenure: '9 months'
+     items: ["Design and development of Globo, a comprehensive CRM for Global Link Studies built
+     with Laravel, Livewire, VueJS, and MySQL. The system manages all of the company's
+     administrative and sales traffic, streamlining processes and improving operational
+     efficiency."]
+
+  2. title: 'Freelance Full Stack Developer' / tenure: '2 years and 6 months'
+     items:
+       - "Back End development, Ocasa system integration with VTex ecommerce."
+       - "Back End development, Intelisis system integration (Faces Costa Rica) with VTex
+         ecommerce and Correos de Costa Rica's system."
+       - 'Front End development for <a href="https://www.novarix.co/" target="_blank">No-Varix</a>
+         on VTex Legacy ecommerce.'
+       - 'Front End development for <a href="https://cr.faces.com/" target="_blank">Faces CR</a>
+         on VTex Legacy ecommerce.'
+       - "Back End development, SAP Decorcerámica system integration with VTex ecommerce."
+       - "Full Stack development, payment method integration: Crédito Karibik - Kaiowa with VTex
+         ecommerce."
+       - "Full Stack development, OT&V - PMI integration with VTex ecommerce."
+
+  3. title: 'Full Stack Developer' / tenure: '1 year and 3 months'
+     items:
+       - 'Full Stack development for <a href="https://www.suzuki.com.pe/" target="_blank">Suzuki
+         Perú</a>.'
+       - 'Front End development for <a href="https://www.citroen.com.pe/" target="_blank">Citroen
+         Perú</a>.'
+       - 'Front End development for <a href="https://www.changan.com.pe/" target="_blank">Changan
+         Perú</a>.'
+       - 'Front End development for <a href="https://www.greatwallmotors.pe/"
+         target="_blank">Greatwall Perú</a>.'
+       - 'Full Stack development for <a href="https://www.jac.pe/" target="_blank">Jac
+         Perú</a>.'
+       - 'Full Stack development for <a href="https://www.renault.pe/" target="_blank">Renault
+         Perú</a>.'
+       - 'Full Stack development for <a href="https://www.suzuki.com.bo/" target="_blank">Suzuki
+         Bolivia</a>.'
+       - 'Front End development for <a href="https://www.changan.com.bo/" target="_blank">Changan
+         Bolivia</a>.'
+       - 'Full Stack development for <a href="https://www.jac.com.bo/" target="_blank">Jac
+         Bolivia</a>.'
+       - 'Full Stack development for <a href="https://www.renault.com.bo/" target="_blank">Renault
+         Bolivia</a>.'
+
+  4. title: 'Front End Developer, VueJS' / tenure: '5 months'
+     items:
+       - "Front End development with VueJS and Buefy for the GolStats 2.0 project"
+       - "Front End development with VueJS and Buefy for the GolStats B2C project"
+       - "Front End development with VueJS and Nuxt for the " +
+         '<a href="https://www.aspire.qa/Media/News/aspire-academy-and-golstats-enter-into-an-agreement-to-develop-new-football-software" target="_blank">' +
+         "FDMS - Qatar" + "</a> project "
+
+  5. title: 'Full Stack Developer, Laravel - VueJS' / tenure: '1 year and 3 months'
+     items:
+       - 'Full Stack development for the <a href="https://ecobpm.com/" target="_blank">ECOBPM</a>
+         project'
+       - 'Full Stack development for the <a href="https://www.aramark.es/" target="_blank">Aramark
+         </a> project'
+       - 'Full Stack development for the <a href="https://www.wortix.com/es/inicio/"
+         target="_blank">Wortix</a> project'
+       - 'Full Stack development for the <a href="https://www.gcstraining.co.uk/"
+         target="_blank">GCS</a> project'
+
+  6. title: 'Full Stack Developer, Laravel - JS' / tenure: '3 years and 4 months'
+     items:
+       - "Development of the Mayor's Office website CMS"
+       - "Development of the Finance Department's Tax Collection System"
+       - "Development of the IT Coordination's Ticketing and Case-Tracking System"
+       - "Development of the Municipality's Civil Registry Records System"
 ```
 
 ---
