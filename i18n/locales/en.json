@@ -25,7 +25,33 @@
       "freelance": "Freelance:",
       "freelanceValue": "Available"
     },
-    "closing": "I've long worked as a custom web-systems developer. I'm into electronics, technology, science, and reading. I value the personal growth that comes from family life. I enjoy chess, good music, and film, but more than anything, I value time with my loved ones."
+    "closing": "I've long worked as a custom web-systems developer. I'm into electronics, technology, science, and reading. I value the personal growth that comes from family life. I enjoy chess, good music, and film, but more than anything, I value time with my loved ones.",
+    "skills": {
+      "heading": "Skills & Abilities",
+      "intro": "Throughout my career as a developer, I've gained skills that have pushed me forward. For example, I prefer simplifying problems rather than complicating them. I'm committed and give my best in everything I do. I'm proactive, always taking the initiative and wanting to learn and improve every day. Perseverance is one of my strengths, and I know how to handle frustration well. I have a solid foundation in object-oriented programming and can quickly adapt to new technologies."
+    },
+    "facts": {
+      "heading": "Facts",
+      "intro": "Throughout my career as a web developer, I've had wins and successes that are genuinely worth highlighting."
+    }
+  },
+  "resume": {
+    "summary": {
+      "heading": "Summary",
+      "bio": "Innovative web developer with more than 13 years of experience designing, developing, and deploying software systems as solutions for the public and private sectors."
+    },
+    "education": {
+      "heading": "Education"
+    },
+    "experience": {
+      "website": "Website"
+    }
+  },
+  "certifications": {
+    "heading": "Certifications"
+  },
+  "successStories": {
+    "heading": "Success Stories"
   },
   "services": {
     "heading": "Services",

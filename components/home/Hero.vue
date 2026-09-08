@@ -8,7 +8,10 @@
 </template>
 
 <script setup lang="ts">
-import personal from '~/data/personal'
+import personalEs from '~/data/personal'
+import personalEn from '~/data/personal.en'
+
+const personal = useLocalizedData(personalEs, personalEn)
 </script>
 
 <style scoped>

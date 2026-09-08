@@ -6,7 +6,7 @@
       <h5>{{ entry.tenure }}</h5>
       <p>
         <em>{{ entry.company }}</em>
-        <small v-if="entry.web_site"> - <a :href="entry.web_site" target="_blank" rel="noopener">Sitio Web</a></small>
+        <small v-if="entry.web_site"> - <a :href="entry.web_site" target="_blank" rel="noopener">{{ t('resume.experience.website') }}</a></small>
       </p>
       <ul>
         <!-- eslint-disable-next-line vue/no-v-html -- authored content, ported as-is from the original data file -->
@@ -17,7 +17,11 @@
 </template>
 
 <script setup lang="ts">
-import experience from '~/data/experience'
+import experienceEs from '~/data/experience'
+import experienceEn from '~/data/experience.en'
+
+const { t } = useI18n()
+const experience = useLocalizedData(experienceEs, experienceEn)
 </script>
 
 <style scoped>

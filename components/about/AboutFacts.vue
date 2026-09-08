@@ -1,10 +1,7 @@
 <template>
   <section>
-    <h2>Hechos</h2>
-    <p>
-      Durante mi carrera como desarrollador web, he tenido aciertos y éxitos que realmente valen la pena
-      destacar.
-    </p>
+    <h2>{{ t('about.facts.heading') }}</h2>
+    <p>{{ t('about.facts.intro') }}</p>
     <ul>
       <li v-for="fact in facts" :key="fact.title">
         <strong>{{ fact.quantity }}</strong>
@@ -15,7 +12,11 @@
 </template>
 
 <script setup lang="ts">
-import facts from '~/data/facts'
+import factsEs from '~/data/facts'
+import factsEn from '~/data/facts.en'
+
+const { t } = useI18n()
+const facts = useLocalizedData(factsEs, factsEn)
 </script>
 
 <style scoped>

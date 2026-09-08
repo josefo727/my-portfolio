@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Certificaciones</h1>
+    <h1>{{ t('certifications.heading') }}</h1>
     <CertificationCard
       v-for="certification in certifications"
       :key="certification.image"
@@ -11,7 +11,11 @@
 
 <script setup lang="ts">
 import CertificationCard from '~/components/certifications/CertificationCard.vue'
-import certifications from '~/data/certifications'
+import certificationsEs from '~/data/certifications'
+import certificationsEn from '~/data/certifications.en'
+
+const { t } = useI18n()
+const certifications = useLocalizedData(certificationsEs, certificationsEn)
 </script>
 
 <style scoped>

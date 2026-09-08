@@ -1,12 +1,9 @@
 <template>
   <div>
-    <h3>Resúmen</h3>
+    <h3>{{ t('resume.summary.heading') }}</h3>
     <h4>{{ personal.short_name }}</h4>
     <p>
-      <em>
-        Desarrollador web innovador con más de 13 años de experiencia en el diseño, desarrollo e implementación
-        de sistemas informáticos como soluciones al sector público y privado.
-      </em>
+      <em>{{ t('resume.summary.bio') }}</em>
     </p>
     <ul>
       <li>{{ location.department }}, {{ location.city }}</li>
@@ -17,9 +14,13 @@
 </template>
 
 <script setup lang="ts">
-import personal from '~/data/personal'
+import personalEs from '~/data/personal'
+import personalEn from '~/data/personal.en'
 import location from '~/data/location'
 import contact from '~/data/contact'
+
+const { t } = useI18n()
+const personal = useLocalizedData(personalEs, personalEn)
 </script>
 
 <style scoped>

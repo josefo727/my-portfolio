@@ -25,7 +25,33 @@
       "freelance": "Freelance:",
       "freelanceValue": "Disponible"
     },
-    "closing": "Desde hace tiempo me desempeño como desarrollador de sistemas web a medida. Soy aficionado a la electrónica, la tecnología, la ciencia y la lectura. Valoro el crecimiento y desarrollo personal que surge de la convivencia familiar. Disfruto del ajedrez, la buena música y el cine, pero, más que nada, valoro tener tiempo para mis seres queridos."
+    "closing": "Desde hace tiempo me desempeño como desarrollador de sistemas web a medida. Soy aficionado a la electrónica, la tecnología, la ciencia y la lectura. Valoro el crecimiento y desarrollo personal que surge de la convivencia familiar. Disfruto del ajedrez, la buena música y el cine, pero, más que nada, valoro tener tiempo para mis seres queridos.",
+    "skills": {
+      "heading": "Habilidades y Destrezas",
+      "intro": "A lo largo de mi carrera como desarrollador, he ganado habilidades que me han impulsado hacia adelante. Por ejemplo, prefiero simplificar problemas en vez de complicarlos. Estoy comprometido y me implico al máximo en lo que hago. Soy proactivo, siempre con la iniciativa y el deseo de aprender y mejorar cada día. La perseverancia es una de mis fortalezas y sé manejar la frustración. Tengo una base sólida en programación orientada a objetos y puedo adaptarme rápidamente a nuevas tecnologías."
+    },
+    "facts": {
+      "heading": "Hechos",
+      "intro": "Durante mi carrera como desarrollador web, he tenido aciertos y éxitos que realmente valen la pena destacar."
+    }
+  },
+  "resume": {
+    "summary": {
+      "heading": "Resúmen",
+      "bio": "Desarrollador web innovador con más de 13 años de experiencia en el diseño, desarrollo e implementación de sistemas informáticos como soluciones al sector público y privado."
+    },
+    "education": {
+      "heading": "Educación"
+    },
+    "experience": {
+      "website": "Sitio Web"
+    }
+  },
+  "certifications": {
+    "heading": "Certificaciones"
+  },
+  "successStories": {
+    "heading": "Casos de Éxito"
   },
   "services": {
     "heading": "Servicios",
