@@ -118,12 +118,12 @@ F: skipped unless the new wrapper duplicates a layout pattern already generalize
 files:
   - components/about/AboutProfile.vue
   - tests/unit/about-style.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: fully independent of T001-T003's files (Home vs. About) — safe to run in parallel with T001.
+  red: 3b4666a
+  green: 721da39
+  refactor: skipped — no smell detected
+notes: fully independent of T001-T003's files (Home vs. About) — ran sequentially anyway, same as every other [P]-marked task this project. Verified live via the dev server.
 ```
 
 ---
