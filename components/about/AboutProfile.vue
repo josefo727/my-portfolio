@@ -3,23 +3,27 @@
     <h2>{{ t('about.heading') }}</h2>
     <p>{{ t('about.intro') }}</p>
 
-    <img src="/assets/img/profile-img.jpeg" alt="">
-    <h3>UI/UX Designer &amp; Web Developer.</h3>
-    <p>{{ t('about.personalInfo') }}</p>
+    <div class="about-profile__columns">
+      <img class="about-profile__photo" src="/assets/img/profile-img.jpeg" alt="">
+      <div class="about-profile__details">
+        <h3>UI/UX Designer &amp; Web Developer.</h3>
+        <p>{{ t('about.personalInfo') }}</p>
 
-    <ul>
-      <li><strong>{{ t('about.fields.birthday') }}</strong> {{ birthday }}</li>
-      <li>
-        <strong>{{ t('about.fields.website') }}</strong>
-        <a :href="contact.web_site" target="_blank" rel="noopener">{{ contact.web_site }}</a>
-      </li>
-      <li><strong>{{ t('about.fields.mobile') }}</strong> {{ contact.mobil }}</li>
-      <li><strong>{{ t('about.fields.city') }}</strong> {{ location.city }}</li>
-      <li><strong>{{ t('about.fields.age') }}</strong> {{ age }}</li>
-      <li><strong>{{ t('about.fields.level') }}</strong> {{ t('about.fields.levelValue') }}</li>
-      <li><strong>{{ t('about.fields.email') }}</strong> {{ contact.email }}</li>
-      <li><strong>{{ t('about.fields.freelance') }}</strong> {{ t('about.fields.freelanceValue') }}</li>
-    </ul>
+        <ul>
+          <li><strong>{{ t('about.fields.birthday') }}</strong> {{ birthday }}</li>
+          <li>
+            <strong>{{ t('about.fields.website') }}</strong>
+            <a :href="contact.web_site" target="_blank" rel="noopener">{{ contact.web_site }}</a>
+          </li>
+          <li><strong>{{ t('about.fields.mobile') }}</strong> {{ contact.mobil }}</li>
+          <li><strong>{{ t('about.fields.city') }}</strong> {{ location.city }}</li>
+          <li><strong>{{ t('about.fields.age') }}</strong> {{ age }}</li>
+          <li><strong>{{ t('about.fields.level') }}</strong> {{ t('about.fields.levelValue') }}</li>
+          <li><strong>{{ t('about.fields.email') }}</strong> {{ contact.email }}</li>
+          <li><strong>{{ t('about.fields.freelance') }}</strong> {{ t('about.fields.freelanceValue') }}</li>
+        </ul>
+      </div>
+    </div>
 
     <p>{{ t('about.closing') }}</p>
   </section>
@@ -44,9 +48,10 @@ section {
   margin-bottom: var(--space-xl);
 }
 
-img {
+.about-profile__photo {
   border-radius: 8px;
   margin: var(--space-md) 0;
+  width: 100%;
 }
 
 h2 {
@@ -65,5 +70,18 @@ ul {
   padding: 0;
   display: grid;
   gap: var(--space-xs);
+}
+
+@media (min-width: 768px) {
+  .about-profile__columns {
+    display: grid;
+    grid-template-columns: minmax(200px, 320px) 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .about-profile__photo {
+    margin-top: 0;
+  }
 }
 </style>
