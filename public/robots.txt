@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hv.jose-gutierrez.com/sitemap_index.xml
