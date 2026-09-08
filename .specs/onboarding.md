@@ -50,6 +50,17 @@ A second sweep, of `~/Projects/massive-space` (2026-09-06, during `003-content-r
 
 Other strong candidates found in the same sweep (Calzatodo, Ficohsa/La Colonia, Pizzamania, Pepe Ganga, Juriscoop, Lilipink, Speedo, MassiveSpace Pro, and others) were explicitly left out of `003-content-refresh`'s scope by user choice — available for a future feature if wanted.
 
+A third pass (2026-09-08, session 10), triaging those 8 deferred candidates via an Explore agent that verified real authorship per-repo through `git log` (not folder names — several "client" repos turned out to be majority-authored by other agency developers, e.g. Leonardo Parra/DevMassiveSpace on Calzatodo's/Ficohsa's/Lilipink's theme repos). Findings:
+
+- **Discarded, zero attributable commits**: `pepe-ganga` (all 442 commits belong to agency Titamedia), `juriscoop-xtrategik-tema` (all 505 commits belong to another team, Ubuntec/Xtrategik).
+- **Discarded, insufficient own authorship**: `speedo` (only 10 commits across two minor utility repos; the theme/main apps are majority another developer's).
+- **Strong candidates found, 5 total** — user selected 4:
+  - `massive-space/calzatodo/backend-services` (**Calzatodo**, VTEX IO Node/TS/Koa microservice, 100% own commits — gift cards with retries + Slack alerts, monthly-bonus-limit validation, Master Data; narrative scoped to this repo only, not the theme/apps which are majority another dev's) — **selected**
+  - `massive-space/pizzamania/auto-invoicer` (**Pizzamania**, VTEX IO app, 100% own commits, built with explicit SDD+TDD — spec/plan/contracts documented — closes stuck marketplace orders, idempotent, historical backfill) — **selected**
+  - `massive-space/lilipink/credi-pink` (**CrediPink**, Laravel+Filament BNPL/credit-at-checkout backend, 100% own commits, real production incidents diagnosed and fixed, live at `app.credipink.com`; narrative scoped to CrediPink specifically, not the LiliPink theme/store which is majority another dev's) — **selected**
+  - `massive-space/massivespace-pro` (**MassiveSpace Pro**, Laravel+Filament internal agency platform — WhatsApp notifications, abandoned-cart recovery, fast checkout, short URLs/QR, bulk invoicing — 100% own commits; presented as the assistant's own internal tool, no specific client named, since it's agency-owned infrastructure, not a client engagement) — **selected**
+  - `massive-space/ficohsa-la-colonia` (**Ficohsa/La Colonia**, Laravel+PixelPay credit-at-checkout for a bank-backed integration, 72-100% own commits depending on repo) — **not selected**; flagged risk of narrative overlap with CrediPink (both are "credit at VTEX checkout") was moot once this one was left out.
+
 ## Decisions log (this onboarding session)
 
 | Decision | Answer | Date |
@@ -62,6 +73,7 @@ Other strong candidates found in the same sweep (Calzatodo, Ficohsa/La Colonia, 
 | URL renaming (001) | Routes may be renamed freely when justified; no requirement to preserve exact current paths | 2026-09-05 |
 | Feature resequencing | 001 shipped functionally complete but with no real visual design applied (only CSS tokens, never used on components) — a gap between the constitution's "original, minimalist design" goal and what got task-broken-down. New feature inserted as **002 (visual design pass)**; content refresh becomes **003**, i18n becomes **004** | 2026-09-06 |
 | 003 success-story selection | 11 new entries: Sirocco (finished/production), Cauce (in dev), Maná del Cielo (in dev), Bajo la Lupa, Biogenesis, Somos URV (already authorized), plus Qbano, Nequi/Gravity, CatalogFlip, Almacenes Brissa, massive-whatsapp-service (from the `massive-space` sweep, user-curated selection out of ~13 strong candidates) | 2026-09-06 |
+| Deferred massive-space candidates, final triage | 4 new entries selected: Calzatodo (backend-services only), Pizzamania (auto-invoicer), CrediPink, MassiveSpace Pro (as own internal tool, no client named). Not selected: Ficohsa/La Colonia. Discarded (no attributable authorship or insufficient own commits): Pepe Ganga, Juriscoop, Speedo | 2026-09-08 |
 
 ## Deviation from kit default
 
