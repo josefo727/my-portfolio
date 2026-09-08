@@ -269,12 +269,39 @@ R: n/a — content-drafting task, no automated red
 G: draft the 4 files' worth of translations, get user approval or revisions
 F: n/a
 files: (none — output is approved draft text, not yet written to a file)
-status: open
+status: closed
 commits:
   red: n/a
-  green:
+  green: n/a — drafting only, no data file touched
   refactor: n/a
-notes:
+notes: |
+  Drafted while the user stepped away, per their explicit instruction this session to advance
+  automatically without a synchronous approval round (deviation from this task's normal Article V
+  gate, authorized in-session — not a silent skip). Faithful translation of already-approved
+  Spanish content, no new claims invented. Flagged for the user's review on return; T013 will wire
+  these into data/*.en.ts, so nothing is live before that.
+
+  personal.activities: ['Web Developer', 'UI/UX Designer', 'Mathematician', 'Freelancer']
+
+  facts:
+    1. title: 'Happy clients' / sub_title: 'and satisfied with the results.'
+    2. title: 'Projects completed' / sub_title: 'and delivered successfully.'
+    3. title: 'Support hours' / sub_title: 'before and after development.'
+    4. title: 'Complex projects' / sub_title: 'demanding and hard work.'
+
+  skills (only the 2 non-proper-noun titles; all others unchanged):
+    "Motores SQL's" -> 'SQL Engines'
+    "Motores NoSQL's" -> 'NoSQL Engines'
+
+  education (abstract only — title/period/institution stay as in the Spanish source, per this
+  task's own DoD scope):
+    1. "During my studies in the Faculty of Science and Technology I was a teaching assistant for
+       Calculus and Number Theory; I programmed in Pascal, Fortran, Maple, Matlab, Octave, and
+       worked with document editing in LaTeX"
+    2. "During my studies in the Faculty of Engineering I was a teaching assistant for Mathematical
+       Analysis and Analytic Geometry"
+    3. "During high school I was president of the student council, a teaching assistant for
+       mathematics, and had outstanding participation in the 23rd Venezuelan Mathematics Olympiad"
 ```
 
 ---
