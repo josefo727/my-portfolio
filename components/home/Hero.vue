@@ -1,15 +1,19 @@
 <template>
-  <section>
-    <h1>{{ personal.short_name }}</h1>
-    <ul>
-      <li v-for="activity in personal.activities" :key="activity">{{ activity }}</li>
-    </ul>
+  <section class="hero">
+    <div class="hero__intro">
+      <h1>{{ personal.short_name }}</h1>
+      <ul class="hero__activities">
+        <li v-for="activity in personal.activities" :key="activity" class="hero__badge">{{ activity }}</li>
+      </ul>
+    </div>
+    <HeatmapGrid class="hero__heatmap" />
   </section>
 </template>
 
 <script setup lang="ts">
 import personalEs from '~/data/personal'
 import personalEn from '~/data/personal.en'
+import HeatmapGrid from './HeatmapGrid.vue'
 
 const personal = useLocalizedData(personalEs, personalEn)
 </script>
@@ -20,7 +24,7 @@ h1 {
   margin-bottom: var(--space-sm);
 }
 
-ul {
+.hero__activities {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -29,14 +33,29 @@ ul {
   gap: var(--space-sm);
 }
 
-li {
-  font-size: var(--font-size-lg);
+.hero__badge {
+  font-size: var(--font-size-sm);
+  padding: 2px var(--space-sm);
+  border-radius: 999px;
+  background-color: var(--color-background-alt);
+  border: 1px solid var(--color-border);
   color: var(--color-text-muted);
 }
 
-li:not(:last-child)::after {
-  content: '·';
-  margin-left: var(--space-sm);
-  color: var(--color-border);
+.hero__heatmap {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .hero__heatmap {
+    display: block;
+  }
 }
 </style>
