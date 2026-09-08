@@ -47,15 +47,10 @@ h1 {
 }
 
 @media (min-width: 768px) {
-  .hero {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: var(--space-lg);
-  }
-
   .hero__heatmap {
     display: block;
+    margin-top: var(--space-xl);
+    width: 100%;
   }
 }
 </style>

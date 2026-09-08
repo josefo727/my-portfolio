@@ -14,7 +14,7 @@
 import { generateHeatmapPattern } from '~/utils/heatmap'
 
 const ROWS = 7
-const COLS = 14
+const COLS = 36
 
 const cells = generateHeatmapPattern(ROWS, COLS)
 </script>
