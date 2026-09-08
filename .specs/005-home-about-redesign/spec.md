@@ -56,7 +56,7 @@ None outstanding — see "Resolved during specify" below.
 ## Closed (filled during verify)
 
 - Date: 2026-09-07
-- Commit: `<pending>` — `spec: 005 closed — verify green`
+- Commit: `bc2cdea` — `spec: 005 closed — verify green`
 - Notes: all 5 tasks closed; full suite green (119/119 Vitest tests, 48 files); lint/typecheck clean; `nuxi generate` succeeds. T005's manual review (this session had Chrome browser tooling available, unlike `002`'s T014) found and fixed two real bugs before closing: the heatmap's cramped 2-column layout (`35a4052`) and a CSS class-collision bug that collapsed the heatmap to zero height after client-side hydration (`e8d8ca0`), root-caused via direct `getBoundingClientRect()` inspection in a live browser rather than guesswork — a permanent regression test was added (`2b2bd7a`). Criterion 9 (no horizontal scroll) was verified programmatically this session (`scrollWidth` checks at ~318px/768px/1920px on `/`, `/about`, `/en/about`) instead of left entirely to the user.
 
 ### Verify report
