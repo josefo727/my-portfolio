@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Professional Experience</h3>
+    <h3>{{ t('resume.experience.heading') }}</h3>
     <div v-for="entry in experience" :key="entry.title + entry.company">
       <h4>{{ entry.title }}</h4>
       <h5>{{ entry.tenure }}</h5>
