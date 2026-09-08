@@ -753,4 +753,4 @@ notes: |
 
 | Date | Change | Reason |
 |------|--------|--------|
-|      |        |        |
+| 2026-09-07 | Verify closed: 14/14 tasks, full suite green (106 tests/45 files), lint/typecheck clean. Two user-flagged corrections resolved before closing (Philip Morris International spelling; `resume.experience.heading` made locale-aware). Closing commit: `spec: 004 closed — verify green`. | `/sdd-verify` — see `spec.md`'s Closed footer for the full report and acceptance-criteria evidence. |

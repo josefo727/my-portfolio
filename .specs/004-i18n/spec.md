@@ -57,6 +57,27 @@ None outstanding — see "Resolved during specify" below.
 
 ## Closed (filled during verify)
 
-- Date: `<pending>`
-- Commit: `<pending>`
-- Notes: `<pending>`
+- Date: 2026-09-07
+- Commit: `<pending>` — `spec: 004 closed — verify green`
+- Notes: all 14 tasks closed; full suite green (106/106 Vitest tests, 45 files); lint/typecheck clean; `nuxi generate` succeeds (36 routes, both locales). Two items flagged during the user's local review were resolved and fixed before closing (see "Acceptance criteria evidence" and Non-goals): the "Phillips Morris" → "Philip Morris International" client-name correction, and `resume.experience.heading` made locale-aware ("Experiencia Profesional" / "Professional Experience"), fixing a pre-existing bug that predated this feature.
+
+### Verify report
+
+- R1 Spec coverage: PASS (8/8 criteria traced to a Red-commit `spec-ref`, except criterion 3 which needed supplemental evidence — see below)
+- R2 Task completeness: PASS (14/14 tasks closed, each with commit SHAs or documented rationale — content-drafting tasks T009-T012 have no automated red by design, gated on user approval instead)
+- R3 Orphan tests: PASS (0 orphans among the 13 test files added/changed this feature)
+- R4 Contracts: PASS/N/A (no external boundary — `@nuxtjs/i18n` is build-time only, per ADR 0004)
+- R5 Constitution: PASS. One process deviation is recorded, not glossed over: T009-T012's translation drafts were wired into the codebase (T013) before the user's synchronous approval, under the user's own explicit in-session authorization (2026-09-07) to defer that review to session's end rather than block on it. The review did happen before closing — the user's local walkthrough surfaced two real corrections (see Notes above), both resolved before this commit.
+- R6 Research freshness: PASS (`research.md` captured 2026-09-06, 1 day old)
+- R7 Observability: N/A (no article declares it; fully static site)
+- R8 Security: N/A (no auth/money/PII/external writes)
+- R9 Docs: PASS (fixed during verify — `README.md` had no mention of the new `/en/*` route tree; added one line)
+- R10 Changelog: N/A (no `CHANGELOG.md` convention exists in this repo, consistent with 001/002/003)
+
+No FAILs.
+
+### Acceptance criteria evidence
+
+Criterion 3 (both locales pre-rendered as static HTML at build time) has no commit whose Refs line cites it by a dedicated automated test — it's verified by direct inspection of the `nuxi generate` output instead (same technique used for 001's criterion 1). Recorded here as supplemental evidence:
+
+3. **Both locales pre-rendered as static HTML** — a real `nuxi generate` build (verified twice this session) produces 36 prerendered routes; `grep` against the generated `.html` files directly (not through Vitest) confirms full English/Spanish text is present in each locale's static markup, e.g. `.output/public/en/about/index.html` contains "Skills & Abilities"/"Facts" and `.output/public/about/index.html` contains "Habilidades y Destrezas"/"Hechos", with no client-side JavaScript required.
