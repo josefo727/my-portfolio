@@ -6,19 +6,21 @@ const INTL_LOCALE: Record<DateLocale, string> = {
 }
 
 /**
- * Age in whole years, as of now. Plain date arithmetic — no locale, no
- * shared mutable state, safe under concurrent SSG rendering (unlike
- * dayjs's `.locale()`, found to leak between routes when many pages are
- * prerendered within the same Nitro process — see 004-i18n T006 notes).
+ * Whole years elapsed between `date` and now (e.g. age from a birthday,
+ * or years of experience from a start date). Plain date arithmetic — no
+ * locale, no shared mutable state, safe under concurrent SSG rendering
+ * (unlike dayjs's `.locale()`, found to leak between routes when many
+ * pages are prerendered within the same Nitro process — see 004-i18n
+ * T006 notes).
  */
-export const calculateAgeYears = (birthday: string): number => {
-  const birth = new Date(birthday)
+export const calculateYearsSince = (date: string): number => {
+  const start = new Date(date)
   const now = new Date()
-  let years = now.getFullYear() - birth.getFullYear()
-  const hadBirthdayThisYear =
-    now.getMonth() > birth.getMonth() ||
-    (now.getMonth() === birth.getMonth() && now.getDate() >= birth.getDate())
-  if (!hadBirthdayThisYear) years -= 1
+  let years = now.getFullYear() - start.getFullYear()
+  const hadAnniversaryThisYear =
+    now.getMonth() > start.getMonth() ||
+    (now.getMonth() === start.getMonth() && now.getDate() >= start.getDate())
+  if (!hadAnniversaryThisYear) years -= 1
   return years
 }
 

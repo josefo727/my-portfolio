@@ -4,7 +4,7 @@ import AboutPage from '~/pages/about.vue'
 import personal from '~/data/personal'
 import location from '~/data/location'
 import contact from '~/data/contact'
-import { calculateAgeYears, formatDate } from '~/utils/dates'
+import { calculateYearsSince, formatDate } from '~/utils/dates'
 
 describe('pages/about', () => {
   it('renders the profile fields computed from personal/location/contact data', async () => {
@@ -12,7 +12,7 @@ describe('pages/about', () => {
     const text = wrapper.text()
 
     expect(text).toContain(formatDate(personal.birthday))
-    expect(text).toContain(`${calculateAgeYears(personal.birthday)} años`)
+    expect(text).toContain(`${calculateYearsSince(personal.birthday)} años`)
     expect(text).toContain(contact.web_site)
     expect(text).toContain(contact.mobil)
     expect(text).toContain(contact.email)

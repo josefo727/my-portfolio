@@ -29,13 +29,13 @@
 import personal from '~/data/personal'
 import location from '~/data/location'
 import contact from '~/data/contact'
-import { calculateAgeYears, formatDate, type DateLocale } from '~/utils/dates'
+import { calculateYearsSince, formatDate, type DateLocale } from '~/utils/dates'
 
 const { t } = useI18n()
 const route = useRoute()
 const dateLocale = computed<DateLocale>(() => (route.path.startsWith('/en') ? 'en' : 'es'))
 
-const age = computed(() => t('about.fields.ageValue', { count: calculateAgeYears(personal.birthday) }))
+const age = computed(() => t('about.fields.ageValue', { count: calculateYearsSince(personal.birthday) }))
 const birthday = computed(() => formatDate(personal.birthday, dateLocale.value))
 </script>
 
