@@ -19,4 +19,11 @@ describe('components/about/* — styling', () => {
     expect(skills).toMatch(/list-style:\s*none/)
     expect(facts).toMatch(/list-style:\s*none/)
   })
+
+  it('AboutProfile lays the photo and personal-details block out in two columns on >=768px', () => {
+    const profile = files.find((f) => f.name === 'AboutProfile')!.source
+
+    expect(profile).toMatch(/@media\s*\(min-width:\s*768px\)/)
+    expect(profile).toMatch(/grid-template-columns:/)
+  })
 })
