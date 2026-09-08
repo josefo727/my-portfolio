@@ -137,12 +137,42 @@ R: n/a — content-drafting task, no automated red
 G: translate the 9 approved pairs, get user approval or revisions
 F: n/a
 files: (none — output is approved draft text, not yet written to a file)
-status: open
+status: closed
 commits:
   red: n/a
   green: n/a — approved in chat, written to data in T005
   refactor: n/a
-notes:
+notes: |
+  Approved translations (2026-09-08), all titles <=60 chars and descriptions <=160 chars (max: 148):
+
+  home:            title: "José R. Gutierrez — Full-Stack Web Developer"
+                   description: "Portfolio of José R. Gutierrez, full-stack web developer
+                   specializing in Laravel, Vue/Nuxt, and VTEX integrations, with his own SDD+TDD
+                   methodology."
+  about:           title: "About Me — José R. Gutierrez"
+                   description: "Meet José R. Gutierrez: profile, technical skills, and
+                   professional facts for a full-stack developer in Laravel, Vue/Nuxt, and VTEX."
+  resume:          title: "Professional Resume — José R. Gutierrez"
+                   description: "Professional resume of José R. Gutierrez: work experience,
+                   education, and career as a full-stack freelance developer."
+  services:        title: "Services — José R. Gutierrez"
+                   description: "Software development services by José R. Gutierrez, full-stack
+                   freelancer in Laravel, Vue/Nuxt, and VTEX. Details coming soon."
+  success-stories: title: "Success Stories — José R. Gutierrez"
+                   description: "23 real success stories by José R. Gutierrez: VTEX integrations,
+                   Laravel systems, own platforms, and SDD+TDD-driven projects."
+  certifications:  title: "Certifications — José R. Gutierrez"
+                   description: "Certifications and courses completed by José R. Gutierrez in web
+                   development: Laravel, Vue, PHP, architecture, and best practices."
+  libraries:       title: "Libraries — José R. Gutierrez"
+                   description: "Open-source libraries by José R. Gutierrez: VTEX API SDKs and
+                   general-settings packages for Laravel and Filament."
+  contact:         title: "Contact — José R. Gutierrez"
+                   description: "Contact José R. Gutierrez, full-stack freelance web developer, by
+                   email or social media for your next project."
+  notFound:        title: "Page Not Found — José R. Gutierrez"
+                   description: "The page you're looking for doesn't exist or was moved. Head
+                   back to José R. Gutierrez's portfolio homepage."
 ```
 
 ---
