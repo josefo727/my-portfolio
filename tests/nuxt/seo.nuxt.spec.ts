@@ -4,6 +4,8 @@ import IndexPage from '~/pages/index.vue'
 import AboutPage from '~/pages/about.vue'
 import ResumePage from '~/pages/resume.vue'
 import ServicesPage from '~/pages/services.vue'
+import SuccessStoriesPage from '~/pages/success-stories.vue'
+import ContactPage from '~/pages/contact.vue'
 
 // @unhead's DOM plugin flushes title/meta tag updates asynchronously (debounced) — see
 // tests/nuxt/use-page-seo.nuxt.spec.ts for the same gotcha, documented there first.
@@ -50,5 +52,17 @@ describe('per-page SEO tags', () => {
     await mountSuspended(ServicesPage, { route: '/en/services', attachTo: document.body })
     await waitForTitle('Services — José R. Gutierrez')
     assertPageHasSeoTags('Services — José R. Gutierrez')
+  })
+
+  it('renders success-stories page SEO tags', async () => {
+    await mountSuspended(SuccessStoriesPage, { route: '/success-stories', attachTo: document.body })
+    await waitForTitle('Casos de Éxito — José R. Gutierrez')
+    assertPageHasSeoTags('Casos de Éxito — José R. Gutierrez')
+  })
+
+  it('renders contact page SEO tags on the English route', async () => {
+    await mountSuspended(ContactPage, { route: '/en/contact', attachTo: document.body })
+    await waitForTitle('Contact — José R. Gutierrez')
+    assertPageHasSeoTags('Contact — José R. Gutierrez')
   })
 })
