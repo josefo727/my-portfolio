@@ -19,4 +19,14 @@ describe('components/home/Hero.vue — styling', () => {
   it('only shows the decorative heatmap on viewports >=768px', () => {
     expect(source).toMatch(/@media\s*\(min-width:\s*768px\)/)
   })
+
+  it('wraps HeatmapGrid in its own element instead of styling its root directly', () => {
+    // Regression guard: a class applied straight on <HeatmapGrid> lands on the same root
+    // element as HeatmapGrid's own `display: grid` rule. Two same-specificity `display`
+    // declarations targeting one element race on stylesheet load order — server-rendered
+    // HTML and post-hydration CSS injection can disagree on which wins, collapsing the grid's
+    // empty cells to zero height with no console error. Found live 2026-09-07 (rendered for
+    // ~1s, then collapsed). A dedicated wrapper keeps the two components' styles disjoint.
+    expect(source).not.toMatch(/<HeatmapGrid[^>]*\sclass=/)
+  })
 })
