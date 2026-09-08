@@ -201,4 +201,4 @@ notes: accessibility suite confirmed 18/18 green (both es and en routes), no reg
 
 | Date | Change | Reason |
 |------|--------|--------|
-|      |        |        |
+| 2026-09-08 | Verify closed: 5/5 tasks, full suite green (120 tests/48 files), lint/typecheck clean, confirmed in a real `nuxi generate` build. Closing commit: `spec: 006 closed — verify green`. | `/sdd-verify` — see `spec.md`'s Closed footer for the full report and acceptance-criteria evidence. |

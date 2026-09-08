@@ -50,6 +50,14 @@ None outstanding — candidate selection, per-entry scope boundaries (criteria 4
 
 ## Closed (filled during verify)
 
-- Date: `<pending>`
-- Commit: `<pending>`
-- Notes: `<pending>`
+- Date: 2026-09-08
+- Commit: `spec: 006 closed — verify green` (SHA recorded in the closing commit itself)
+- Notes: all 5 tasks closed; full suite green (120/120 Vitest tests, 48 files); lint/typecheck clean; `nuxi generate` succeeds (36 routes) and was checked directly — all 4 new entries render correctly on both `/success-stories` and `/en/success-stories` with the exact approved text. Content for all 4 entries was verified against the actual source repos (README, CLAUDE.md, composer.json/package.json, manifest.json, directory structure) before drafting, per Article V, and approved by the user in two batches (Spanish, then English) before being written to the data files.
+
+### Acceptance criteria evidence
+
+Criteria 7 and 9 have no commit whose Refs line cites them by name (T004's own green commit reused a pre-existing test from `004-i18n` rather than introducing a new one; T005 closed as a regression check with no production change needed — see `tasks.md` for both). Recorded here instead of treating it as a gap:
+
+7. **English translations exist and match** — `data/success-stories.en.ts` has all 23 entries (19 existing + 4 new), verified by `tests/unit/data-en-parity.spec.ts`'s length-parity assertion and confirmed against the real `nuxi generate` build for `/en/success-stories`.
+8. **Automated tests confirm counts/shapes** — `tests/unit/data-success-stories.spec.ts` (23 entries, 19 existing titles present, 4 new ones with valid shape, scope-boundary checks for Calzatodo/CrediPink/MassiveSpace Pro) — extended in T003.
+9. **Existing accessibility suite stays at zero violations, both locales** — `tests/nuxt/accessibility.nuxt.spec.ts` re-run after T003/T004's content changes: still 18/18 passing.
