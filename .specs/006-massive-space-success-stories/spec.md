@@ -51,7 +51,7 @@ None outstanding — candidate selection, per-entry scope boundaries (criteria 4
 ## Closed (filled during verify)
 
 - Date: 2026-09-08
-- Commit: `spec: 006 closed — verify green` (SHA recorded in the closing commit itself)
+- Commit: `8a9e7e5` — `spec: 006 closed — verify green`
 - Notes: all 5 tasks closed; full suite green (120/120 Vitest tests, 48 files); lint/typecheck clean; `nuxi generate` succeeds (36 routes) and was checked directly — all 4 new entries render correctly on both `/success-stories` and `/en/success-stories` with the exact approved text. Content for all 4 entries was verified against the actual source repos (README, CLAUDE.md, composer.json/package.json, manifest.json, directory structure) before drafting, per Article V, and approved by the user in two batches (Spanish, then English) before being written to the data files.
 
 ### Acceptance criteria evidence
