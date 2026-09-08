@@ -55,12 +55,17 @@ F: skipped unless the per-cell inline style computation needs extracting into a 
 files:
   - components/home/HeatmapGrid.vue
   - tests/nuxt/heatmap-grid.nuxt.spec.ts
-status: open
+  - tests/unit/heatmap-grid-style.spec.ts
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes: depends on T001 (imports generateHeatmapPattern) — sequential after it, not [P].
+  red: f6553f0
+  green: a9ee548
+  refactor: skipped — no smell detected
+notes: |
+  Depends on T001 (imports generateHeatmapPattern) — sequential after it, not [P]. Added
+  tests/unit/heatmap-grid-style.spec.ts (not in the original file list) for the CSS-specific
+  assertions (@keyframes, animation-delay), per ADR 0003's source-text convention, separate from
+  the nuxt-mount test's DOM/behavior assertions (cell count, aria-hidden).
 ```
 
 ---
