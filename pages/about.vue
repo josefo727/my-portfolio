@@ -10,4 +10,6 @@
 import AboutProfile from '~/components/about/AboutProfile.vue'
 import AboutSkills from '~/components/about/AboutSkills.vue'
 import AboutFacts from '~/components/about/AboutFacts.vue'
+
+usePageSeo('about')
 </script>

@@ -4,4 +4,6 @@
 
 <script setup lang="ts">
 import Hero from '~/components/home/Hero.vue'
+
+usePageSeo('home')
 </script>

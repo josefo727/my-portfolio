@@ -10,4 +10,6 @@
 import ResumeSummary from '~/components/resume/ResumeSummary.vue'
 import ResumeExperience from '~/components/resume/ResumeExperience.vue'
 import ResumeEducation from '~/components/resume/ResumeEducation.vue'
+
+usePageSeo('resume')
 </script>

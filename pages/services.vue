@@ -7,6 +7,8 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
+
+usePageSeo('services')
 </script>
 
 <style scoped>
