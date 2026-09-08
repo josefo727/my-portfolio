@@ -63,5 +63,10 @@
       "body": "The GeneralSettings package for Laravel lets you manage general settings in a Laravel application without worrying about data casting, encryption, views, routes, or controllers. With a couple of commands and a few clicks you get an excellent module for managing your application's general parameters and settings.",
       "compatibility": "Compatibility: PHP 8+, Laravel 8+"
     }
+  },
+  "error": {
+    "notFoundTitle": "Page not found",
+    "notFoundBody": "The page you're looking for doesn't exist or was moved.",
+    "homeLink": "Back to home"
   }
 }

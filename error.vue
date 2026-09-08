@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>Página no encontrada</h1>
-    <p>La página que buscas no existe o fue movida.</p>
-    <NuxtLink to="/">Volver al inicio</NuxtLink>
+    <h1>{{ $t('error.notFoundTitle') }}</h1>
+    <p>{{ $t('error.notFoundBody') }}</p>
+    <NuxtLink :to="localePath('/')">{{ $t('error.homeLink') }}</NuxtLink>
   </div>
 </template>
 
@@ -10,4 +10,6 @@
 defineProps<{
   error: { statusCode: number; statusMessage?: string }
 }>()
+
+const localePath = useLocalePath()
 </script>

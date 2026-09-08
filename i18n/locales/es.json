@@ -63,5 +63,10 @@
       "body": "El paquete GeneralSettings para Laravel te permite gestionar configuraciones generales en una aplicación Laravel sin tener que precuparte por el casteo de datos, encriptación, vistas, rutas ni controladores. Con un par de comandos y pocos clicks ya tienes un excepcional módulo para gestionar parámetros y configuraciones generales de tu aplicación.",
       "compatibility": "Compatibilidad: PHP 8+, Laravel 8+"
     }
+  },
+  "error": {
+    "notFoundTitle": "Página no encontrada",
+    "notFoundBody": "La página que buscas no existe o fue movida.",
+    "homeLink": "Volver al inicio"
   }
 }
