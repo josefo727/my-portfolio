@@ -411,4 +411,4 @@ Same session as above, continuing after the user reviewed the site locally. Cove
 
 ### Resume from
 
-No open feature. If the user wants to continue, the next candidate is drawing from the deferred `massive-space` success-story candidates (session 7) via `/sdd-specify`, or any new feedback from further review of the live site.
+Session paused here for the day at the user's request. Plan for next session, per the user: some further tweaks to the live site, including finally reviewing the ~8 `massive-space` success-story candidates deferred since session 7 (Calzatodo, Ficohsa/La Colonia, Pizzamania, Pepe Ganga, Juriscoop, Lilipink, Speedo, MassiveSpace Pro — see `.specs/onboarding.md`) — **before deploying**. No feature spec opened yet for that review; start with `/sdd-specify` once the user decides which (if any) of the 8 to add, or treat it as a research/triage pass first if the scope is still open. Dev server (`npm run dev`) stopped at session close — restart with `npm run dev` next session.
