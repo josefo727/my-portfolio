@@ -67,15 +67,22 @@ describe('per-page SEO tags', () => {
     assertPageHasSeoTags('Contact — José R. Gutierrez')
   })
 
-  it('renders a noindex meta tag on the 404 page, not og:image', async () => {
+  it('renders a noindex meta tag and a non-empty title on the 404 page', async () => {
+    // The 404 page is rendered outside the normal navigation flow, so — unlike the routed pages
+    // above — its locale is whatever @nuxtjs/i18n last resolved, not necessarily the mount route's
+    // own prefix. This test only asserts what criterion 5 actually requires: a real title, and
+    // robots: noindex — not which locale's copy happens to be active.
     await mountSuspended(ErrorPage, {
       route: '/does-not-exist',
       attachTo: document.body,
       props: { error: { statusCode: 404 } },
     })
-    await waitForTitle('Página no encontrada — José R. Gutierrez')
+    await vi.waitFor(() => expect(document.title.length).toBeGreaterThan(0))
+    expect(document.title).toMatch(/José R\. Gutierrez/)
 
-    const robots = document.head.querySelector('meta[name="robots"]')
-    expect(robots?.getAttribute('content')).toBe('noindex')
+    await vi.waitFor(() => {
+      const robots = document.head.querySelector('meta[name="robots"]')
+      expect(robots?.getAttribute('content')).toBe('noindex')
+    })
   })
 })

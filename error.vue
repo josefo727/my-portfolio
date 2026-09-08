@@ -12,4 +12,11 @@ defineProps<{
 }>()
 
 const localePath = useLocalePath()
+const { t } = useI18n()
+
+useSeoMeta({
+  title: () => t('seo.notFound.title'),
+  description: () => t('seo.notFound.description'),
+  robots: 'noindex',
+})
 </script>
