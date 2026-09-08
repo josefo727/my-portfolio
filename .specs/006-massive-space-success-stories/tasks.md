@@ -141,11 +141,11 @@ F: skipped unless a repeated pattern across entries suggests an extraction
 files:
   - data/success-stories.ts
   - tests/unit/data-success-stories.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
+  red: c5431d8
+  green: 0879459
+  refactor: skipped — no smell detected
 notes:
 ```
 
@@ -165,13 +165,12 @@ G: append the 4 approved English entries (from T002) to data/success-stories.en.
 F: skipped — no smell detected
 files:
   - data/success-stories.en.ts
-  - tests/unit/data-en-parity.spec.ts
-status: open
+status: closed
 commits:
-  red:
-  green:
-  refactor:
-notes:
+  red: 0879459 — pre-existing test (tests/unit/data-en-parity.spec.ts, from 004-i18n) started failing automatically once T003's commit landed; no new test file needed
+  green: 739594a
+  refactor: skipped — no smell detected
+notes: reality differed from plan — the parity test already existed from 004-i18n and didn't need editing, only the data file did.
 ```
 
 ---
@@ -188,12 +187,12 @@ R: n/a — regression task, no new red test (mirrors 003's T007, 004's T014)
 G: fix anything the accessibility suite surfaces
 F: skipped unless a fix requires cleanup
 files: (none expected)
-status: open
+status: closed
 commits:
   red: n/a
-  green: n/a
+  green: n/a — no production change needed
   refactor: n/a
-notes:
+notes: accessibility suite confirmed 18/18 green (both es and en routes), no regression. Full suite also confirmed green (120/120 across 48 files), lint/typecheck clean.
 ```
 
 ---
